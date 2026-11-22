@@ -145,7 +145,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 
     <!-- TURNOS -->
     <section class="view" id="v-turnos">
-      <div class="head"><h2>Turnos</h2><span class="sp"></span>
+      <div class="head"><h2>Turnos</h2><span class="sp"></span><button class="btn petal" id="t-nuevo">+ Agregar turno</button>
         <div class="filters" id="t-filtros">
           <button class="chip" data-f="proximos" aria-pressed="true">Próximos</button>
           <button class="chip" data-f="pendientes" aria-pressed="false">Sin confirmar</button>
@@ -219,6 +219,28 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
       <span style="flex:1"></span>
       <button type="button" class="ghost" id="f-cancelar">Cancelar</button>
       <button type="submit" class="btn" id="f-guardar">Guardar</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-t">
+  <form id="f-tur" method="dialog">
+    <h2 id="ft-titulo" style="font-size:28px">Agregar turno</h2>
+    <p class="empty" style="margin:4px 0 0">Para cargar turnos que te pidieron por WhatsApp o en persona.</p>
+    <div class="fgrid">
+      <label class="f">Día<input id="ft-dia" type="date" required></label>
+      <label class="f">Hora<select id="ft-hora" required><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>18:00</option><option>19:00</option></select></label>
+      <label class="f">Nombre<input id="ft-nombre" required></label>
+      <label class="f">Evento<select id="ft-evento"><option>Casamiento</option><option>15</option><option>Egresados</option><option>Fiesta</option><option>Otro</option></select></label>
+      <label class="f">Fecha del evento<input id="ft-fecha" type="date"></label>
+      <label class="f">¿Viene con alguien?<select id="ft-con"><option value="0">Viene sola</option><option value="1">Con 1 persona</option><option value="2">Con 2 personas</option><option value="3">Con 3 o más</option></select></label>
+      <label class="f">Busca<input id="ft-busca" placeholder="Ej: largo, verde"></label>
+      <label class="f">Estado<select id="ft-estado"><option>pendiente</option><option selected>confirmado</option><option>vino</option><option>no vino</option><option>cancelado</option></select></label>
+      <label class="f full">Nota<textarea id="ft-nota" rows="2"></textarea></label>
+    </div>
+    <div class="dlg-acts"><span style="flex:1"></span>
+      <button type="button" class="ghost" id="ft-cancelar">Cancelar</button>
+      <button type="submit" class="btn">Guardar</button>
     </div>
   </form>
 </dialog>
@@ -314,7 +336,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     const devs = ALQ.filter((r) => r.fecha_devolucion === HOY && r.estado === "retirado");
     const fuera = ALQ.filter((r) => r.estado === "retirado");
     $("hoy-stats").innerHTML = [
-      ["Turnos hoy", tHoy.length, tHoy.reduce((s, t) => s + 1 + (t.acompanantes || 0), 0) + " personas"],
+      ["Turnos hoy", tHoy.length, ((k) => k + (k === 1 ? " persona" : " personas"))(tHoy.reduce((s, t) => s + 1 + (t.acompanantes || 0), 0))],
       ["Retiran hoy", retiros.length, ""],
       ["Devuelven hoy", devs.length, ""],
       ["Vestidos afuera", fuera.length, fuera.filter(atrasado).length ? fuera.filter(atrasado).length + " atrasados" : "ninguno atrasado"]
@@ -363,7 +385,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
       if (t.dia !== dia) {
         dia = t.dia;
         const n = l.filter((x) => x.dia === dia);
-        html += (html ? "</div>" : "") + `<div class="day">${esc(lindo(dia))} <span class="meta" style="font-family:Montserrat;font-size:13px">· ${n.length} turno${n.length > 1 ? "s" : ""}, ${n.reduce((s, x) => s + 1 + (x.acompanantes || 0), 0)} personas</span></div><div class="list">`;
+        html += (html ? "</div>" : "") + `<div class="day">${esc(lindo(dia))} <span class="meta" style="font-family:Montserrat;font-size:13px">· ${n.length} turno${n.length > 1 ? "s" : ""}, ${((k) => k + (k === 1 ? " persona" : " personas"))(n.reduce((s, x) => s + 1 + (x.acompanantes || 0), 0))}</span></div><div class="list">`;
       }
       html += filaTurno(t);
     });
@@ -482,6 +504,19 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     const { error } = await db.from("alquileres").delete().eq("id", editando);
     if (error) { toast("No se pudo borrar"); return; }
     $("dlg").close(); toast("Alquiler borrado"); cargar();
+  });
+
+  /* ---------- turno manual ---------- */
+  $("t-nuevo").addEventListener("click", () => { $("f-tur").reset(); $("ft-dia").value = HOY; $("ft-estado").value = "confirmado"; $("dlg-t").showModal(); });
+  $("ft-cancelar").addEventListener("click", () => $("dlg-t").close());
+  $("f-tur").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fila = { dia: $("ft-dia").value, hora: $("ft-hora").value, nombre: $("ft-nombre").value.trim(), evento: $("ft-evento").value,
+      fecha_evento: $("ft-fecha").value || null, acompanantes: +$("ft-con").value || 0, busca: $("ft-busca").value.trim() || null,
+      nota: $("ft-nota").value.trim() || null, estado: $("ft-estado").value };
+    const { error } = await db.from("turnos").insert(fila);
+    if (error) { toast("No se pudo guardar el turno"); console.error(error); return; }
+    $("dlg-t").close(); toast("Turno agregado"); cargar();
   });
 
   /* ---------- acciones en listas ---------- */
