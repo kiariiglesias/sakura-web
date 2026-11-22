@@ -421,8 +421,10 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <div class="field"><label for="t-evento">Evento</label>
           <select id="t-evento"><option>Casamiento</option><option>15</option><option>Egresados</option><option>Fiesta</option><option>Otro</option></select></div>
         <div class="field"><label for="t-fecha">Fecha de tu evento</label><input id="t-fecha" type="date"></div>
+        <div class="field"><label for="t-con">¿Venís con alguien más?</label>
+          <select id="t-con"><option value="">Vengo sola</option><option value="1">Sí, con 1 persona</option><option value="2">Sí, con 2 personas</option><option value="3">Sí, con 3 o más</option></select></div>
         <div class="field"><label for="t-color">Color o estilo que buscás</label><input id="t-color" type="text" placeholder="Ej: largo, verde o bordó"></div>
-        <div class="field full"><label for="t-nota">¿Algo más?</label><textarea id="t-nota" placeholder="Ej: vengo con mi mamá, me gustan los vestidos con espalda descubierta"></textarea></div>
+        <div class="field full"><label for="t-nota">¿Algo más?</label><textarea id="t-nota" placeholder="Ej: me gustan los vestidos con espalda descubierta"></textarea></div>
         <div class="form-actions">
           <a class="btn" id="t-send" href="#turnos" target="_blank" rel="noopener">Pedir turno por WhatsApp</a>
           <p class="hint" id="t-hint">Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.</p>
@@ -1110,7 +1112,7 @@ sync(); render();
 
 /* turno por WhatsApp con calendario */
 (function () {
-  const ids = ["t-nombre", "t-evento", "t-fecha", "t-color", "t-nota"];
+  const ids = ["t-nombre", "t-evento", "t-fecha", "t-con", "t-color", "t-nota"];
   const send = document.getElementById("t-send"), hint = document.getElementById("t-hint");
   const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
   const DIAS = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
@@ -1162,13 +1164,14 @@ sync(); render();
       v["t-nombre"] && "Soy " + v["t-nombre"] + ".",
       dia && hora ? "Turno: " + lindo(dia) + " a las " + hora + " hs" : (dia ? "Día: " + lindo(dia) + " (horario a coordinar)" : null),
       "Evento: " + v["t-evento"] + (fecha ? " (" + fecha + ")" : ""),
+      !v["t-con"] ? "Vengo sola" : v["t-con"] === "1" ? "Vengo con 1 persona más" : v["t-con"] === "2" ? "Vengo con 2 personas más" : "Vengo con 3 personas o más",
       v["t-color"] && "Busco: " + v["t-color"],
       v["t-nota"] && v["t-nota"]
     ].filter(Boolean);
     send.href = waLink(lines.join("\n"));
     hint.textContent = dia && hora ? "Pedís turno para el " + lindo(dia) + " a las " + hora + " hs. Se abre WhatsApp con todo escrito." : "Elegí día y horario arriba. Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.";
   }
-  ids.forEach(id => document.getElementById(id).addEventListener("input", build));
+  ids.forEach(id => { const el = document.getElementById(id); el.addEventListener("input", build); el.addEventListener("change", build); });
   document.getElementById("turno-form").addEventListener("submit", e => e.preventDefault());
   cal(); slots(); build();
 })();
