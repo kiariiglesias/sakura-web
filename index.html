@@ -335,6 +335,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <div class="sec-head"><span class="num">ii.</span><h2>Los vestidos</h2><p>Cada vestido lleva el nombre de una palabra japonesa, como Sakura. Filtrá por largo, evento o color y consultanos por el que te guste.</p></div>
       <div class="filters" role="group" aria-label="Filtros del catálogo">
         <div class="fgroup" id="f-largo"><span class="lbl">Largo</span></div>
+        <div class="fgroup" id="f-talle"><span class="lbl">Talle</span></div>
         <div class="fgroup" id="f-evento"><span class="lbl">Evento</span></div>
         <div class="fgroup" id="f-color"><span class="lbl">Color</span></div>
       </div>
@@ -1006,7 +1007,11 @@ function dressSVG(v) {
   </svg>`;
 }
 
-const state = { largo: "Todos", evento: "Todos", color: "Todos" };
+const state = { largo: "Todos", talle: "Todos", evento: "Todos", color: "Todos" };
+// talles de una variante: "S", "M", "L" o "Único" (los talle único entran en cualquier talle)
+const tallesDe = (v, c) => String(c.talle || v.talles || "").split(/\s*·\s*/).map(t => /único/i.test(t) ? "Único" : t.trim().toUpperCase()).filter(Boolean);
+const okTalle = (v, c) => state.talle === "Todos" || tallesDe(v, c).some(t => t === state.talle || t === "Único");
+const okColor = c => state.color === "Todos" || c.color === state.color;
 let live = null;
 const source = () => (live && live.length ? live : VESTIDOS).filter(v => v.visible !== false);
 
@@ -1021,6 +1026,7 @@ function chips(containerId, key, values) {
   });
 }
 chips("f-largo", "largo", ["Largo", "Corto"]);
+chips("f-talle", "talle", ["S", "M", "L"]);
 chips("f-evento", "evento", ["Casamiento", "15", "Egresados", "Fiesta"]);
 function buildColors() {
   const box = document.getElementById("f-color");
@@ -1053,7 +1059,7 @@ function render() {
   const list = source().filter(v =>
     (state.largo === "Todos" || v.largo === state.largo) &&
     (state.evento === "Todos" || (v.eventos || []).includes(state.evento)) &&
-    (state.color === "Todos" || variants(v).some(c => c.color === state.color)));
+    variants(v).some(c => okColor(c) && okTalle(v, c)));
   const grid = document.getElementById("grid");
   document.getElementById("count").textContent = list.length === 1 ? "1 vestido" : list.length + " vestidos";
   if (!list.length) {
@@ -1064,7 +1070,7 @@ function render() {
     const vs = variants(v);
     const key = v.id || v.nombre;
     const sel = cardSel[key] || (cardSel[key] = { ci: 0, pi: 0 });
-    if (state.color !== "Todos") { const f = vs.findIndex(c => c.color === state.color); if (f >= 0 && f !== sel.ci) { sel.ci = f; sel.pi = 0; } }
+    if ((state.color !== "Todos" || state.talle !== "Todos") && !(vs[sel.ci] && okColor(vs[sel.ci]) && okTalle(v, vs[sel.ci]))) { const f = vs.findIndex(c => okColor(c) && okTalle(v, c)); if (f >= 0) { sel.ci = f; sel.pi = 0; } }
     if (sel.ci >= vs.length) sel.ci = 0;
     const c = vs[sel.ci];
     const cLabel = (c.color || "") + (c.talle && vs.length > 1 ? " · talle " + c.talle : "");
