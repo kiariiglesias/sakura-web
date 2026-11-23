@@ -313,6 +313,29 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 @media (prefers-reduced-motion: reduce) { .vt .ph img { transition: none; } }
 
 .card.glow { box-shadow: 0 0 0 3px var(--petal); transition: box-shadow .4s; }
+
+/* cómo funciona */
+.como { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--paper); border-block: 1px solid var(--line); }
+.como-foto { position: relative; min-height: 100%; overflow: hidden; }
+.como-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 35% center; }
+.como-texto { padding: 56px clamp(24px, 5vw, 72px); max-width: 620px; }
+.como h2 { font-family: var(--display); font-weight: 500; font-size: clamp(40px, 10vw, 60px); line-height: 1.05; margin: 0; }
+.como-sub { font-size: 17px; margin: 8px 0 22px; color: var(--ink); }
+.pasos { list-style: none; margin: 0 0 26px; padding: 0; border-top: 1px solid #E3C3CE; }
+.pasos li { display: grid; grid-template-columns: 70px 1fr; gap: 6px; padding: 18px 0; border-bottom: 1px solid #E3C3CE; }
+.pn { font-family: var(--display); font-style: italic; font-size: 36px; line-height: 1; color: var(--petal); }
+.pasos h3 { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.15; margin: 0 0 4px; }
+.pasos p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink); }
+.como-btn { display: flex; align-items: center; justify-content: center; gap: 22px; min-height: 60px; border-radius: 6px; background: var(--ink); color: var(--paper); text-decoration: none; font-family: var(--display); font-size: 20px; letter-spacing: 5px; text-transform: uppercase; }
+.como-btn span { font-family: var(--body); letter-spacing: 0; font-size: 22px; }
+.como-btn:hover { background: #42152A; }
+@media (max-width: 860px) {
+  .como { grid-template-columns: 1fr; }
+  .como-foto { aspect-ratio: 589 / 262; min-height: 0; }
+  .como-texto { padding: 30px 22px 36px; max-width: none; }
+  .pasos li { grid-template-columns: 62px 1fr; }
+  .como-btn { font-size: 17px; letter-spacing: 4px; gap: 16px; }
+}
 </style>
 </head>
 <body>
@@ -377,15 +400,18 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </section>
 
-  <section class="block" id="como-funciona">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">i.</span><h2>Cómo funciona</h2><p>Todo con turno, para que tengas el showroom para vos y tu acompañante.</p></div>
-      <ol class="steps">
-        <li><div class="n">1</div><h3>Reservá tu turno</h3><p>Elegí día y horario en el calendario de abajo y mandanos el pedido por WhatsApp. Te confirmamos el turno.</p></li>
-        <li><div class="n">2</div><h3>Elegí y probate</h3><p>Recorré el showroom, probate los que te gusten en un probador privado y elegí el tuyo con calma.</p></li>
-        <li><div class="n">3</div><h3>Reservalo</h3><p>Con una seña del 50 % el vestido queda bloqueado para tu fecha. Lo retirás uno o dos días antes del evento.</p></li>
-        <li><div class="n">4</div><h3>Usalo y devolvelo</h3><p>Lo devolvés uno o dos días después, sin lavar. La tintorería corre por nuestra cuenta.</p></li>
+  <section class="como" id="como-funciona">
+    <div class="como-foto"><img src="showroom-percheros.jpg" alt="Percheros con vestidos de satén en el showroom de Sakura" loading="lazy"></div>
+    <div class="como-texto">
+      <h2>Cómo funciona</h2>
+      <p class="como-sub">El showroom, para vos y tu acompañante.</p>
+      <ol class="pasos">
+        <li><span class="pn">01</span><div><h3>Pedí tu turno</h3><p>Elegí día y horario en el calendario y envianos la solicitud por WhatsApp. Te confirmamos por ahí.</p></div></li>
+        <li><span class="pn">02</span><div><h3>Probate los vestidos</h3><p>Elegí con calma en un probador privado.</p></div></li>
+        <li><span class="pn">03</span><div><h3>Reservá el tuyo</h3><p>Dejá una seña del 50 % y retiralo uno o dos días antes del evento.</p></div></li>
+        <li><span class="pn">04</span><div><h3>Usalo y devolvelo</h3><p>Traelo sin lavar uno o dos días después del evento.</p></div></li>
       </ol>
+      <a class="como-btn" href="#turnos">Reservar turno <span aria-hidden="true">⟶</span></a>
     </div>
   </section>
 
@@ -1151,7 +1177,6 @@ function render() {
       <div class="pic"><span class="tag">${esc(v.largo)}</span>${pic}${flip}</div>
       <div class="body">
         <h3>${esc(v.nombre)}</h3>
-        ${v.significado ? `<p class="meaning">“${esc(v.significado)}”</p>` : ""}
         ${v.marca ? `<p class="marca">Marca: ${esc(v.marca)}</p>` : ""}
         ${sw}
         <p class="desc">${esc(v.desc)}</p>
