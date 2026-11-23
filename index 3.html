@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sakura · Alquiler de vestidos de fiesta en Puertos del Lago, Escobar. Vestidos para casamientos, 15, egresados y fiestas. Reservá tu turno por WhatsApp.">
+<meta property="og:title" content="Sakura · Alquiler de vestidos">
+<meta property="og:description" content="Un vestido nuevo para cada historia. Alquiler de vestidos de fiesta en Puertos del Lago.">
+<title>Sakura · Alquiler de vestidos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Sakura: blush ground, burgundy ink, cherry-blossom pink accent, thin gold lines */
+  --blush: #FBEAEE;
+  --paper: #FFF8FA;
+  --ink: #5A1F33;
+  --ink-soft: #8A5466;
+  --petal: #E07A9A;
+  --gold: #B8924A;
+  --line: #EBCFD8;
+  --display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  /* layout: one centered column of 1100px, sections separated by a thin gold rule and a petal numeral */
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+a { color: inherit; }
+img, svg { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--petal); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(1100px, 100% - 32px); margin-inline: auto; }
+
+/* header */
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { font-family: var(--display); font-weight: 500; font-size: 26px; letter-spacing: 7px; text-decoration: none; }
+nav.links { display: flex; align-items: center; gap: 22px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+nav.links a { text-decoration: none; color: var(--ink-soft); }
+nav.links a:hover { color: var(--ink); }
+nav.links a.btn, nav.links a.btn:hover { color: var(--paper); white-space: nowrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 22px; border-radius: 999px;
+  background: var(--ink); color: var(--paper); text-decoration: none;
+  font-family: var(--body); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid var(--ink); cursor: pointer;
+}
+.btn:hover { background: #42152A; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--blush); }
+@media (max-width: 760px) { nav.links a.navlink { display: none; } }
+
+/* hero */
+.hero { position: relative; overflow: hidden; background: var(--blush); border-bottom: 1px solid var(--line); }
+#petals { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 32px; padding-block: 72px 64px; }
+.kicker { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 18px; }
+.hero h1 {
+  font-family: var(--display); font-weight: 500; font-size: clamp(44px, 7vw, 84px); line-height: 0.98;
+  margin: 0 0 22px; text-wrap: balance; letter-spacing: -0.5px;
+}
+.hero h1 em { font-style: italic; color: var(--petal); }
+.hero p.lead { font-size: 17px; max-width: 46ch; margin: 0 0 28px; color: var(--ink-soft); }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 28px;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink);
+}
+.badge::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+.branch { width: 100%; height: auto; }
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 48px; }
+  .hero .art { order: -1; max-width: 360px; }
+}
+
+/* sections */
+section.block { padding-block: 72px; border-bottom: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 10px 18px; margin-bottom: 36px; }
+.sec-head .num { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--petal); }
+.sec-head h2 { font-family: var(--display); font-weight: 500; font-size: clamp(32px, 4.5vw, 46px); margin: 0; line-height: 1.05; text-wrap: balance; }
+.sec-head p { margin: 0; color: var(--ink-soft); grid-column: 1 / -1; max-width: 62ch; }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.steps li { border-top: 1px solid var(--gold); padding-top: 16px; }
+.steps .n { font-family: var(--display); font-size: 40px; line-height: 1; color: var(--petal); }
+.steps h3 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 10px 0 6px; }
+.steps p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+
+/* catalog */
+.filters { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-bottom: 28px; align-items: center; }
+.fgroup { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.fgroup .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); margin-right: 4px; }
+.chip {
+  min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 13px; cursor: pointer;
+}
+.chip:hover { border-color: var(--petal); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.swatch {
+  width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--line); cursor: pointer; padding: 0;
+}
+.swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ink); }
+.count { font-size: 13px; color: var(--ink-soft); margin: 0 0 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 22px; }
+.card { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.card .pic { position: relative; background: var(--blush); aspect-ratio: 3 / 4; display: grid; place-items: center; overflow: hidden; }
+.card .pic > img { position: absolute; inset: 0; }
+.card .pic .tag, .card .pic .flip { z-index: 1; }
+.card .pic svg { width: 62%; height: auto; }
+.card .tag {
+  position: absolute; top: 12px; left: 12px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  background: var(--paper); color: var(--ink); padding: 4px 10px; border-radius: 999px;
+}
+.card .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card h3 { font-family: var(--display); font-weight: 600; font-size: 26px; margin: 0; line-height: 1; }
+.card .meaning { font-family: var(--display); font-style: italic; color: var(--ink-soft); font-size: 15px; margin: 0; }
+.card .desc { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
+.card .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: auto; padding-top: 10px; }
+.card .price { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.card .price small { font-weight: 400; color: var(--ink-soft); font-size: 11px; display: block; letter-spacing: 1px; text-transform: uppercase; }
+.card .sizes { font-size: 12px; color: var(--ink-soft); text-align: right; }
+.card .btn { margin-top: 12px; width: 100%; }
+.empty { padding: 32px; text-align: center; border: 1px dashed var(--line); border-radius: 18px; color: var(--ink-soft); }
+
+/* accessories */
+.acc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.acc div { background: var(--blush); border-radius: 18px; padding: 22px; }
+.acc h3 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0 0 4px; }
+.acc p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+.acc .p { margin-top: 12px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.combo { margin-top: 22px; padding: 18px 22px; border: 1px solid var(--gold); border-radius: 18px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
+.combo strong { font-family: var(--display); font-size: 24px; font-weight: 600; }
+@media (max-width: 860px) { .acc { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .acc { grid-template-columns: 1fr; } }
+
+/* showroom */
+.room { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.room .rooms { display: grid; gap: 14px; }
+.room .r { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.room .r b { font-family: var(--display); font-size: 21px; font-weight: 600; }
+.room .r span { color: var(--ink-soft); font-size: 14px; }
+.quote { background: var(--ink); color: var(--paper); border-radius: 22px; padding: 34px; }
+.quote p { font-family: var(--display); font-style: italic; font-size: 30px; line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
+.quote small { letter-spacing: 3px; text-transform: uppercase; font-size: 11px; color: #F2C3D2; }
+@media (max-width: 760px) { .room { grid-template-columns: 1fr; } .room .r { grid-template-columns: 1fr; gap: 2px; } }
+
+/* rules */
+.rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.rules div { padding: 20px 20px 20px 0; border-bottom: 1px solid var(--line); }
+.rules h3 { margin: 0 0 4px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.rules p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+@media (max-width: 760px) { .rules { grid-template-columns: 1fr; } }
+
+/* faq */
+.faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.faq summary { cursor: pointer; font-family: var(--display); font-size: 22px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::after { content: "+"; color: var(--petal); }
+.faq details[open] summary::after { content: "–"; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq p { margin: 8px 0 0; color: var(--ink-soft); max-width: 70ch; }
+
+/* contact */
+.contact { background: var(--blush); }
+.contact .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+.contact h2 { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 5vw, 56px); line-height: 1; margin: 0 0 14px; text-wrap: balance; }
+.contact p { color: var(--ink-soft); margin: 0 0 24px; max-width: 48ch; }
+.cards-contact { display: grid; gap: 12px; }
+.cards-contact div { background: var(--paper); border-radius: 16px; padding: 16px 20px; }
+.cards-contact small { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); }
+.cards-contact b { font-size: 16px; font-weight: 600; }
+@media (max-width: 760px) { .contact .wrap { grid-template-columns: 1fr; } }
+/* forms */
+.tform, .aform { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; max-width: 760px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full, .sena.full { grid-column: 1 / -1; }
+.field label, .field legend { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); }
+.field input, .field select, .field textarea {
+  font-family: var(--body); font-size: 15px; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-height: 44px; width: 100%;
+}
+.field textarea { min-height: 84px; resize: vertical; }
+.field input[type="color"] { padding: 4px; height: 44px; }
+fieldset.field { border: 0; padding: 0; margin: 0; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
+.checks label { font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--ink); display: inline-flex; gap: 6px; align-items: center; }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.hint { font-size: 13px; color: var(--ink-soft); margin: 0; }
+@media (max-width: 560px) { .tform, .aform { grid-template-columns: 1fr; } }
+/* admin */
+.admin { background: #FFF1F5; }
+.admin .note { border-left: 3px solid var(--gold); padding: 10px 14px; background: var(--paper); border-radius: 0 12px 12px 0; margin: 0 0 28px; max-width: 760px; font-size: 14px; }
+.alist { margin-top: 36px; display: grid; gap: 10px; max-width: 760px; }
+.arow { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.arow .th { width: 56px; height: 72px; border-radius: 8px; background: var(--blush); overflow: hidden; display: grid; place-items: center; }
+.arow .th img { width: 100%; height: 100%; object-fit: cover; }
+.arow .th svg { width: 70%; }
+.arow b { font-family: var(--display); font-size: 20px; }
+.arow .sub { font-size: 12px; color: var(--ink-soft); }
+.arow .acts { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.arow .acts button { min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 12px; cursor: pointer; }
+.arow .acts button.danger { border-color: #B3263E; color: #B3263E; }
+.arow.hidden-row { opacity: 0.55; }
+.card .pic img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.card .flip {
+  position: absolute; right: 12px; bottom: 12px; min-height: 36px; padding: 0 14px; border-radius: 999px;
+  border: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 12px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(90, 31, 51, 0.15);
+}
+.vsw { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.vsw .swatch { width: 24px; height: 24px; }
+.medidas { margin-top: 10px; font-size: 13px; }
+.medidas summary { cursor: pointer; color: var(--ink); font-weight: 500; }
+.medidas table { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.medidas th, .medidas td { text-align: left; padding: 5px 4px; border-bottom: 1px solid var(--line); }
+.medidas th { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+.vname { font-size: 12px; color: var(--ink-soft); letter-spacing: 1px; text-transform: uppercase; }
+footer { padding-block: 28px; font-size: 12px; color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+.wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 50; display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff; text-decoration: none; font: 600 14px/1 Montserrat, sans-serif; padding: 12px 18px 12px 14px;
+  border-radius: 999px; box-shadow: 0 6px 20px rgba(0,0,0,.22); transition: transform .15s; }
+.wa-float:hover { transform: translateY(-2px); }
+.wa-float svg { width: 26px; height: 26px; flex: none; }
+@media (max-width: 560px) { .wa-float span { display: none; } .wa-float { padding: 14px; } }
+
+.btn.wa-card { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 14px; white-space: nowrap; letter-spacing: .5px; font-size: 11.5px; gap: 6px; padding-left: 8px; padding-right: 8px;
+  background: #25D366; border-color: #25D366; color: #fff; }
+.btn.wa-card:hover { background: #1EBE5B; border-color: #1EBE5B; color: #fff; }
+.btn.wa-card svg { width: 18px; height: 18px; flex: none; }
+
+.agenda { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; margin-bottom: 28px; }
+@media (max-width: 760px) { .agenda { grid-template-columns: 1fr; } }
+.cal, .slots { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.cal-head strong { font-family: "Cormorant Garamond", serif; font-size: 24px; font-weight: 500; color: var(--ink); text-transform: capitalize; }
+.cal-nav { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+.cal-nav:disabled { opacity: .3; cursor: default; }
+.cal-dow, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+.cal-dow span { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); padding: 4px 0; }
+.cal-day { height: 40px; width: 40px; justify-self: center; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font: 500 14px Montserrat, sans-serif; cursor: pointer; }
+.cal-day:not(:disabled):hover { background: var(--blush); }
+.cal-day:disabled { color: var(--ink-soft); opacity: .35; cursor: default; }
+.cal-day.on { background: var(--ink); color: #fff; }
+.slots-day { font-family: "Cormorant Garamond", serif; font-size: 22px; color: var(--ink); margin: 0 0 14px; }
+.slot-group { margin-bottom: 14px; }
+.slot-group small { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+.slot-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.slot { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 9px 16px; font: 500 14px Montserrat, sans-serif; cursor: pointer; font-variant-numeric: tabular-nums; }
+.slot:not(:disabled):hover { border-color: var(--petal); }
+.slot.on { background: var(--petal); border-color: var(--petal); color: #fff; }
+.slot:disabled { opacity: .4; cursor: default; }
+
+.marca { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); margin: 2px 0 6px; }
+
+/* header: ramita + menú */
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand-branch { width: 46px; height: 22px; color: var(--ink); flex: none; }
+.menu-btn { display: none; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; padding: 10px 8px; flex-direction: column; justify-content: space-between; }
+.menu-btn span { display: block; height: 1.6px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(9.6px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9.6px) rotate(-45deg); }
+.menu-panel { border-top: 1px solid var(--line); background: var(--paper); display: grid; padding: 8px 16px 16px; }
+.menu-panel[hidden] { display: none; }
+.menu-panel a { padding: 14px 4px; text-decoration: none; font-family: var(--display); font-size: 22px; border-bottom: 1px solid var(--line); }
+@media (max-width: 760px) {
+  .menu-btn { display: flex; }
+  nav.links { gap: 6px; }
+  nav.links .btn { color: var(--paper); white-space: nowrap; min-height: 40px; padding: 0 14px; letter-spacing: .5px; text-transform: none; font-family: var(--display); font-size: 17px; font-weight: 500; border-radius: 8px; }
+  .brand { font-size: 22px; letter-spacing: 6px; gap: 8px; }
+  .brand-branch { width: 38px; }
+}
+
+/* vitrina de inicio */
+.vitrina { background: var(--paper); padding-block: 18px 40px; }
+.lugar { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; font-size: 14px; color: var(--ink-soft); }
+.lugar svg { width: 20px; height: 20px; color: var(--petal); flex: none; }
+.vitrina-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+.vitrina-head h2 { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 9vw, 56px); margin: 0; line-height: 1.1; }
+.ver-todos { font-family: var(--display); font-size: 19px; color: var(--ink); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.vitrina-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 760px) { .vitrina-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 8px; } }
+.vt { display: block; text-decoration: none; color: inherit; }
+.vt .ph { position: relative; aspect-ratio: 3 / 4.4; overflow: hidden; background: var(--blush); }
+.vt .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity .9s ease, transform 6s ease; }
+.vt .ph img.out { opacity: 0; }
+.vt:hover .ph img:not(.out) { transform: scale(1.03); }
+.vt .cap { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 10px 4px 14px; font-family: var(--display); font-size: clamp(18px, 4.6vw, 23px); line-height: 1.15; transition: opacity .5s; }
+.vt .cap.out { opacity: 0; }
+.vt .cap small { font-size: inherit; }
+.vt .cap .arr { font-family: var(--body); font-size: 18px; flex: none; }
+@media (prefers-reduced-motion: reduce) { .vt .ph img { transition: none; } }
+
+.card.glow { box-shadow: 0 0 0 3px var(--petal); transition: box-shadow .4s; }
+
+/* cómo funciona */
+.como { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--paper); border-block: 1px solid var(--line); }
+.como-foto { position: relative; min-height: 100%; overflow: hidden; }
+.como-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 35% center; }
+.como-texto { padding: 56px clamp(24px, 5vw, 72px); max-width: 620px; }
+.como h2 { font-family: var(--display); font-weight: 500; font-size: clamp(40px, 10vw, 60px); line-height: 1.05; margin: 0; }
+.como-sub { font-size: 17px; margin: 8px 0 22px; color: var(--ink); }
+.pasos { list-style: none; margin: 0 0 26px; padding: 0; border-top: 1px solid #E3C3CE; }
+.pasos li { display: grid; grid-template-columns: 70px 1fr; gap: 6px; padding: 18px 0; border-bottom: 1px solid #E3C3CE; }
+.pn { font-family: var(--display); font-style: italic; font-size: 36px; line-height: 1; color: var(--petal); }
+.pasos h3 { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.15; margin: 0 0 4px; }
+.pasos p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink); }
+.como-btn { display: flex; align-items: center; justify-content: center; gap: 22px; min-height: 60px; border-radius: 6px; background: var(--ink); color: var(--paper); text-decoration: none; font-family: var(--display); font-size: 20px; letter-spacing: 5px; text-transform: uppercase; }
+.como-btn span { font-family: var(--body); letter-spacing: 0; font-size: 22px; }
+.como-btn:hover { background: #42152A; }
+@media (max-width: 860px) {
+  .como { grid-template-columns: 1fr; }
+  .como-foto { aspect-ratio: 589 / 262; min-height: 0; }
+  .como-texto { padding: 30px 22px 36px; max-width: none; }
+  .pasos li { grid-template-columns: 62px 1fr; }
+  .como-btn { font-size: 17px; letter-spacing: 4px; gap: 16px; }
+}
+
+/* catálogo */
+.cat { background: var(--paper); padding-block: 22px 56px; border-top: 1px solid var(--line); }
+.cat-back { display: inline-flex; align-items: center; gap: 4px; color: var(--ink); font-size: 16px; text-decoration: none; }
+.cat-back svg { width: 18px; height: 18px; }
+.cat-back span { text-decoration: underline; text-underline-offset: 3px; }
+.cat-title { font-family: var(--display); font-weight: 500; font-size: clamp(34px, 8.5vw, 52px); line-height: 1.1; margin: 10px 0 18px; }
+.cat-filters { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 10px; max-width: 720px; }
+.cf { position: relative; display: flex; align-items: center; gap: 8px; min-height: 48px; border: 1.5px solid var(--ink); border-radius: 8px; background: #fff; color: var(--ink); padding: 0 12px; font-size: 16px; cursor: pointer; }
+.cf.on { background: var(--blush); border-color: var(--petal); }
+.cf select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; font: inherit; color: inherit; width: 100%; height: 46px; padding: 0 22px 0 4px; cursor: pointer; outline: none; }
+.cf > svg { width: 18px; height: 18px; flex: none; pointer-events: none; }
+.cf:not(.cf-date) > svg { position: absolute; right: 12px; }
+.cf-date { justify-content: center; white-space: nowrap; }
+.cf-date input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+.cf:focus-within { box-shadow: 0 0 0 3px rgba(224,122,154,.35); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.cat-info { font-size: 13px; color: var(--ink-soft); margin: 12px 0 10px; min-height: 18px; }
+.cat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 12px; }
+@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 8px; }
+  .cat-filters { grid-template-columns: 0.9fr 0.9fr 1.3fr; gap: 8px; }
+  .cf { font-size: 15px; padding: 0 10px; gap: 6px; }
+  .cf-date { font-size: 14.5px; }
+}
+.vc-ph { position: relative; aspect-ratio: 3 / 4.15; overflow: hidden; background: var(--blush); }
+.vc-pic { position: absolute; inset: 0; border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%; }
+.vc-pic img, .vc-pic svg { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.vc-flip { position: absolute; right: 8px; bottom: 10px; border: 0; border-radius: 999px; background: rgba(255,255,255,.95); color: var(--ink); font: 500 14px var(--body); padding: 8px 15px; box-shadow: 0 2px 8px rgba(90,31,51,.12); cursor: pointer; }
+.vc-cap { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 6px; border: 0; background: none; padding: 9px 2px 2px; text-align: left; cursor: pointer; color: var(--ink); }
+.vc-n { font-family: var(--display); font-size: clamp(18px, 4.6vw, 22px); line-height: 1.15; }
+.vc-n::first-letter { text-transform: uppercase; }
+.vc-t { display: flex; gap: 4px; flex: none; }
+.tz { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 5px; border-radius: 999px; background: var(--blush); border: 1px solid #E8BCCB; font-size: 11px; font-weight: 600; color: var(--ink); }
+.tz.u { font-size: 10px; }
+/* ficha del vestido (pantalla completa) */
+.vd { border: 0; padding: 0; margin: 0; width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; background: var(--paper); color: var(--ink); overflow: hidden; }
+.vd[open] { display: flex; flex-direction: column; }
+.vd::backdrop { background: var(--paper); }
+.vd-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex: none; }
+.vd-top .brand { font-family: var(--display); font-size: 22px; letter-spacing: 6px; color: var(--ink); }
+.vd-res { background: var(--ink); color: var(--paper); text-decoration: none; font-family: var(--display); font-size: 17px; padding: 8px 16px; border-radius: 8px; white-space: nowrap; }
+.vd-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.vd-back { border: 0; background: none; padding: 14px 16px 10px; cursor: pointer; font: inherit; font-size: 16px; }
+.vd-in { display: grid; grid-template-columns: 61% 1fr; gap: 0 14px; max-width: 1100px; margin: 0 auto; padding-bottom: 20px; }
+.vd-pic { position: relative; background: var(--blush); aspect-ratio: 3 / 6.4; align-self: start; position: sticky; top: 0; }
+.vd-pic img, .vd-pic svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.vd-body { padding: 18px 14px 10px 0; }
+.vd-body h3 { font-family: var(--display); font-weight: 500; font-size: clamp(34px, 9vw, 56px); line-height: 1.05; margin: 0 0 14px; }
+.vd-lbl { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-soft); margin: 0; }
+.vd-price { font-family: var(--body); font-weight: 700; font-size: clamp(22px, 5.6vw, 32px); margin: 2px 0 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vd-body hr { border: 0; border-top: 1px solid #E3C3CE; margin: 16px 0; }
+.vd-row { display: flex; align-items: center; gap: 14px; margin: 8px 0; }
+.vd-row > span { font-family: var(--display); font-size: 18px; min-width: 52px; }
+.vd-sw { display: flex; gap: 8px; flex-wrap: wrap; }
+.dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #E3C3CE; cursor: pointer; padding: 0; }
+.dot[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ink); }
+.vd-colname { font-size: 12px; color: var(--ink-soft); margin: -2px 0 6px 66px; }
+.vd-tz { display: flex; gap: 6px; flex-wrap: wrap; }
+.tzb { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 6px; border-radius: 999px; background: #F6D9E2; border: 1px solid #E8BCCB; font-family: var(--display); font-style: italic; font-size: 19px; color: var(--ink); }
+.tzb.u { font-size: 14px; font-style: normal; }
+.vd-body h4 { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 26px; margin: 0 0 8px; }
+.vd-desc { font-family: var(--display); font-size: 17px; line-height: 1.3; margin: 0 0 8px; }
+.vd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.vd-tags span { background: #F6D9E2; border: 1px solid #E8BCCB; border-radius: 999px; padding: 3px 9px; font-size: 12px; }
+.vd-med { border-top: 1px solid #E3C3CE; border-bottom: 1px solid #E3C3CE; margin-top: 14px; }
+.vd-med summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 4px; padding: 12px 0; font-family: var(--display); font-size: 16px; white-space: nowrap; cursor: pointer; }
+.vd-med summary::-webkit-details-marker { display: none; }
+.vd-med summary svg { width: 18px; height: 18px; transition: transform .2s; }
+.vd-med[open] summary svg { transform: rotate(180deg); }
+.vd-med table { width: 100%; font-size: 12px; border-collapse: collapse; margin-bottom: 10px; }
+.vd-med th, .vd-med td { padding: 4px 2px; text-align: left; border-bottom: 1px solid var(--line); }
+.vd-foot { flex: none; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--line); }
+.vd-wa { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 8px; background: #1E9E4A; color: #fff; text-decoration: none; font-size: 18px; font-weight: 600; max-width: 1100px; margin: 0 auto; }
+.vd-wa svg { width: 28px; height: 28px; }
+.vd-wa:hover { background: #188A40; }
+@media (min-width: 900px) {
+  .vd-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 40px; padding: 0 24px 30px; }
+  .vd-pic { aspect-ratio: 3 / 4; }
+  .vd-body { padding-top: 10px; }
+}
+}
+
+.sena { margin-top: 6px; padding: 18px; border: 1px solid #E8BCCB; border-radius: 14px; background: #fff; }
+.sena-t { margin: 0 0 14px; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+.sena-t strong { display: block; font-family: var(--display); font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.sena-pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.sena-pasos li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; }
+.sn { width: 28px; height: 28px; border-radius: 50%; background: var(--blush); border: 1px solid #E8BCCB; display: grid; place-items: center; font-weight: 600; font-size: 13px; color: var(--ink); }
+.sena-pasos .hint { margin: 6px 0 0; }
+.btn.mp { letter-spacing: .5px; text-transform: none; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; background: #009EE3; border-color: #009EE3; color: #fff; }
+.btn.mp:hover { background: #0086C3; color: #fff; }
+.btn.mp svg { width: 18px; height: 18px; }
+.chk { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 14px; cursor: pointer; }
+.chk input { width: 18px; height: 18px; accent-color: var(--petal); }
+
+[hidden] { display: none !important; }
+
+/* reservar turno en 2 pasos */
+.rt-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.rt-title { font-family: var(--display); font-weight: 500; font-size: clamp(32px, 8vw, 48px); margin: 0; line-height: 1.1; }
+.rt-step { font-size: 15px; color: var(--petal); white-space: nowrap; }
+#turnos .cal { border-color: #EBC4D1; border-radius: 16px; padding: 18px 14px; }
+#turnos .cal-head { padding-bottom: 14px; border-bottom: 1px solid #F0D6DE; margin-bottom: 12px; }
+#turnos .cal-head strong { font-size: clamp(26px, 6.5vw, 32px); text-transform: none; }
+#turnos .cal-head strong::first-letter { text-transform: uppercase; }
+#turnos .cal-nav { width: 40px; height: 40px; border-color: #EBC4D1; background: transparent; }
+#turnos .cal-dow span { font-size: 11px; letter-spacing: 2px; padding: 6px 0 10px; }
+#turnos .cal-day { width: 44px; height: 44px; font-size: 16px; }
+#turnos .cal-day.on { background: var(--ink); }
+#turnos .slots { background: transparent; border: 0; padding: 8px 2px 0; }
+.slots-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.slots-head .slots-day { margin: 0; font-size: clamp(24px, 6vw, 30px); }
+.slots-dur { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: var(--ink); white-space: nowrap; }
+.slots-dur svg { width: 22px; height: 22px; }
+#turnos .slot-group small { font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; }
+#turnos .slot-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+#turnos .slot { padding: 11px 0; font-size: 16px; border-color: #EBC4D1; background: transparent; text-align: center; }
+#turnos .slot.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.rt-horario { font-size: 13px; color: var(--ink-soft); margin: 4px 2px 14px; }
+.rt-cont { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 56px; border: 0; border-radius: 8px; background: var(--ink); color: #fff; font: 500 19px var(--body); cursor: pointer; }
+.rt-cont svg { width: 22px; height: 22px; }
+.rt-cont:disabled { opacity: .45; cursor: default; }
+.rt-back { border: 0; background: none; padding: 0 0 10px; cursor: pointer; font: inherit; font-size: 15px; }
+.rt-resumen { font-size: 16px; margin: 0 0 18px; padding: 12px 14px; background: #fff; border: 1px solid #EBC4D1; border-radius: 12px; }
+.rt-resumen strong { font-family: var(--display); font-size: 19px; }
+@media (min-width: 761px) { #turnos .agenda { margin-bottom: 8px; } .rt-cont { max-width: 420px; margin-left: auto; } }
+
+#turnos, #catalogo, #como-funciona, #rt-p2 { scroll-margin-top: 76px; }
+
+/* paso 2: tus datos */
+.rt-stepper { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 4px 0 14px; font-size: 16px; color: var(--ink); }
+.st { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+.st i { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-weight: 600; font-size: 15px; }
+.st i svg { width: 16px; height: 16px; }
+.st.done i { background: #F6D9E2; color: var(--ink); }
+.st.now i { background: var(--ink); color: #fff; }
+.st-line { flex: 0 1 60px; height: 1px; background: #E8BCCB; }
+.rt-t2 { font-size: clamp(44px, 12vw, 64px); margin: 0 0 16px; }
+.rt-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; background: #F8E1E8; border-radius: 14px; margin-bottom: 20px; }
+.rt-ic { width: 34px; height: 34px; flex: none; color: var(--ink); padding-right: 16px; border-right: 1px solid #E3B6C4; box-sizing: content-box; }
+.rt-card-tx { flex: 1; display: grid; gap: 2px; }
+.rt-card-tx strong { font-family: var(--display); font-size: 20px; }
+.rt-card-tx span { font-size: 14px; }
+.rt-edit { border: 0; background: none; font: inherit; font-size: 16px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.tform.t2 { grid-template-columns: 1fr 1fr; gap: 14px 14px; }
+.tform.t2 .full { grid-column: 1 / -1; }
+.rt-card-tx span { white-space: nowrap; }
+.tform.t2 label, .tform.t2 .lbl { font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--ink); margin-bottom: 6px; display: block; }
+.tform.t2 input:not([type=checkbox]), .tform.t2 select, .tform.t2 textarea { border-radius: 10px; border-color: #EBC4D1; background: transparent; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.seg button { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 50px; padding: 0 16px; border: 1px solid #EBC4D1; border-radius: 10px; background: transparent; font: inherit; font-size: 16px; color: var(--ink); cursor: pointer; text-align: left; }
+.seg button svg { width: 20px; height: 20px; opacity: 0; flex: none; }
+.seg button[aria-checked="true"] { background: #F8E1E8; border: 1.5px solid var(--ink); }
+.seg button[aria-checked="true"] svg { opacity: 1; }
+.sena2 { padding: 14px 16px; border: 1px dashed #E3B6C4; border-radius: 12px; display: grid; gap: 8px; justify-items: start; }
+.sena2 p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink-soft); }
+.sena2 strong { color: var(--ink); }
+.sena2 .chk { margin-top: 0; }
+.rt-wa { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; border-radius: 10px; background: #1E9E4A; color: #fff; text-decoration: none; font-size: 19px; font-weight: 600; }
+.rt-wa svg { width: 30px; height: 30px; }
+.rt-wa:hover { background: #188A40; color: #fff; }
+.rt-note { text-align: center; font-size: 14px; line-height: 1.5; margin: 12px 0 0; color: var(--ink); }
+@media (max-width: 420px) { .st-line { flex-basis: 40px; } .rt-stepper { gap: 8px; font-size: 15px; } .seg { gap: 8px; } .seg button { padding: 0 10px; font-size: 14.5px; white-space: nowrap; } .rt-card { gap: 12px; padding: 14px; } .rt-ic { padding-right: 12px; } .rt-card-tx span { font-size: 13px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Sakura, inicio"><svg class="brand-branch" viewBox="0 0 64 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 27 C18 24 30 22 42 14 C50 9 56 6 62 2"/><path d="M24 23 C26 18 29 15 33 13"/><path d="M44 13 C45 8 48 6 52 4"/></g><g fill="#E07A9A"><circle cx="34" cy="12" r="2.6"/><circle cx="53" cy="4" r="2.4"/><circle cx="16" cy="22" r="2"/><circle cx="44" cy="10" r="1.8"/><circle cx="60" cy="3" r="1.6"/></g></svg>SAKURA</a>
+    <nav class="links" aria-label="Secciones">
+      <a class="navlink" href="#catalogo">Catálogo</a>
+      <a class="navlink" href="#como-funciona">Cómo funciona</a>
+      <a class="navlink" href="#showroom">Showroom</a>
+      <a class="navlink" href="#preguntas">Preguntas</a>
+      <a class="navlink" id="admin-link" href="#admin" hidden>Administrar</a>
+      <a class="btn" href="#turnos">Reservar turno</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-panel"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+  <div class="menu-panel" id="menu-panel" hidden>
+    <a href="#vitrina">Vestidos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#showroom">Showroom</a>
+    <a href="#condiciones">Condiciones</a>
+    <a href="#preguntas">Preguntas</a>
+    <a href="#turnos">Reservar turno</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="vitrina" id="vitrina" aria-label="Vestidos destacados">
+    <div class="wrap">
+      <p class="lugar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Alquiler de vestidos · Puertos del Lago</p>
+      <div class="vitrina-head"><h2>Vestidos</h2><a href="#catalogo" class="ver-todos">Ver todos</a></div>
+      <div class="vitrina-grid" id="vitrina-grid"></div>
+    </div>
+  </section>
+
+  <section class="como" id="como-funciona">
+    <div class="como-foto"><img src="showroom-percheros.jpg" alt="Percheros con vestidos de satén en el showroom de Sakura" loading="lazy"></div>
+    <div class="como-texto">
+      <h2>Cómo funciona</h2>
+      <p class="como-sub">El showroom, para vos y tu acompañante.</p>
+      <ol class="pasos">
+        <li><span class="pn">01</span><div><h3>Pedí tu turno</h3><p>Elegí día y horario, aboná la seña de $ 10.000 y envianos la solicitud por WhatsApp. Te confirmamos por ahí.</p></div></li>
+        <li><span class="pn">02</span><div><h3>Probate los vestidos</h3><p>Elegí con calma en un probador privado.</p></div></li>
+        <li><span class="pn">03</span><div><h3>Reservá el tuyo</h3><p>Dejá una seña del 50 % y retiralo uno o dos días antes del evento.</p></div></li>
+        <li><span class="pn">04</span><div><h3>Usalo y devolvelo</h3><p>Traelo sin lavar uno o dos días después del evento.</p></div></li>
+      </ol>
+      <a class="como-btn" href="#turnos">Reservar turno <span aria-hidden="true">⟶</span></a>
+    </div>
+  </section>
+
+  <section class="cat" id="catalogo" hidden>
+    <div class="wrap">
+      <a class="cat-back" href="#inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Inicio</span></a>
+      <h2 class="cat-title">Catálogo de vestidos</h2>
+      <div class="cat-filters" role="group" aria-label="Filtrar vestidos">
+        <label class="cf"><span class="sr">Talle</span><select id="cf-talle"><option value="">Talle</option><option>S</option><option>M</option><option>L</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></label>
+        <label class="cf"><span class="sr">Color</span><select id="cf-color"><option value="">Color</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></label>
+        <label class="cf cf-date"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span id="cf-fecha-txt">Fecha del evento</span><input type="date" id="cf-fecha" aria-label="Fecha del evento"></label>
+      </div>
+      <p class="cat-info" id="count" aria-live="polite"></p>
+      <div class="cat-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <dialog class="vd" id="vd" aria-labelledby="vd-nombre">
+    <div class="vd-top">
+      <span class="brand" aria-hidden="true"><svg class="brand-branch" viewBox="0 0 64 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 27 C18 24 30 22 42 14 C50 9 56 6 62 2"/><path d="M24 23 C26 18 29 15 33 13"/><path d="M44 13 C45 8 48 6 52 4"/></g><g fill="#E07A9A"><circle cx="34" cy="12" r="2.6"/><circle cx="53" cy="4" r="2.4"/><circle cx="16" cy="22" r="2"/><circle cx="44" cy="10" r="1.8"/><circle cx="60" cy="3" r="1.6"/></g></svg>SAKURA</span>
+      <a class="vd-res" href="#turnos" id="vd-res">Reservar turno</a>
+    </div>
+    <div class="vd-scroll">
+      <button type="button" class="cat-back vd-back" id="vd-x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Catálogo</span></button>
+      <div class="vd-in" id="vd-in"></div>
+    </div>
+    <div class="vd-foot"><a class="vd-wa" id="vd-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a></div>
+  </dialog>
+
+  <section class="block" id="accesorios" hidden>
+    <div class="wrap">
+      <div class="sec-head"><span class="num">iii.</span><h2>Completá el look</h2><p>Todo se alquila junto con el vestido, para que salgas lista de una.</p></div>
+      <div class="acc">
+        <div><h3>Zapatos</h3><p>Sandalias y stilettos en nude, dorado, plateado y negro, en varios talles.</p><div class="p">desde $ 25.000</div></div>
+        <div><h3>Abrigos y estolas</h3><p>Sacos, blazers y estolas para casamientos de noche o de invierno.</p><div class="p">desde $ 30.000</div></div>
+        <div><h3>Carteras</h3><p>Clutches y sobres de fiesta, con brillo o satinados.</p><div class="p">desde $ 12.000</div></div>
+        <div><h3>Bijou</h3><p>Aros, pulseras y tocados para terminar el look.</p><div class="p">desde $ 12.000</div></div>
+      </div>
+      <div class="combo"><strong>Look completo</strong><span>Vestido + zapatos + cartera con 10 % de descuento sobre el total.</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="showroom">
+    <div class="wrap room">
+      <div>
+        <div class="sec-head"><span class="num">iii.</span><h2>El showroom</h2><p>Un espacio pensado para probarte sin apuro, en Puertos del Lago, Escobar.</p></div>
+        <div class="rooms">
+          <div class="r"><b>Showroom</b><span>Los vestidos ordenados por color, del blanco al negro.</span></div>
+          <div class="r"><b>Probadores</b><span>Una sala privada con dos probadores amplios, tarima y espejo de cuerpo entero.</span></div>
+          <div class="r"><b>Té y lago</b><span>Mientras te probás, quien te acompaña espera con un té frente al lago.</span></div>
+          <div class="r"><b>Con turno</b><span>Atendemos de a una clienta por vez, para que tengas el lugar para vos.</span></div>
+        </div>
+      </div>
+      <div class="quote">
+        <p>“Sakura es la flor del cerezo: florece pocos días al año y por eso es inolvidable. Como un vestido en tu noche.”</p>
+        <small>Por qué nos llamamos Sakura</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="condiciones">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">iv.</span><h2>Condiciones del alquiler</h2></div>
+      <div class="rules">
+        <div><h3>Seña del turno</h3><p>$ 10.000 para confirmar tu turno. Se descuenta del alquiler, y si no te llevás nada te la devolvemos. Si no venís o cancelás con menos de 24 hs, se pierde.</p></div>
+        <div><h3>Seña del vestido</h3><p>50 % para reservar el vestido en tu fecha. El resto, al retirarlo.</p></div>
+        <div><h3>Depósito</h3><p>Un depósito en garantía al retirar, que se devuelve cuando el vestido vuelve en buen estado.</p></div>
+        <div><h3>Documento</h3><p>Firmás un contrato simple con tu DNI.</p></div>
+        <div><h3>Retiro</h3><p>Uno o dos días antes del evento, en el showroom.</p></div>
+        <div><h3>Devolución</h3><p>Uno o dos días después. Cada día extra suma el 10 % del alquiler.</p></div>
+        <div><h3>Tintorería</h3><p>Incluida: devolvelo sin lavar, nosotras nos encargamos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block faq" id="preguntas">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">v.</span><h2>Preguntas frecuentes</h2></div>
+      <details><summary>¿Con cuánta anticipación reservo?</summary><p>Lo ideal es dos a cuatro semanas antes del evento, sobre todo en temporada de fiestas. Si es para esta semana, escribinos igual y vemos qué hay disponible.</p></details>
+      <details><summary>¿Por qué se paga una seña para el turno?</summary><p>Para guardarte el horario solo a vos. Son $ 10.000: si alquilás, se descuentan del vestido; si no te llevás nada, te los devolvemos en el momento. Solo se pierden si no venís o cancelás con menos de 24 horas de aviso.</p></details>
+      <details><summary>¿Qué pasa si el vestido se mancha o se rompe?</summary><p>Las manchas comunes y el desgaste normal los cubre la tintorería. Si hay un daño que no se puede reparar, se descuenta del depósito según el contrato.</p></details>
+      <details><summary>¿Y si no me queda bien?</summary><p>Por eso te probás antes de reservar. Si necesita un ajuste chico, lo consultamos en el turno.</p></details>
+      <details><summary>¿Los vestidos del catálogo son todos los que hay?</summary><p>Son una parte: en el showroom vas a ver todos, y siempre llegan modelos nuevos. Si buscás algo puntual, escribinos por WhatsApp y te mandamos fotos.</p></details>
+      <details><summary>¿Cómo pago?</summary><p>Transferencia, Mercado Pago, tarjeta o efectivo.</p></details>
+    </div>
+  </section>
+
+  <section class="block" id="turnos">
+    <div class="wrap">
+      <div class="rt-head"><h2 class="rt-title">Reservar turno</h2><span class="rt-step" id="rt-step">1 de 2</span></div>
+      <div class="rt-paso" id="rt-p1">
+      <div class="agenda">
+        <div class="cal" id="cal">
+          <div class="cal-head"><button type="button" class="cal-nav" id="cal-prev" aria-label="Mes anterior">‹</button><strong id="cal-mes"></strong><button type="button" class="cal-nav" id="cal-next" aria-label="Mes siguiente">›</button></div>
+          <div class="cal-dow"><span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span></div>
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+        <div class="slots">
+          <div class="slots-head"><p class="slots-day" id="slots-day">Elegí un día</p><span class="slots-dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>1 hora</span></div>
+          <div class="slot-group"><small>Mañana</small><div class="slot-row" id="slots-am"></div></div>
+          <div class="slot-group"><small>Tarde</small><div class="slot-row" id="slots-pm"></div></div>
+        </div>
+      </div>
+      <p class="rt-horario">Lunes a sábado de 10 a 14 y de 18 a 20 hs.</p>
+      <button type="button" class="rt-cont" id="rt-cont" disabled>Continuar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="rt-paso" id="rt-p2" hidden>
+      <div class="rt-stepper" aria-label="Paso 2 de 2">
+        <span class="st done"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Día y horario</span>
+        <span class="st-line" aria-hidden="true"></span>
+        <span class="st now"><i aria-hidden="true">2</i>Tus datos</span>
+      </div>
+      <h2 class="rt-title rt-t2">Tus datos</h2>
+      <div class="rt-card">
+        <svg class="rt-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="13.5" r=".9" fill="currentColor"/><circle cx="12" cy="13.5" r=".9" fill="currentColor"/><circle cx="15" cy="13.5" r=".9" fill="currentColor"/><circle cx="10.5" cy="16.5" r=".9" fill="currentColor"/><circle cx="13.5" cy="16.5" r=".9" fill="currentColor"/></svg>
+        <div class="rt-card-tx"><strong>Turno de prueba</strong><span id="rt-resumen"></span></div>
+        <button type="button" class="rt-edit" id="rt-back">Editar</button>
+      </div>
+      <form class="tform t2" id="turno-form" novalidate>
+        <div class="field full"><label for="t-nombre">Tu nombre</label><input id="t-nombre" type="text" autocomplete="given-name"></div>
+        <div class="field"><label for="t-evento">Tipo de evento</label>
+          <select id="t-evento"><option>Casamiento</option><option>15</option><option>Egresados</option><option>Fiesta</option><option>Otro</option></select></div>
+        <div class="field"><label for="t-fecha">Fecha de tu evento</label><input id="t-fecha" type="date"></div>
+        <div class="field full"><span class="lbl" id="t-con-lbl">¿Venís con alguien más?</span>
+          <input type="hidden" id="t-con" value="">
+          <div class="seg" role="radiogroup" aria-labelledby="t-con-lbl">
+            <button type="button" role="radio" aria-checked="true" data-con="">Vengo sola<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" role="radio" aria-checked="false" data-con="1">Con acompañante<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div></div>
+        <input type="hidden" id="t-color" value="">
+        <div class="field full"><label for="t-nota">¿Algo más?</label><textarea id="t-nota" placeholder="Ej.: me gustan los vestidos con espalda descubierta"></textarea></div>
+        <div class="sena2 full">
+          <p><strong>Seña para confirmar: $&nbsp;10.000.</strong> Se descuenta del alquiler, y si no te llevás nada te la devolvemos.</p>
+          <a class="btn mp" id="t-pagar" href="#" target="_blank" rel="noopener" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 9.5h19" stroke="currentColor" stroke-width="1.8"/></svg>Pagar seña con Mercado Pago</a>
+          <p class="hint" id="t-alias" hidden></p>
+          <p class="hint" id="t-sinlink" hidden>Te pasamos cómo pagar la seña por WhatsApp.</p>
+          <label class="chk"><input type="checkbox" id="t-pague"> Ya pagué la seña</label>
+        </div>
+        <div class="full">
+          <a class="rt-wa" id="t-send" href="#turnos" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Pedir turno por WhatsApp</a>
+          <p class="rt-note" id="t-hint">Se abre WhatsApp con tu pedido listo para enviar.<br>Te confirmamos el turno por ahí.</p>
+        </div>
+      </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contacto">
+    <div class="wrap">
+      <div>
+        <h2>Algo nuevo está llegando</h2>
+        <p>Abrimos en diciembre en Puertos del Lago. Escribinos y reservá tu turno antes que nadie.</p>
+        <a class="btn" data-wa="Hola! Quiero enterarme cuando abra Sakura 🌸" href="#contacto">Escribinos por WhatsApp</a>
+      </div>
+      <div class="cards-contact">
+        <div><small>WhatsApp</small><b id="wa-text">Número a confirmar</b></div>
+        <div><small>Instagram</small><b id="ig-text">Usuario a confirmar</b></div>
+        <div><small>Dónde</small><b>Puertos del Lago, Escobar · con turno</b></div>
+      </div>
+    </div>
+  </section>
+  <section class="block admin" id="admin" hidden>
+    <div class="wrap">
+      <div class="sec-head"><span class="num">✎</span><h2>Administrar vestidos</h2><p>Solo vos ves esta sección. Cargá cada vestido con su foto y aparece en el catálogo.</p></div>
+      <p class="note">Mientras cargues vestidos acá, el catálogo los muestra en lugar de los ejemplos. Para que los vean las clientas que entran sin cuenta, cuando termines pedile a Claude que publique el catálogo.</p>
+      <form class="aform" id="a-form" novalidate>
+        <div class="field"><label for="a-nombre">Nombre del vestido</label><input id="a-nombre" type="text" required placeholder="Ej: Hanami"></div>
+        <div class="field"><label for="a-significado">Significado (opcional)</label><input id="a-significado" type="text" placeholder="Ej: mirar las flores"></div>
+        <div class="field"><label for="a-color">Color</label><input id="a-color" type="text" placeholder="Ej: Verde"></div>
+        <div class="field"><label for="a-hex">Tono (para el filtro)</label><input id="a-hex" type="color" value="#E07A9A"></div>
+        <div class="field"><label for="a-largo">Largo</label><select id="a-largo"><option>Largo</option><option>Corto</option></select></div>
+        <div class="field"><label for="a-forma">Silueta (si no tiene foto)</label><select id="a-forma"><option value="aline">Con vuelo</option><option value="sirena">Sirena</option><option value="recto">Recto</option><option value="corto">Corto</option></select></div>
+        <fieldset class="field full"><legend>Eventos</legend>
+          <div class="checks">
+            <label><input type="checkbox" id="a-ev-Casamiento" value="Casamiento"> Casamiento</label>
+            <label><input type="checkbox" id="a-ev-15" value="15"> 15</label>
+            <label><input type="checkbox" id="a-ev-Egresados" value="Egresados"> Egresados</label>
+            <label><input type="checkbox" id="a-ev-Fiesta" value="Fiesta"> Fiesta</label>
+            <label><input type="checkbox" id="a-brillo"> Tiene brillo</label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="a-talles">Talles</label><input id="a-talles" type="text" placeholder="Ej: S · M · L"></div>
+        <div class="field"><label for="a-precio">Precio de alquiler ($)</label><input id="a-precio" type="number" min="0" step="1000" placeholder="130000"></div>
+        <div class="field full"><label for="a-desc">Descripción</label><textarea id="a-desc" placeholder="Ej: Satén rosa con espalda descubierta"></textarea></div>
+        <div class="field full"><label for="a-foto">Foto</label><input id="a-foto" type="file" accept="image/*"></div>
+        <div class="form-actions"><button class="btn" type="submit" id="a-save">Guardar vestido</button><p class="hint" id="a-status" aria-live="polite"></p></div>
+      </form>
+      <div class="alist" id="a-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Sakura · Alquiler de vestidos de fiesta</span><span>Un vestido nuevo para cada historia</span></div></footer>
+
+<a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+<svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+<span>¿Consultas? Escribinos</span></a>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+<script>
+/* ===== Datos para editar ===== */
+// Número de WhatsApp de Sakura: 549 + código de área sin 0 + número sin 15. Ej: "5491123456789"
+const WHATSAPP = "5491168124566";
+// Seña para reservar turno: monto, link de pago de Mercado Pago y alias (dejá "" lo que no uses)
+const SENA_TURNO = 10000;
+const LINK_SENA = "https://mpago.li/1KmvLfm";
+const ALIAS_SENA = "kiarita2022";
+// Turnos: primer día de atención, días cerrados (0 = domingo … 6 = sábado) y horarios de inicio
+const APERTURA = "2026-12-01";
+const DIAS_CERRADOS = [0];
+const HORARIOS = ["10:00", "11:00", "12:00", "13:00", "18:00", "19:00"];
+// Mostrar catálogo, accesorios y panel de vestidos (true / false)
+const MOSTRAR_CATALOGO = true;
+// Usuario de Instagram sin @. Ej: "sakura.vestidos"
+const INSTAGRAM = "sakura.vestidos";
+
+// Vestidos del catálogo. Cada uno puede tener varios colores, cada color con sus fotos (frente, espalda).
+// forma (solo se usa si no hay foto): "aline" | "sirena" | "recto" | "corto"
+const VESTIDOS = [
+  {
+    nombre: "Hana", significado: "flor", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta"],
+    desc: "Largo y entallado, con flecos de brillo, de un solo hombro y espalda descubierta con lazo de satén.",
+    talles: "M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["hana-negro-m-frente.jpg", "hana-negro-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Sora", significado: "cielo", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y al cuerpo, bordado completo de lentejuelas, cuello halter, espalda descubierta y tajo lateral.",
+    talles: "M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "98–105", cintura: "78–80", cadera: "98–110" }
+    ],
+    colores: [
+      { color: "Dorado", hex: "#C9A96A", fotos: ["sora-dorado-m-frente.jpg", "sora-dorado-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Nami", significado: "ola", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, cubierto de flecos con brillo, escote en V y breteles finos.",
+    talles: "M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Fucsia", hex: "#D1286E", fotos: ["nami-fucsia-m-frente.jpg"] }
+    ]
+  },
+  {
+    nombre: "Ran", significado: "orquídea", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y recto, cubierto de flecos de brillo plateados, cuello halter, tajo al frente y espalda descubierta.",
+    talles: "S", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Plata", hex: "#B8BCC4", fotos: ["ran-plata-s-frente.jpg", "ran-plata-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Yume", significado: "sueño", largo: "Largo", forma: "evasé", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo con falda amplia, flecos de brillo, escote corazón tipo corset, breteles finos y espalda con cordones cruzados.",
+    talles: "S · M · L", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" },
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" },
+      { talle: "L (3)", busto: "98–104", cintura: "80–84", cadera: "98–106" }
+    ],
+    colores: [
+      { color: "Plata", talle: "L", hex: "#B8BCC4", fotos: ["yume-plata-l-frente.jpg", "yume-plata-l-espalda.jpg"] },
+      { color: "Negro", talle: "M", hex: "#1E1A1C", fotos: ["yume-negro-m-frente.jpg", "yume-negro-m-espalda.jpg"] },
+      { color: "Dorado", talle: "S", hex: "#D8BE95", fotos: ["yume-dorado-s-frente.jpg"] }
+    ]
+  },
+  {
+    nombre: "Kira", significado: "destello", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, bordado de lentejuelas doradas sobre fondo nude, escote en V profundo y espalda descubierta con lazo.",
+    talles: "M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Dorado", hex: "#C9A96A", fotos: ["kira-dorado-m-frente.jpg", "kira-dorado-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Kiku", significado: "crisantemo", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, bordado de lentejuelas, escote corazón con breteles finos y tajo lateral.",
+    talles: "S", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Verde oliva", hex: "#5B6235", fotos: ["kiku-oliva-s-frente.jpg"] }
+    ]
+  },
+  {
+    nombre: "Hoshi", significado: "estrella", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, bordado de lentejuelas y pedrería, cuello halter, tajo lateral y espalda descubierta en V.",
+    talles: "S · M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" },
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Negro", talle: "S · M", hex: "#1E1A1C", fotos: ["hoshi-negro-s-frente.jpg", "hoshi-negro-s-espalda.jpg"] },
+      { color: "Verde oliva", talle: "M", hex: "#5B6235", fotos: ["hoshi-oliva-m-frente.jpg", "hoshi-oliva-m-espalda.jpg"] },
+      { color: "Negro y plata", talle: "S", hex: "#8A8D94", fotos: ["hoshi-plata-s-frente.jpg", "hoshi-plata-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Gin", significado: "plata", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y al cuerpo, todo en lentejuelas plateadas, de un solo hombro y con tajo alto al frente.",
+    talles: "M", precio: 120000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Plata", hex: "#B8BCC4", vista2: "costado", fotos: ["gin-plata-m-frente.jpg", "gin-plata-m-costado.jpg"] }
+    ]
+  },
+  {
+    nombre: "Emi", significado: "sonrisa", largo: "Largo", forma: "sirena", eventos: ["Fiesta", "Egresados"],
+    desc: "Largo y entallado, bordado de lentejuelas blanco y plata, escote en V profundo y espalda descubierta con tiras.",
+    talles: "S · M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" },
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Blanco plata", hex: "#E6E8EC", fotos: ["emi-blanco-frente.jpg", "emi-blanco-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Mai", significado: "danza", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo con flecos de brillo plateados, de un solo hombro, recorte en la cintura y tajo alto al frente.",
+    talles: "S · M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" },
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Plata", hex: "#B8BCC4", fotos: ["mai-plata-frente.jpg", "mai-plata-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Momo", significado: "durazno", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, cubierto de flecos con brillo, escote drapeado, breteles finos cruzados en la espalda y tajo lateral.",
+    talles: "M", precio: 170000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Fucsia", hex: "#C2185B", fotos: ["momo-fucsia-m-frente.jpg", "momo-fucsia-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Akane", significado: "rojo profundo", largo: "Corto", forma: "corto", eventos: ["Fiesta", "Egresados"],
+    desc: "Corto y al cuerpo, todo en lentejuelas, cuello halter y espalda descubierta. Talle único.",
+    talles: "Único", precio: 70000, brillo: true,
+    medidas: [],
+    colores: [
+      { color: "Rojo", hex: "#C41E3A", fotos: ["akane-rojo-frente.jpg", "akane-rojo-espalda.jpg"] },
+      { color: "Dorado", hex: "#B8863B", fotos: ["akane-dorado-frente.jpg", "akane-dorado-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Aiko", significado: "niña del amor", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida sin brillo, cuello halter, recortes en la cintura, frunce en la cadera y espalda descubierta con lazo.",
+    talles: "M", precio: 120000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Marrón", hex: "#5A3E36", fotos: ["aiko-marron-m-frente.jpg", "aiko-marron-m-espalda.jpg"] }
+    ]
+  },
+  {
+    id: "aiko-corto", nombre: "Aiko", significado: "niña del amor", largo: "Corto", forma: "corto", eventos: ["Fiesta", "Egresados"],
+    desc: "Versión corta de Aiko: al cuerpo, cuello halter, frunce en la falda y espalda descubierta con tiras cruzadas.",
+    talles: "M", precio: 70000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Celeste", hex: "#A9C6E8", fotos: ["aiko-celeste-corto-frente.jpg", "aiko-celeste-corto-espalda.jpg"] },
+      { color: "Azul noche", hex: "#1B2340", fotos: ["aiko-azul-corto-frente.jpg", "aiko-azul-corto-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Beni", significado: "carmín", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida sin brillo, de un solo hombro, recorte en la cintura y tajo alto al frente.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Marrón", hex: "#6B4038", fotos: ["beni-marron-m-frente.jpg", "beni-marron-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Mei", significado: "brillante", largo: "Corto", forma: "corto", eventos: ["Fiesta", "Egresados"],
+    desc: "Corto y al cuerpo, cubierto de flecos con brillo, breteles finos, recorte en la espalda y cordones cruzados.",
+    talles: "S", precio: 70000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Fucsia", hex: "#D1286E", fotos: ["mei-fucsia-s-frente.jpg", "mei-fucsia-s-espalda.jpg"] },
+      { color: "Negro", hex: "#1E1A1C", fotos: ["mei-negro-s-frente.jpg"] }
+    ]
+  },
+  {
+    nombre: "Saki", significado: "flor que florece", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado en tela con brillo sutil, escote corazón tipo corset, breteles finos y espalda descubierta con cordones cruzados.",
+    talles: "M", precio: 120000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Champagne", hex: "#D9C3A0", fotos: ["saki-champagne-m-frente.jpg", "saki-champagne-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Rin", significado: "elegante", largo: "Corto", forma: "corto", eventos: ["Fiesta", "Egresados"],
+    desc: "Corto y al cuerpo, bordado de lentejuelas negras, escote en V profundo, breteles finos y espalda con cordones cruzados.",
+    talles: "S", precio: 70000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["rin-negro-frente.jpg", "rin-negro-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Umi", significado: "mar", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado en satén, cuello halter con escote en V, tajo al frente, frunce en la espalda y cola suave.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Petróleo", hex: "#1F4E55", fotos: ["umi-petroleo-m-frente.jpg", "umi-petroleo-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Ume", significado: "flor de ciruelo", largo: "Largo", forma: "aline", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida con brillo sutil, escote en V, cintura fruncida, espalda descubierta con tiras cruzadas que se atan y falda amplia. Talle único.",
+    talles: "Único", precio: 100000, brillo: false,
+    medidas: [],
+    colores: [
+      { color: "Bordó", hex: "#8E1F3F", fotos: ["ume-bordo-frente.jpg", "ume-bordo-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Mizu", significado: "agua", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida, cuello halter con escote profundo, drapeado con broche dorado en la cintura y espalda descubierta.",
+    talles: "S · M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" },
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Petróleo", talle: "S", hex: "#1F4E55", fotos: ["mizu-petroleo-s-frente.jpg", "mizu-petroleo-s-espalda.jpg"] },
+      { color: "Marrón", talle: "M", hex: "#5A3E36", fotos: ["mizu-marron-frente.jpg", "mizu-marron-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Yoru", significado: "noche", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y liso en satén, cuello halter alto, tajo lateral y espalda descubierta.",
+    talles: "S", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["yoru-negro-s-frente.jpg", "yoru-negro-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Nao", significado: "honesta", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado en satén, escote drapeado, breteles finos y espalda descubierta con tiras cruzadas.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Chocolate", hex: "#3B2520", fotos: ["nao-chocolate-m-frente.jpg", "nao-chocolate-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Haru", significado: "primavera", largo: "Largo", forma: "aline", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela plisada con caída amplia, breteles finos, tajo lateral y espalda con cordones cruzados.",
+    talles: "S", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Bordó", hex: "#6E1E35", fotos: ["haru-bordo-s-frente.jpg", "haru-bordo-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Ai", significado: "amor", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, fruncido al cuerpo, escote corazón con nudo, breteles finos y espalda con cordones tipo corset.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Chocolate", hex: "#4A2A1C", fotos: ["ai-chocolate-m-frente.jpg", "ai-chocolate-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Mika", significado: "hermosa fragancia", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, strapless con escote fruncido, recorte en la espalda y caída sirena.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Chocolate", hex: "#3E2427", fotos: ["mika-chocolate-m-frente.jpg", "mika-chocolate-m-espalda.jpg"] },
+      { color: "Petróleo", hex: "#1F4E55", fotos: ["mika-petroleo-m-frente.jpg", "mika-petroleo-m-espalda.jpg"] },
+      { color: "Bordó", hex: "#7A1F35", fotos: ["mika-bordo-m-frente.jpg", "mika-bordo-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Akari", significado: "luz suave", largo: "Largo", forma: "aline", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo todo en lentejuelas doradas, escote corazón tipo corset, breteles finos, tajo alto y espalda con cordones cruzados.",
+    talles: "M", precio: 120000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Dorado", hex: "#D8BE95", fotos: ["akari-dorado-m-frente.jpg", "akari-dorado-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Yami", significado: "oscuridad", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado en satén, cuello alto, fruncido al cuerpo, espalda descubierta y caída sirena con cola.",
+    talles: "S", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["yami-negro-s-frente.jpg", "yami-negro-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Kaze", significado: "viento", largo: "Largo", forma: "recto", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida, de un solo hombro, recorte en la cintura y espalda, y tajo alto al frente.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Chocolate", hex: "#3E2A26", fotos: ["kaze-chocolate-m-frente.jpg", "kaze-chocolate-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Niji", significado: "arcoíris", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, todo en lentejuelas, de un solo hombro, con frunce al costado y tajo alto.",
+    talles: "M", precio: 120000, brillo: true,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Azul", hex: "#2E3A8C", fotos: ["niji-azul-m-frente.jpg", "niji-azul-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Kumo", significado: "nube", largo: "Largo", forma: "aline", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida con brillo sutil, escote en V profundo, cintura fruncida, tajo al frente y espalda descubierta con tiras cruzadas.",
+    talles: "S · M", precio: 120000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" },
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Celeste", talle: "S", hex: "#A9C6E8", fotos: ["kumo-celeste-s-frente.jpg", "kumo-celeste-s-espalda.jpg"] },
+      { color: "Negro", talle: "S", hex: "#1E1A1C", fotos: ["kumo-negro-s-frente.jpg", "kumo-negro-s-espalda.jpg"] },
+      { color: "Verde salvia", talle: "M", hex: "#9DB5A0", fotos: ["kumo-salvia-m-frente.jpg", "kumo-salvia-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Asa", significado: "mañana", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, fruncido al cuerpo, escote corazón con nudo, breteles finos y caída sirena.",
+    talles: "M", precio: 100000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Chocolate", hex: "#4A2E22", fotos: ["asa-chocolate-frente.jpg", "asa-chocolate-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Kuro", significado: "negro", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, strapless con frunce al cuerpo y caída sirena con cola.",
+    talles: "M", precio: 120000, brillo: false,
+    medidas: [
+      { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["kuro-negro-m-frente.jpg", "kuro-negro-m-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Rei", significado: "belleza", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado en tela con brillo, escote drapeado, breteles finos, tajo alto y espalda con cordones cruzados.",
+    talles: "S", precio: 120000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["rei-negro-s-frente.jpg", "rei-negro-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Mia", significado: "", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado, fruncido al cuerpo, escote corazón con nudo, breteles finos, espalda con cordones y caída sirena.",
+    talles: "S", precio: 120000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Durazno", hex: "#F2B8A0", fotos: ["mia-durazno-frente.jpg", "mia-durazno-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Nia", significado: "", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo y entallado con brillo sutil, escote corazón, breteles finos, espalda con tiras cruzadas y caída sirena.",
+    talles: "S", precio: 100000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["nia-negro-s-frente.jpg", "nia-negro-s-espalda.jpg"] }
+    ]
+  },
+  {
+    nombre: "Lia", significado: "", largo: "Largo", forma: "aline", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo en tela fluida con falda amplia, escote en V profundo, cintura marcada y breteles cruzados. Talle único.",
+    talles: "Único", precio: 100000, brillo: false,
+    medidas: [],
+    colores: [
+      { color: "Chocolate", hex: "#5A4038", vista2: "detalle", fotos: ["lia-chocolate-frente.jpg", "lia-chocolate-detalle.jpg"] }
+    ]
+  },
+  {
+    nombre: "Kai", marca: "Bershka", largo: "Corto", forma: "corto", eventos: ["Fiesta", "Egresados"],
+    desc: "Corto y al cuerpo, todo en lentejuelas con detalles de encaje en el escote y el ruedo, y breteles finos.",
+    talles: "S", precio: 70000, brillo: true,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Bordó y rosa", hex: "#7A1F35", fotos: ["kai-bordo-s-frente.jpg"] },
+      { color: "Negro", hex: "#1E1A1C", fotos: ["kai-negro-s-frente.jpg"] }
+    ]
+  },
+  {
+    id: "kaze-negro", nombre: "Kaze", significado: "viento", marca: "Bershka", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
+    desc: "Largo, entallado arriba con breteles finos y falda de tul con vuelo y transparencias.",
+    talles: "S", precio: 120000, brillo: false,
+    medidas: [
+      { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
+    ],
+    colores: [
+      { color: "Negro", hex: "#1E1A1C", fotos: ["kaze-negro-s-frente.jpg"] }
+    ]
+  }
+];
+/* ============================= */
+
+const waLink = (msg) => WHATSAPP ? "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg) : "#contacto";
+document.getElementById("wa-float").href = waLink("Hola Sakura! 🌸 Quería hacer una consulta sobre el alquiler de vestidos.");
+document.querySelectorAll("[data-wa]").forEach(a => { a.href = waLink(a.dataset.wa); });
+if (WHATSAPP) document.getElementById("wa-text").textContent = "+" + WHATSAPP;
+if (MOSTRAR_CATALOGO) {
+  document.getElementById("catalogo").hidden = false;
+}
+if (INSTAGRAM) {
+  const ig = document.getElementById("ig-text");
+  ig.innerHTML = "";
+  const a = document.createElement("a");
+  a.href = "https://instagram.com/" + INSTAGRAM; a.textContent = "@" + INSTAGRAM;
+  ig.appendChild(a);
+}
+
+const peso = n => "$ " + (Number(n) || 0).toLocaleString("es-AR");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const variants = v => Array.isArray(v.colores) && v.colores.length ? v.colores
+  : [{ color: v.color || "", hex: v.hex, fotos: v.fotoId ? ["/_blob/" + encodeURIComponent(v.fotoId)] : [] }];
+const cardSel = {};
+const safeHex = h => /^#[0-9a-f]{6}$/i.test(h || "") ? h : "#E07A9A";
+
+let svgN = 0;
+function dressSVG(v) {
+  const id = "g" + (svgN++);
+  const hex = safeHex(v.hex);
+  const forma = ["aline", "sirena", "recto", "corto"].includes(v.forma) ? v.forma : "aline";
+  const bodice = "M46 58 L50 30 L53 30 L54 46 L66 46 L67 30 L70 30 L74 58 Q60 64 46 58 Z";
+  const skirts = {
+    aline: "M46 58 Q60 64 74 58 L102 192 Q60 200 18 192 Z",
+    sirena: "M46 58 Q60 64 74 58 L77 138 L100 192 Q60 198 20 192 L43 138 Z",
+    recto: "M46 58 Q60 64 74 58 L82 192 Q60 196 38 192 Z",
+    corto: "M46 58 Q60 64 74 58 L90 122 Q60 129 30 122 Z"
+  };
+  const dots = v.brillo ? Array.from({ length: 34 }, (_, i) => {
+    const x = 34 + ((i * 37) % 52), y = 66 + ((i * 53) % (forma === "corto" ? 54 : 120));
+    return `<circle cx="${x}" cy="${y}" r="1.4" fill="#ffffff" opacity="0.7"/>`;
+  }).join("") : "";
+  return `<svg viewBox="0 0 120 205" role="img" aria-label="Vestido ${esc(v.nombre)}">
+    <defs><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="${hex}"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0.35"/><stop offset="0.55" stop-color="${hex}"/><stop offset="1" stop-color="${hex}"/></linearGradient></defs>
+    <path d="M60 4 C66 4 68 12 62 16 L60 18" fill="none" stroke="#B8924A" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M60 18 L38 30 L82 30 Z" fill="none" stroke="#B8924A" stroke-width="2.4" stroke-linejoin="round"/>
+    <g stroke="rgba(90,31,51,0.25)" stroke-width="1">
+      <path d="${skirts[forma]}" fill="${hex}"/>
+      <path d="${skirts[forma]}" fill="url(#${id})" opacity="0.5"/>
+      <path d="${bodice}" fill="${hex}"/>
+    </g>${dots}
+  </svg>`;
+}
+
+const state = { talle: "", color: "", fecha: "" };
+// talles de una variante: "S", "M", "L" o "Único" (los talle único entran en cualquier talle)
+const tallesDe = (v, c) => String(c.talle || v.talles || "").split(/\s*·\s*/).map(t => /único/i.test(t) ? "Único" : t.trim().toUpperCase()).filter(Boolean);
+const okTalle = (v, c) => !state.talle || tallesDe(v, c).some(t => t === state.talle || t === "Único");
+const okColor = c => !state.color || c.color === state.color;
+let live = null, ocupados = null;
+const source = () => (live && live.length ? live : VESTIDOS).filter(v => v.visible !== false);
+const slugV = v => "v-" + String(v.id || v.nombre).toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-");
+const fechaLinda = f => { if (!f) return ""; const [y, m, d] = f.split("-"); return d + "/" + m; };
+
+/* estadísticas: qué vestidos miran y consultan (se ven en el panel) */
+const nombreClave = v => {
+  const otros = source().filter(o => o !== v && o.nombre === v.nombre);
+  if (!otros.length) return v.nombre;
+  if (v.largo === "Corto" && otros.some(o => o.largo !== "Corto")) return v.nombre + " corto";
+  return v.marca ? v.nombre + " (" + v.marca + ")" : v.nombre;
+};
+function sb() {
+  const cfg = window.SAKURA_SUPABASE || {};
+  if (!cfg.url || !cfg.key || !window.supabase) return null;
+  return (sb.c = sb.c || window.supabase.createClient(cfg.url, cfg.key));
+}
+function registrar(tipo, v, color) {
+  const db = sb(); if (!db) return;
+  const vestido = nombreClave(v), k = "sk:" + tipo + ":" + vestido + ":" + (color || "");
+  try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) {}
+  try { db.from("clics").insert({ tipo, vestido, color: color || null }).then(r => { if (r.error) console.warn(r.error); }); } catch (e) { console.warn(e); }
+}
+const libre = (v, c) => !ocupados || !ocupados.some(o => o.vestido === nombreClave(v) && (!o.color || o.color === c.color));
+const tituloDe = (v, c) => v.nombre + (v.largo === "Corto" && source().some(o => o !== v && o.nombre === v.nombre) ? " corto" : "") + (c && c.color ? " " + c.color.toLowerCase() : "");
+
+/* filtros */
+function buildColors() {
+  const sel = document.getElementById("cf-color");
+  const colores = [...new Set(source().flatMap(variants).map(c => c.color).filter(Boolean))].sort((a, b) => a.localeCompare(b, "es"));
+  sel.innerHTML = `<option value="">Color</option>` + colores.map(c => `<option>${esc(c)}</option>`).join("");
+  if (state.color && !colores.includes(state.color)) state.color = "";
+  sel.value = state.color;
+}
+buildColors();
+function sync() {
+  const t = document.getElementById("cf-talle"), c = document.getElementById("cf-color");
+  t.value = state.talle; c.value = state.color;
+  t.closest(".cf").classList.toggle("on", !!state.talle);
+  c.closest(".cf").classList.toggle("on", !!state.color);
+}
+document.getElementById("cf-talle").addEventListener("change", e => { state.talle = e.target.value; sync(); render(); });
+document.getElementById("cf-color").addEventListener("change", e => { state.color = e.target.value; sync(); render(); });
+document.getElementById("cf-fecha").addEventListener("change", async e => {
+  state.fecha = e.target.value; ocupados = null;
+  e.target.closest(".cf").classList.toggle("on", !!state.fecha);
+  document.getElementById("cf-fecha-txt").textContent = state.fecha ? "Evento " + fechaLinda(state.fecha) : "Fecha del evento";
+  render();
+  const db = sb();
+  if (state.fecha && db) {
+    try { const r = await db.rpc("ocupados", { f: state.fecha }); if (!r.error) { ocupados = r.data || []; render(); } } catch (err) { console.warn(err); }
+  }
+});
+
+/* grilla: una tarjeta por vestido y color */
+function items() {
+  const out = [];
+  source().forEach(v => variants(v).forEach((c, ci) => {
+    if (okColor(c) && okTalle(v, c) && libre(v, c)) out.push({ v, c, ci });
+  }));
+  return out;
+}
+function render() {
+  const grid = document.getElementById("grid");
+  const list = items();
+  document.getElementById("count").textContent = (list.length === 1 ? "1 vestido" : list.length + " vestidos")
+    + (state.fecha ? (ocupados ? " disponibles para el " + fechaLinda(state.fecha) : " · te confirmamos la disponibilidad para el " + fechaLinda(state.fecha) + " por WhatsApp") : "");
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty">No hay vestidos con esa combinación. Probá con otro filtro o escribinos: siempre llegan modelos nuevos.</div>`;
+    grid._list = []; return;
+  }
+  grid.innerHTML = list.map((it, i) => {
+    const { v, c } = it, fotos = c.fotos || [];
+    const key = (v.id || v.nombre) + "|" + it.ci;
+    const pi = Math.min(cardSel[key] || 0, Math.max(0, fotos.length - 1));
+    const pic = fotos.length ? `<img src="${esc(fotos[pi])}" alt="Vestido ${esc(tituloDe(v, c))}, ${pi ? esc(c.vista2 || "espalda") : "frente"}" loading="lazy">` : dressSVG(Object.assign({}, v, { hex: c.hex }));
+    const flip = fotos.length > 1 ? `<button type="button" class="vc-flip" data-flip="${i}">${pi ? "Ver frente" : "Ver " + esc(c.vista2 || "espalda")}</button>` : "";
+    const tal = tallesDe(v, c).map(t => `<span class="tz${t === "Único" ? " u" : ""}">${esc(t)}</span>`).join("");
+    return `<article class="vc" id="${esc(slugV(v))}-${it.ci}">
+      <div class="vc-ph"><button type="button" class="vc-pic" data-open="${i}" aria-label="Ver ${esc(tituloDe(v, c))}">${pic}</button>${flip}</div>
+      <button type="button" class="vc-cap" data-open="${i}"><span class="vc-n">${esc(tituloDe(v, c))}</span><span class="vc-t">${tal}</span></button>
+    </article>`;
+  }).join("");
+  grid._list = list;
+}
+document.getElementById("grid").addEventListener("click", e => {
+  const grid = document.getElementById("grid");
+  const f = e.target.closest("[data-flip]");
+  if (f) {
+    const it = grid._list[+f.dataset.flip]; if (!it) return;
+    const key = (it.v.id || it.v.nombre) + "|" + it.ci;
+    cardSel[key] = cardSel[key] ? 0 : 1; if (cardSel[key]) registrar("espalda", it.v, it.c.color);
+    render(); return;
+  }
+  const o = e.target.closest("[data-open]");
+  if (o) { const it = grid._list[+o.dataset.open]; if (it) abrirVestido(it.v, it.ci); }
+});
+
+/* ficha del vestido */
+const vd = document.getElementById("vd");
+let vdSel = null;
+function abrirVestido(v, ci) {
+  vdSel = { v, ci: ci || 0, pi: 0 };
+  pintarFicha();
+  if (!vd.open) {
+    if (vd.showModal) vd.showModal(); else vd.setAttribute("open", "");
+    try { history.pushState({ ficha: 1 }, ""); fichaHist = true; } catch (e) {}
+  }
+  const sc = vd.querySelector(".vd-scroll"); if (sc) sc.scrollTop = 0;
+}
+function pintarFicha() {
+  const { v } = vdSel, vs = variants(v), c = vs[vdSel.ci] || vs[0], fotos = c.fotos || [];
+  const pi = Math.min(vdSel.pi, Math.max(0, fotos.length - 1));
+  const tal = c.talle || v.talles || "";
+  const tz = tallesDe(v, c);
+  const medidas = (Array.isArray(v.medidas) ? v.medidas : []).filter(m => !c.talle || c.talle.split(/\s*·\s*/).some(t => String(m.talle).startsWith(t)));
+  const texto = "Hola! Me interesa el vestido " + tituloDe(v) + (c.color ? " en " + c.color.toLowerCase() : "") + (tal && !/único/i.test(tal) ? " talle " + tal : "") + " 🌸 " + (state.fecha ? "¿Está disponible para el " + fechaLinda(state.fecha) + "?" : "¿Está disponible para mi fecha?");
+  document.getElementById("vd-wa").href = waLink(texto);
+  const parrafos = String(v.desc || "").split(/(?<=\.)\s+/).filter(Boolean);
+  document.getElementById("vd-in").innerHTML = `
+    <div class="vd-pic">${fotos.length ? `<img src="${esc(fotos[pi])}" alt="Vestido ${esc(tituloDe(v, c))}">` : dressSVG(Object.assign({}, v, { hex: c.hex }))}
+      ${fotos.length > 1 ? `<button type="button" class="vc-flip" id="vd-flip">${pi ? "Ver frente" : "Ver " + esc(c.vista2 || "espalda")}</button>` : ""}</div>
+    <div class="vd-body">
+      <h3 id="vd-nombre">${esc(tituloDe(v))}</h3>
+      ${v.marca ? `<p class="marca">Marca: ${esc(v.marca)}</p>` : ""}
+      <p class="vd-lbl">Alquiler</p>
+      <p class="vd-price">${v.precio ? peso(v.precio) : "Consultar"}</p>
+      <hr>
+      <div class="vd-row"><span>Color</span><div class="vd-sw" role="group" aria-label="Colores">${vs.map((cc, k) => `<button type="button" class="dot" data-vdc="${k}" style="background:${safeHex(cc.hex)}" title="${esc(cc.color)}" aria-label="${esc(cc.color)}" aria-pressed="${k === vdSel.ci}"></button>`).join("")}</div></div>
+      <p class="vd-colname">${esc(c.color || "")}</p>
+      <div class="vd-row"><span>Talle</span><div class="vd-tz">${tz.length ? tz.map(t => `<span class="tzb${t === "Único" ? " u" : ""}">${esc(t)}</span>`).join("") : `<em>a consultar</em>`}</div></div>
+      <hr>
+      <h4>Detalles</h4>
+      ${parrafos.map(t => `<p class="vd-desc">${esc(t)}</p>`).join("")}
+      ${(v.eventos || []).length ? `<div class="vd-tags">${v.eventos.map(e => `<span>#${esc(e === "15" ? "15años" : e)}</span>`).join("")}</div>` : ""}
+      ${medidas.length ? `<details class="vd-med"><summary>Ver medidas (cm)<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><table><thead><tr><th>Talle</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead><tbody>${medidas.map(m => `<tr><td>${esc(m.talle)}</td><td>${esc(m.busto)}</td><td>${esc(m.cintura)}</td><td>${esc(m.cadera)}</td></tr>`).join("")}</tbody></table></details>` : ""}
+    </div>`;
+}
+document.getElementById("vd-in").addEventListener("click", e => {
+  if (!vdSel) return;
+  const { v } = vdSel, vs = variants(v);
+  if (e.target.closest("#vd-flip")) { vdSel.pi = vdSel.pi ? 0 : 1; if (vdSel.pi) registrar("espalda", v, (vs[vdSel.ci] || {}).color); pintarFicha(); return; }
+  const sw = e.target.closest("[data-vdc]");
+  if (sw) { vdSel.ci = +sw.dataset.vdc; vdSel.pi = 0; registrar("color", v, (vs[vdSel.ci] || {}).color); pintarFicha(); }
+});
+document.getElementById("vd-wa").addEventListener("click", () => { if (vdSel) registrar("consulta", vdSel.v, (variants(vdSel.v)[vdSel.ci] || {}).color); });
+document.getElementById("vd-res").addEventListener("click", () => {
+  if (!vdSel) return;
+  const c = variants(vdSel.v)[vdSel.ci] || {}, campo = document.getElementById("t-color");
+  if (campo) { campo.value = "Quiero probarme el " + tituloDe(vdSel.v) + (c.color ? " en " + c.color.toLowerCase() : ""); campo.dispatchEvent(new Event("input")); }
+  cerrarFicha(true);
+});
+// el botón "atrás" del celular cierra la ficha en vez de salir de la página
+let fichaHist = false;
+function cerrarFicha(sinHist) {
+  if (vd.open) vd.close();
+  if (fichaHist && !sinHist) { fichaHist = false; history.back(); } else fichaHist = false;
+}
+window.addEventListener("popstate", () => { if (vd.open) { fichaHist = false; vd.close(); } });
+vd.addEventListener("cancel", e => { e.preventDefault(); cerrarFicha(); });
+document.getElementById("vd-x").addEventListener("click", () => cerrarFicha());
+
+sync(); render();
+
+/* ir a un vestido (desde la vitrina) */
+function irAVestido(v, ci) { abrirVestido(v, ci); }
+
+/* vitrina de inicio: 4 vestidos que van cambiando */
+(function () {
+  const grid = document.getElementById("vitrina-grid");
+  if (!grid) return;
+  const lista = source();
+  const pool = [];
+  lista.forEach(v => {
+    const vs = variants(v).map((c, ci) => ({ v, c, ci })).filter(x => x.c.fotos && x.c.fotos[0]);
+    if (vs.length) pool.push(vs[Math.floor(Math.random() * vs.length)]);
+  });
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  if (!pool.length) { document.getElementById("vitrina").hidden = true; return; }
+  const N = Math.min(4, pool.length);
+  const tiles = [];
+  const cap = x => `<span>${esc(x.v.nombre)} <small>${esc((x.c.color || "").toLowerCase())}</small></span><span class="arr" aria-hidden="true">→</span>`;
+  for (let i = 0; i < N; i++) {
+    const x = pool[i];
+    const a = document.createElement("a");
+    a.className = "vt"; a.href = "#" + slugV(x.v);
+    a.innerHTML = `<div class="ph"><img src="${esc(x.c.fotos[0])}" alt="Vestido ${esc(x.v.nombre)} ${esc((x.c.color || "").toLowerCase())}"></div><div class="cap">${cap(x)}</div>`;
+    a.addEventListener("click", e => { e.preventDefault(); irAVestido(tiles[i].x.v, tiles[i].x.ci); });
+    grid.appendChild(a);
+    tiles.push({ a, x });
+  }
+  let next = N, turno = 0;
+  const pre = new Image();
+  function cambiar() {
+    if (pool.length <= N || document.hidden) return;
+    const t = tiles[turno % N]; turno++;
+    const x = pool[next % pool.length]; next++;
+    const ph = t.a.querySelector(".ph"), viejo = ph.querySelector("img"), capEl = t.a.querySelector(".cap");
+    const img = new Image();
+    img.alt = "Vestido " + x.v.nombre + " " + (x.c.color || "").toLowerCase();
+    img.className = "out";
+    img.onload = () => {
+      ph.appendChild(img);
+      requestAnimationFrame(() => requestAnimationFrame(() => { img.classList.remove("out"); viejo.classList.add("out"); }));
+      capEl.classList.add("out");
+      setTimeout(() => { capEl.innerHTML = cap(x); capEl.classList.remove("out"); t.a.href = "#" + slugV(x.v); }, 450);
+      setTimeout(() => viejo.remove(), 1000);
+      t.x = x;
+    };
+    img.src = x.c.fotos[0];
+    const sig = pool[next % pool.length]; if (sig) pre.src = sig.c.fotos[0];
+  }
+  const lento = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  setInterval(cambiar, lento ? 9000 : 2600);
+})();
+
+/* menú del celular */
+(function () {
+  const b = document.getElementById("menu-btn"), p = document.getElementById("menu-panel");
+  if (!b || !p) return;
+  const cerrar = () => { p.hidden = true; b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-label", "Abrir menú"); };
+  b.addEventListener("click", () => { const abrir = p.hidden; p.hidden = !abrir; b.setAttribute("aria-expanded", String(abrir)); b.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú"); });
+  p.addEventListener("click", e => { if (e.target.closest("a")) cerrar(); });
+})();
+
+/* turno por WhatsApp con calendario */
+(function () {
+  const ids = ["t-nombre", "t-evento", "t-fecha", "t-con", "t-color", "t-nota"];
+  const send = document.getElementById("t-send"), hint = document.getElementById("t-hint");
+  const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  const DIAS = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+  const pad = n => String(n).padStart(2, "0");
+  const key = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  const [ay, am, ad] = APERTURA.split("-").map(Number);
+  const apertura = new Date(ay, am - 1, ad);
+  const primero = apertura > hoy ? apertura : hoy;
+  let mes = new Date(primero.getFullYear(), primero.getMonth(), 1);
+  let dia = null, hora = null;
+  const abierto = d => d >= primero && !DIAS_CERRADOS.includes(d.getDay());
+  const lindo = d => DIAS[d.getDay()] + " " + d.getDate() + " de " + MESES[d.getMonth()];
+
+  function cal() {
+    document.getElementById("cal-mes").textContent = MESES[mes.getMonth()] + " " + mes.getFullYear();
+    document.getElementById("cal-prev").disabled = mes <= new Date(primero.getFullYear(), primero.getMonth(), 1);
+    const grid = document.getElementById("cal-grid"); grid.innerHTML = "";
+    const off = (mes.getDay() + 6) % 7;
+    for (let i = 0; i < off; i++) grid.appendChild(document.createElement("span"));
+    const n = new Date(mes.getFullYear(), mes.getMonth() + 1, 0).getDate();
+    for (let i = 1; i <= n; i++) {
+      const d = new Date(mes.getFullYear(), mes.getMonth(), i);
+      const b = document.createElement("button"); b.type = "button"; b.textContent = i; b.className = "cal-day";
+      if (!abierto(d)) b.disabled = true;
+      if (dia && key(d) === key(dia)) b.classList.add("on");
+      b.setAttribute("aria-label", lindo(d));
+      b.addEventListener("click", () => { dia = d; hora = null; cal(); slots(); build(); });
+      grid.appendChild(b);
+    }
+  }
+  function slots() {
+    document.getElementById("slots-day").textContent = dia ? "Horarios del " + DIAS[dia.getDay()] + " " + dia.getDate() : "Elegí un día";
+    document.getElementById("rt-cont").disabled = !(dia && hora);
+    const fill = (el, list) => { el.innerHTML = ""; list.forEach(h => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "slot" + (h === hora ? " on" : ""); b.textContent = h; b.disabled = !dia;
+      b.addEventListener("click", () => { hora = h; slots(); build(); }); el.appendChild(b); }); };
+    fill(document.getElementById("slots-am"), HORARIOS.filter(h => parseInt(h) < 15));
+    fill(document.getElementById("slots-pm"), HORARIOS.filter(h => parseInt(h) >= 15));
+  }
+  document.getElementById("cal-prev").addEventListener("click", () => { mes = new Date(mes.getFullYear(), mes.getMonth() - 1, 1); cal(); });
+  document.getElementById("cal-next").addEventListener("click", () => { mes = new Date(mes.getFullYear(), mes.getMonth() + 1, 1); cal(); });
+
+  function build() {
+    const v = Object.fromEntries(ids.map(id => [id, document.getElementById(id).value.trim()]));
+    let fecha = v["t-fecha"];
+    if (fecha) { const [y, m, d] = fecha.split("-"); fecha = `${d}/${m}/${y}`; }
+    const lines = [
+      "Hola! Quiero reservar un turno en Sakura 🌸",
+      v["t-nombre"] && "Soy " + v["t-nombre"] + ".",
+      dia && hora ? "Turno: " + lindo(dia) + " a las " + hora + " hs" : (dia ? "Día: " + lindo(dia) + " (horario a coordinar)" : null),
+      "Evento: " + v["t-evento"] + (fecha ? " (" + fecha + ")" : ""),
+      !v["t-con"] ? "Vengo sola" : "Vengo con acompañante",
+      v["t-color"] && v["t-color"],
+      v["t-nota"] && v["t-nota"],
+      document.getElementById("t-pague").checked ? "Ya pagué la seña de " + peso(SENA_TURNO) + ", te mando el comprobante 🧾" : (LINK_SENA || ALIAS_SENA ? null : "¿Me pasás cómo abonar la seña de " + peso(SENA_TURNO) + "?")
+    ].filter(Boolean);
+    send.href = waLink(lines.join("\n"));
+
+  }
+  ids.forEach(id => { const el = document.getElementById(id); el.addEventListener("input", build); el.addEventListener("change", build); });
+  // seña del turno
+  const pagar = document.getElementById("t-pagar"), pague = document.getElementById("t-pague");
+  if (LINK_SENA) { pagar.href = LINK_SENA; pagar.hidden = false; }
+  if (ALIAS_SENA) { const al = document.getElementById("t-alias"); al.textContent = (LINK_SENA ? "O transferí al alias " : "Transferí la seña al alias ") + ALIAS_SENA; al.hidden = false; }
+  if (!LINK_SENA && !ALIAS_SENA) document.getElementById("t-sinlink").hidden = false;
+  pagar.addEventListener("click", () => { pague.checked = true; build(); });
+  pague.addEventListener("change", build);
+  document.getElementById("turno-form").addEventListener("submit", e => e.preventDefault());
+  // pasos: 1 día y horario, 2 tus datos
+  const p1 = document.getElementById("rt-p1"), p2 = document.getElementById("rt-p2"), stepEl = document.getElementById("rt-step");
+  const irPaso = (n) => {
+    p1.hidden = n !== 1; p2.hidden = n !== 2; stepEl.textContent = n + " de 2";
+    document.querySelector(".rt-head").hidden = n === 2;
+    if (n === 2) document.getElementById("rt-resumen").textContent = DIAS[dia.getDay()].slice(0, 3).replace(/^./, c => c.toUpperCase()) + ". " + dia.getDate() + " de " + MESES[dia.getMonth()] + " · " + hora + " h";
+    (n === 2 ? p2 : document.getElementById("turnos")).scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  document.getElementById("rt-cont").addEventListener("click", () => { if (dia && hora) irPaso(2); });
+  document.getElementById("rt-back").addEventListener("click", () => irPaso(1));
+  document.querySelectorAll("[data-con]").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-con]").forEach(x => x.setAttribute("aria-checked", String(x === btn)));
+    document.getElementById("t-con").value = btn.dataset.con; build();
+  }));
+  // guarda el pedido en el panel (si la base está conectada); WhatsApp se abre igual
+  let ultimo = "";
+  send.addEventListener("click", () => {
+    const cfg = window.SAKURA_SUPABASE || {};
+    if (!dia || !hora || !cfg.url || !cfg.key || !window.supabase) return;
+    const v = Object.fromEntries(ids.map(id => [id, document.getElementById(id).value.trim()]));
+    const fila = { dia: key(dia), hora, nombre: v["t-nombre"] || null, evento: v["t-evento"] || null, fecha_evento: v["t-fecha"] || null,
+      acompanantes: +v["t-con"] || 0, busca: v["t-color"] || null, nota: v["t-nota"] || null,
+      sena: document.getElementById("t-pague").checked ? "avisó que pagó" : "pendiente" };
+    const firma = JSON.stringify(fila); if (firma === ultimo) return; ultimo = firma;
+    try { window.supabase.createClient(cfg.url, cfg.key).from("turnos").insert(fila).then(r => { if (r.error) console.warn(r.error); }); } catch (e) { console.warn(e); }
+  });
+  cal(); slots(); build();
+})();
+
+/* catálogo en vivo y panel para la dueña */
+(async function () {
+  if (!MOSTRAR_CATALOGO) return;
+  if (!window.claude || typeof window.claude.use !== "function") return;
+  let db = null;
+  try { db = await window.claude.use("db"); } catch (e) { db = null; }
+  if (!db) return;
+  let user = null, canEdit = false;
+  try { user = await window.claude.use("user"); canEdit = !!(user && await user.canEdit()); } catch (e) { canEdit = false; }
+  const col = db.collection("vestidos");
+  const status = document.getElementById("a-status");
+  const say = msg => { status.textContent = msg; };
+  const timer = setTimeout(() => { if (canEdit) say("No pudimos cargar tus vestidos todavía. Revisá la conexión; la lista se actualiza sola."); }, 10000);
+  col.onSnapshot(snap => {
+    if (!snap.metadata.fromCache) clearTimeout(timer);
+    live = snap.docs.map(d => Object.assign({ id: d.id }, d.data()))
+      .sort((a, b) => String(a.creado || "").localeCompare(String(b.creado || "")));
+    buildColors(); render();
+    if (canEdit) renderAdmin();
+  }, () => { clearTimeout(timer); if (canEdit) say("No se pudo leer la lista de vestidos."); });
+  if (!canEdit) return;
+
+  document.getElementById("admin").hidden = false;
+  document.getElementById("admin-link").hidden = false;
+  let assets = null;
+  try { assets = await window.claude.use("assets"); } catch (e) { assets = null; }
+  if (!assets) { document.getElementById("a-foto").disabled = true; }
+
+  const form = document.getElementById("a-form");
+  const save = document.getElementById("a-save");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const val = id => document.getElementById(id).value.trim();
+    const nombre = val("a-nombre");
+    if (!nombre) { say("Poné un nombre para el vestido."); document.getElementById("a-nombre").focus(); return; }
+    save.disabled = true; say("Guardando…");
+    try {
+      let fotoId = null;
+      const file = document.getElementById("a-foto").files[0];
+      if (file && assets) { say("Subiendo la foto…"); const r = await assets.upload(file); fotoId = r.id; }
+      const eventos = ["Casamiento", "15", "Egresados", "Fiesta"].filter(ev => document.getElementById("a-ev-" + ev).checked);
+      await col.doc().set({
+        nombre, significado: val("a-significado"), color: val("a-color") || "Otro", hex: document.getElementById("a-hex").value,
+        largo: val("a-largo"), forma: val("a-forma"), eventos, brillo: document.getElementById("a-brillo").checked,
+        talles: val("a-talles"), precio: Number(val("a-precio")) || 0, desc: val("a-desc"),
+        fotoId, visible: true, creado: new Date().toISOString()
+      });
+      form.reset(); say("Listo, " + nombre + " ya está en el catálogo.");
+    } catch (err) {
+      say(err && err.code === "quota_exceeded" ? "Se llenó el espacio para vestidos o fotos. Borrá alguno que ya no uses." : "No se pudo guardar. Probá de nuevo en un momento.");
+    } finally { save.disabled = false; }
+  });
+
+  function renderAdmin() {
+    const box = document.getElementById("a-list");
+    box.innerHTML = "";
+    if (!live || !live.length) { box.innerHTML = '<p class="hint">Todavía no cargaste vestidos: el catálogo muestra los ejemplos.</p>'; return; }
+    live.forEach(v => {
+      const row = document.createElement("div");
+      row.className = "arow" + (v.visible === false ? " hidden-row" : "");
+      row.innerHTML = `<div class="th">${v.fotoId ? `<img src="/_blob/${encodeURIComponent(v.fotoId)}" alt="">` : dressSVG(v)}</div>
+        <div><b>${esc(v.nombre)}</b><div class="sub">${esc(v.color)} · ${esc(v.largo)} · ${peso(v.precio)}${v.visible === false ? " · oculto" : ""}</div></div>
+        <div class="acts"></div>`;
+      const acts = row.querySelector(".acts");
+      const tog = document.createElement("button");
+      tog.type = "button"; tog.textContent = v.visible === false ? "Mostrar" : "Ocultar";
+      tog.addEventListener("click", async () => { tog.disabled = true; try { await col.doc(v.id).update({ visible: v.visible === false }); } catch (e) { say("No se pudo cambiar."); tog.disabled = false; } });
+      const del = document.createElement("button");
+      del.type = "button"; del.className = "danger"; del.textContent = "Eliminar";
+      let armed = false;
+      del.addEventListener("click", async () => {
+        if (!armed) { armed = true; del.textContent = "¿Seguro? Eliminar"; setTimeout(() => { armed = false; del.textContent = "Eliminar"; }, 4000); return; }
+        del.disabled = true;
+        try { await col.doc(v.id).delete(); say(v.nombre + " se eliminó."); } catch (e) { say("No se pudo eliminar."); del.disabled = false; }
+      });
+      acts.append(tog, del);
+      box.appendChild(row);
+    });
+  }
+})();
+
+/* flores de la rama */
+(function () {
+  const g = document.getElementById("blooms");
+  if (!g) return;
+  const petal = "M0,-3 C-8,-8 -10,-21 -4.5,-27 L0,-23 L4.5,-27 C10,-21 8,-8 0,-3 Z";
+  [[215,192,1],[338,112,0.9],[126,218,0.75],[402,96,0.7],[268,196,0.55],[300,172,0.6]].forEach(([x,y,s]) => {
+    const fl = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    fl.setAttribute("transform", `translate(${x} ${y}) scale(${s})`);
+    for (let i = 0; i < 5; i++) {
+      const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", petal); p.setAttribute("transform", `rotate(${i * 72})`);
+      fl.appendChild(p);
+    }
+    const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("r", "3.5"); c.setAttribute("fill", "#5A1F33");
+    fl.appendChild(c);
+    g.appendChild(fl);
+  });
+})();
+
+/* pétalos que caen en el inicio */
+(function () {
+  const cv = document.getElementById("petals");
+  if (!cv) return;
+  const ctx = cv.getContext("2d");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W = 0, H = 0, ps = [];
+  function size() {
+    const r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+  }
+  function make(y) {
+    return { x: Math.random() * W, y: y ?? Math.random() * H, s: 4 + Math.random() * 5, vy: 0.3 + Math.random() * 0.5, vx: -0.2 + Math.random() * 0.5, a: Math.random() * 6.28, va: -0.02 + Math.random() * 0.04, o: 0.35 + Math.random() * 0.4 };
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ps.forEach(p => {
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.globalAlpha = p.o; ctx.fillStyle = "#F2A7BC";
+      ctx.beginPath(); ctx.ellipse(0, 0, p.s, p.s * 0.6, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    });
+  }
+  function tick() {
+    ps.forEach(p => { p.y += p.vy; p.x += p.vx + Math.sin(p.y / 40) * 0.3; p.a += p.va; if (p.y > H + 10) Object.assign(p, make(-10)); });
+    draw(); requestAnimationFrame(tick);
+  }
+  size(); ps = Array.from({ length: 18 }, () => make());
+  window.addEventListener("resize", size);
+  if (reduce) draw(); else tick();
+})();
+</script>
+</body>
+</html>
