@@ -372,28 +372,52 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .vc-t { display: flex; gap: 4px; flex: none; }
 .tz { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 5px; border-radius: 999px; background: var(--blush); border: 1px solid #E8BCCB; font-size: 11px; font-weight: 600; color: var(--ink); }
 .tz.u { font-size: 10px; }
-/* ficha */
-.vd { border: 0; padding: 0; width: min(880px, 96vw); max-height: 92vh; border-radius: 16px; background: var(--paper); color: var(--ink); overflow: auto; }
-.vd::backdrop { background: rgba(60, 20, 35, .45); }
-.vd-x { position: absolute; right: 10px; top: 8px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.95); font-size: 26px; line-height: 1; color: var(--ink); cursor: pointer; }
-.vd-in { display: grid; grid-template-columns: 1fr 1fr; }
-.vd-pic { position: relative; background: var(--blush); min-height: 420px; }
+/* ficha del vestido (pantalla completa) */
+.vd { border: 0; padding: 0; margin: 0; width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; background: var(--paper); color: var(--ink); overflow: hidden; }
+.vd[open] { display: flex; flex-direction: column; }
+.vd::backdrop { background: var(--paper); }
+.vd-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex: none; }
+.vd-top .brand { font-family: var(--display); font-size: 22px; letter-spacing: 6px; color: var(--ink); }
+.vd-res { background: var(--ink); color: var(--paper); text-decoration: none; font-family: var(--display); font-size: 17px; padding: 8px 16px; border-radius: 8px; white-space: nowrap; }
+.vd-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.vd-back { border: 0; background: none; padding: 14px 16px 10px; cursor: pointer; font: inherit; font-size: 16px; }
+.vd-in { display: grid; grid-template-columns: 61% 1fr; gap: 0 14px; max-width: 1100px; margin: 0 auto; padding-bottom: 20px; }
+.vd-pic { position: relative; background: var(--blush); aspect-ratio: 3 / 6.4; align-self: start; position: sticky; top: 0; }
 .vd-pic img, .vd-pic svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.vd-body { padding: 28px 24px 24px; display: grid; gap: 10px; align-content: start; }
-.vd-body h3 { font-family: var(--display); font-weight: 500; font-size: 34px; margin: 0; line-height: 1.1; }
-.vd-price { font-family: var(--display); font-size: 24px; margin: 0; }
-.vd-price small { font-family: var(--body); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); }
-.vd-sw { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.vd-sw span, .vd-col, .vd-tal { font-size: 14px; margin: 0; color: var(--ink-soft); }
-.vd-tal strong { color: var(--ink); }
-.vd-desc { font-size: 15px; line-height: 1.55; margin: 0; }
-.vd .btn.wa-card { margin-top: 6px; font-size: 13px; }
-.vd-turno { text-align: center; font-size: 14px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; padding: 6px; }
-@media (max-width: 640px) {
-  .vd { width: 100vw; max-width: 100vw; max-height: 100dvh; height: 100dvh; border-radius: 0; margin: 0; }
-  .vd-in { grid-template-columns: 1fr; }
-  .vd-pic { min-height: 0; aspect-ratio: 3 / 4; }
-  .vd-body { padding: 18px 18px 28px; }
+.vd-body { padding: 18px 14px 10px 0; }
+.vd-body h3 { font-family: var(--display); font-weight: 500; font-size: clamp(34px, 9vw, 56px); line-height: 1.05; margin: 0 0 14px; }
+.vd-lbl { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-soft); margin: 0; }
+.vd-price { font-family: var(--body); font-weight: 700; font-size: clamp(22px, 5.6vw, 32px); margin: 2px 0 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vd-body hr { border: 0; border-top: 1px solid #E3C3CE; margin: 16px 0; }
+.vd-row { display: flex; align-items: center; gap: 14px; margin: 8px 0; }
+.vd-row > span { font-family: var(--display); font-size: 18px; min-width: 52px; }
+.vd-sw { display: flex; gap: 8px; flex-wrap: wrap; }
+.dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #E3C3CE; cursor: pointer; padding: 0; }
+.dot[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ink); }
+.vd-colname { font-size: 12px; color: var(--ink-soft); margin: -2px 0 6px 66px; }
+.vd-tz { display: flex; gap: 6px; flex-wrap: wrap; }
+.tzb { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 6px; border-radius: 999px; background: #F6D9E2; border: 1px solid #E8BCCB; font-family: var(--display); font-style: italic; font-size: 19px; color: var(--ink); }
+.tzb.u { font-size: 14px; font-style: normal; }
+.vd-body h4 { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 26px; margin: 0 0 8px; }
+.vd-desc { font-family: var(--display); font-size: 17px; line-height: 1.3; margin: 0 0 8px; }
+.vd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.vd-tags span { background: #F6D9E2; border: 1px solid #E8BCCB; border-radius: 999px; padding: 3px 9px; font-size: 12px; }
+.vd-med { border-top: 1px solid #E3C3CE; border-bottom: 1px solid #E3C3CE; margin-top: 14px; }
+.vd-med summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 4px; padding: 12px 0; font-family: var(--display); font-size: 16px; white-space: nowrap; cursor: pointer; }
+.vd-med summary::-webkit-details-marker { display: none; }
+.vd-med summary svg { width: 18px; height: 18px; transition: transform .2s; }
+.vd-med[open] summary svg { transform: rotate(180deg); }
+.vd-med table { width: 100%; font-size: 12px; border-collapse: collapse; margin-bottom: 10px; }
+.vd-med th, .vd-med td { padding: 4px 2px; text-align: left; border-bottom: 1px solid var(--line); }
+.vd-foot { flex: none; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--line); }
+.vd-wa { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 8px; background: #1E9E4A; color: #fff; text-decoration: none; font-size: 18px; font-weight: 600; max-width: 1100px; margin: 0 auto; }
+.vd-wa svg { width: 28px; height: 28px; }
+.vd-wa:hover { background: #188A40; }
+@media (min-width: 900px) {
+  .vd-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 40px; padding: 0 24px 30px; }
+  .vd-pic { aspect-ratio: 3 / 4; }
+  .vd-body { padding-top: 10px; }
+}
 }
 
 .sena { margin-top: 6px; padding: 18px; border: 1px solid #E8BCCB; border-radius: 14px; background: #fff; }
@@ -476,8 +500,15 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   </section>
 
   <dialog class="vd" id="vd" aria-labelledby="vd-nombre">
-    <button type="button" class="vd-x" id="vd-x" aria-label="Cerrar">×</button>
-    <div class="vd-in" id="vd-in"></div>
+    <div class="vd-top">
+      <span class="brand" aria-hidden="true"><svg class="brand-branch" viewBox="0 0 64 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 27 C18 24 30 22 42 14 C50 9 56 6 62 2"/><path d="M24 23 C26 18 29 15 33 13"/><path d="M44 13 C45 8 48 6 52 4"/></g><g fill="#E07A9A"><circle cx="34" cy="12" r="2.6"/><circle cx="53" cy="4" r="2.4"/><circle cx="16" cy="22" r="2"/><circle cx="44" cy="10" r="1.8"/><circle cx="60" cy="3" r="1.6"/></g></svg>SAKURA</span>
+      <a class="vd-res" href="#turnos" id="vd-res">Reservar turno</a>
+    </div>
+    <div class="vd-scroll">
+      <button type="button" class="cat-back vd-back" id="vd-x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Catálogo</span></button>
+      <div class="vd-in" id="vd-in"></div>
+    </div>
+    <div class="vd-foot"><a class="vd-wa" id="vd-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a></div>
   </dialog>
 
   <section class="block" id="accesorios" hidden>
@@ -1270,27 +1301,38 @@ let vdSel = null;
 function abrirVestido(v, ci) {
   vdSel = { v, ci: ci || 0, pi: 0 };
   pintarFicha();
-  if (!vd.open) { if (vd.showModal) vd.showModal(); else vd.setAttribute("open", ""); }
+  if (!vd.open) {
+    if (vd.showModal) vd.showModal(); else vd.setAttribute("open", "");
+    try { history.pushState({ ficha: 1 }, ""); fichaHist = true; } catch (e) {}
+  }
+  const sc = vd.querySelector(".vd-scroll"); if (sc) sc.scrollTop = 0;
 }
 function pintarFicha() {
   const { v } = vdSel, vs = variants(v), c = vs[vdSel.ci] || vs[0], fotos = c.fotos || [];
   const pi = Math.min(vdSel.pi, Math.max(0, fotos.length - 1));
   const tal = c.talle || v.talles || "";
+  const tz = tallesDe(v, c);
   const medidas = (Array.isArray(v.medidas) ? v.medidas : []).filter(m => !c.talle || c.talle.split(/\s*·\s*/).some(t => String(m.talle).startsWith(t)));
   const texto = "Hola! Me interesa el vestido " + tituloDe(v) + (c.color ? " en " + c.color.toLowerCase() : "") + (tal && !/único/i.test(tal) ? " talle " + tal : "") + " 🌸 " + (state.fecha ? "¿Está disponible para el " + fechaLinda(state.fecha) + "?" : "¿Está disponible para mi fecha?");
+  document.getElementById("vd-wa").href = waLink(texto);
+  const parrafos = String(v.desc || "").split(/(?<=\.)\s+/).filter(Boolean);
   document.getElementById("vd-in").innerHTML = `
     <div class="vd-pic">${fotos.length ? `<img src="${esc(fotos[pi])}" alt="Vestido ${esc(tituloDe(v, c))}">` : dressSVG(Object.assign({}, v, { hex: c.hex }))}
       ${fotos.length > 1 ? `<button type="button" class="vc-flip" id="vd-flip">${pi ? "Ver frente" : "Ver " + esc(c.vista2 || "espalda")}</button>` : ""}</div>
     <div class="vd-body">
       <h3 id="vd-nombre">${esc(tituloDe(v))}</h3>
       ${v.marca ? `<p class="marca">Marca: ${esc(v.marca)}</p>` : ""}
-      <p class="vd-price">${v.precio ? peso(v.precio) : "Consultar"} <small>alquiler</small></p>
-      ${vs.length > 1 ? `<div class="vd-sw" role="group" aria-label="Colores">${vs.map((cc, k) => `<button type="button" class="swatch" data-vdc="${k}" style="background:${safeHex(cc.hex)}" aria-label="${esc(cc.color)}" aria-pressed="${k === vdSel.ci}"></button>`).join("")}<span>${esc(c.color || "")}</span></div>` : (c.color ? `<p class="vd-col">${esc(c.color)}</p>` : "")}
-      <p class="vd-tal">Talle <strong>${esc(tal || "a consultar")}</strong>${v.largo ? " · " + esc(v.largo.toLowerCase()) : ""}</p>
-      <p class="vd-desc">${esc(v.desc || "")}</p>
-      ${medidas.length ? `<details class="medidas"><summary>Ver medidas (cm)</summary><table><thead><tr><th>Talle</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead><tbody>${medidas.map(m => `<tr><td>${esc(m.talle)}</td><td>${esc(m.busto)}</td><td>${esc(m.cintura)}</td><td>${esc(m.cadera)}</td></tr>`).join("")}</tbody></table></details>` : ""}
-      <a class="btn wa-card" id="vd-wa" href="${esc(waLink(texto))}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a>
-      <a class="vd-turno" href="#turnos" id="vd-turno">Reservar turno para probármelo</a>
+      <p class="vd-lbl">Alquiler</p>
+      <p class="vd-price">${v.precio ? peso(v.precio) : "Consultar"}</p>
+      <hr>
+      <div class="vd-row"><span>Color</span><div class="vd-sw" role="group" aria-label="Colores">${vs.map((cc, k) => `<button type="button" class="dot" data-vdc="${k}" style="background:${safeHex(cc.hex)}" title="${esc(cc.color)}" aria-label="${esc(cc.color)}" aria-pressed="${k === vdSel.ci}"></button>`).join("")}</div></div>
+      <p class="vd-colname">${esc(c.color || "")}</p>
+      <div class="vd-row"><span>Talle</span><div class="vd-tz">${tz.length ? tz.map(t => `<span class="tzb${t === "Único" ? " u" : ""}">${esc(t)}</span>`).join("") : `<em>a consultar</em>`}</div></div>
+      <hr>
+      <h4>Detalles</h4>
+      ${parrafos.map(t => `<p class="vd-desc">${esc(t)}</p>`).join("")}
+      ${(v.eventos || []).length ? `<div class="vd-tags">${v.eventos.map(e => `<span>#${esc(e === "15" ? "15años" : e)}</span>`).join("")}</div>` : ""}
+      ${medidas.length ? `<details class="vd-med"><summary>Ver medidas (cm)<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><table><thead><tr><th>Talle</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead><tbody>${medidas.map(m => `<tr><td>${esc(m.talle)}</td><td>${esc(m.busto)}</td><td>${esc(m.cintura)}</td><td>${esc(m.cadera)}</td></tr>`).join("")}</tbody></table></details>` : ""}
     </div>`;
 }
 document.getElementById("vd-in").addEventListener("click", e => {
@@ -1298,16 +1340,24 @@ document.getElementById("vd-in").addEventListener("click", e => {
   const { v } = vdSel, vs = variants(v);
   if (e.target.closest("#vd-flip")) { vdSel.pi = vdSel.pi ? 0 : 1; if (vdSel.pi) registrar("espalda", v, (vs[vdSel.ci] || {}).color); pintarFicha(); return; }
   const sw = e.target.closest("[data-vdc]");
-  if (sw) { vdSel.ci = +sw.dataset.vdc; vdSel.pi = 0; registrar("color", v, (vs[vdSel.ci] || {}).color); pintarFicha(); return; }
-  if (e.target.closest("#vd-wa")) { registrar("consulta", v, (vs[vdSel.ci] || {}).color); return; }
-  if (e.target.closest("#vd-turno")) {
-    const c = vs[vdSel.ci] || {}, campo = document.getElementById("t-color");
-    if (campo) { campo.value = "Quiero probarme el " + tituloDe(v) + (c.color ? " en " + c.color.toLowerCase() : ""); campo.dispatchEvent(new Event("input")); }
-    vd.close();
-  }
+  if (sw) { vdSel.ci = +sw.dataset.vdc; vdSel.pi = 0; registrar("color", v, (vs[vdSel.ci] || {}).color); pintarFicha(); }
 });
-document.getElementById("vd-x").addEventListener("click", () => vd.close());
-vd.addEventListener("click", e => { if (e.target === vd) vd.close(); });
+document.getElementById("vd-wa").addEventListener("click", () => { if (vdSel) registrar("consulta", vdSel.v, (variants(vdSel.v)[vdSel.ci] || {}).color); });
+document.getElementById("vd-res").addEventListener("click", () => {
+  if (!vdSel) return;
+  const c = variants(vdSel.v)[vdSel.ci] || {}, campo = document.getElementById("t-color");
+  if (campo) { campo.value = "Quiero probarme el " + tituloDe(vdSel.v) + (c.color ? " en " + c.color.toLowerCase() : ""); campo.dispatchEvent(new Event("input")); }
+  cerrarFicha(true);
+});
+// el botón "atrás" del celular cierra la ficha en vez de salir de la página
+let fichaHist = false;
+function cerrarFicha(sinHist) {
+  if (vd.open) vd.close();
+  if (fichaHist && !sinHist) { fichaHist = false; history.back(); } else fichaHist = false;
+}
+window.addEventListener("popstate", () => { if (vd.open) { fichaHist = false; vd.close(); } });
+vd.addEventListener("cancel", e => { e.preventDefault(); cerrarFicha(); });
+document.getElementById("vd-x").addEventListener("click", () => cerrarFicha());
 
 sync(); render();
 
