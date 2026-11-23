@@ -192,7 +192,7 @@ section.block { padding-block: 72px; border-bottom: 1px solid var(--line); }
 /* forms */
 .tform, .aform { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; max-width: 760px; }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field.full { grid-column: 1 / -1; }
+.field.full, .sena.full { grid-column: 1 / -1; }
 .field label, .field legend { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); }
 .field input, .field select, .field textarea {
   font-family: var(--body); font-size: 15px; color: var(--ink); background: var(--paper);
@@ -336,6 +336,78 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .pasos li { grid-template-columns: 62px 1fr; }
   .como-btn { font-size: 17px; letter-spacing: 4px; gap: 16px; }
 }
+
+/* catálogo */
+.cat { background: var(--paper); padding-block: 22px 56px; border-top: 1px solid var(--line); }
+.cat-back { display: inline-flex; align-items: center; gap: 4px; color: var(--ink); font-size: 16px; text-decoration: none; }
+.cat-back svg { width: 18px; height: 18px; }
+.cat-back span { text-decoration: underline; text-underline-offset: 3px; }
+.cat-title { font-family: var(--display); font-weight: 500; font-size: clamp(34px, 8.5vw, 52px); line-height: 1.1; margin: 10px 0 18px; }
+.cat-filters { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 10px; max-width: 720px; }
+.cf { position: relative; display: flex; align-items: center; gap: 8px; min-height: 48px; border: 1.5px solid var(--ink); border-radius: 8px; background: #fff; color: var(--ink); padding: 0 12px; font-size: 16px; cursor: pointer; }
+.cf.on { background: var(--blush); border-color: var(--petal); }
+.cf select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; font: inherit; color: inherit; width: 100%; height: 46px; padding: 0 22px 0 4px; cursor: pointer; outline: none; }
+.cf > svg { width: 18px; height: 18px; flex: none; pointer-events: none; }
+.cf:not(.cf-date) > svg { position: absolute; right: 12px; }
+.cf-date { justify-content: center; white-space: nowrap; }
+.cf-date input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+.cf:focus-within { box-shadow: 0 0 0 3px rgba(224,122,154,.35); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.cat-info { font-size: 13px; color: var(--ink-soft); margin: 12px 0 10px; min-height: 18px; }
+.cat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 12px; }
+@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 8px; }
+  .cat-filters { grid-template-columns: 0.9fr 0.9fr 1.3fr; gap: 8px; }
+  .cf { font-size: 15px; padding: 0 10px; gap: 6px; }
+  .cf-date { font-size: 14.5px; }
+}
+.vc-ph { position: relative; aspect-ratio: 3 / 4.15; overflow: hidden; background: var(--blush); }
+.vc-pic { position: absolute; inset: 0; border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%; }
+.vc-pic img, .vc-pic svg { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.vc-flip { position: absolute; right: 8px; bottom: 10px; border: 0; border-radius: 999px; background: rgba(255,255,255,.95); color: var(--ink); font: 500 14px var(--body); padding: 8px 15px; box-shadow: 0 2px 8px rgba(90,31,51,.12); cursor: pointer; }
+.vc-cap { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 6px; border: 0; background: none; padding: 9px 2px 2px; text-align: left; cursor: pointer; color: var(--ink); }
+.vc-n { font-family: var(--display); font-size: clamp(18px, 4.6vw, 22px); line-height: 1.15; }
+.vc-n::first-letter { text-transform: uppercase; }
+.vc-t { display: flex; gap: 4px; flex: none; }
+.tz { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 5px; border-radius: 999px; background: var(--blush); border: 1px solid #E8BCCB; font-size: 11px; font-weight: 600; color: var(--ink); }
+.tz.u { font-size: 10px; }
+/* ficha */
+.vd { border: 0; padding: 0; width: min(880px, 96vw); max-height: 92vh; border-radius: 16px; background: var(--paper); color: var(--ink); overflow: auto; }
+.vd::backdrop { background: rgba(60, 20, 35, .45); }
+.vd-x { position: absolute; right: 10px; top: 8px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.95); font-size: 26px; line-height: 1; color: var(--ink); cursor: pointer; }
+.vd-in { display: grid; grid-template-columns: 1fr 1fr; }
+.vd-pic { position: relative; background: var(--blush); min-height: 420px; }
+.vd-pic img, .vd-pic svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.vd-body { padding: 28px 24px 24px; display: grid; gap: 10px; align-content: start; }
+.vd-body h3 { font-family: var(--display); font-weight: 500; font-size: 34px; margin: 0; line-height: 1.1; }
+.vd-price { font-family: var(--display); font-size: 24px; margin: 0; }
+.vd-price small { font-family: var(--body); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); }
+.vd-sw { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.vd-sw span, .vd-col, .vd-tal { font-size: 14px; margin: 0; color: var(--ink-soft); }
+.vd-tal strong { color: var(--ink); }
+.vd-desc { font-size: 15px; line-height: 1.55; margin: 0; }
+.vd .btn.wa-card { margin-top: 6px; font-size: 13px; }
+.vd-turno { text-align: center; font-size: 14px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; padding: 6px; }
+@media (max-width: 640px) {
+  .vd { width: 100vw; max-width: 100vw; max-height: 100dvh; height: 100dvh; border-radius: 0; margin: 0; }
+  .vd-in { grid-template-columns: 1fr; }
+  .vd-pic { min-height: 0; aspect-ratio: 3 / 4; }
+  .vd-body { padding: 18px 18px 28px; }
+}
+
+.sena { margin-top: 6px; padding: 18px; border: 1px solid #E8BCCB; border-radius: 14px; background: #fff; }
+.sena-t { margin: 0 0 14px; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+.sena-t strong { display: block; font-family: var(--display); font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.sena-pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.sena-pasos li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; }
+.sn { width: 28px; height: 28px; border-radius: 50%; background: var(--blush); border: 1px solid #E8BCCB; display: grid; place-items: center; font-weight: 600; font-size: 13px; color: var(--ink); }
+.sena-pasos .hint { margin: 6px 0 0; }
+.btn.mp { letter-spacing: .5px; text-transform: none; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; background: #009EE3; border-color: #009EE3; color: #fff; }
+.btn.mp:hover { background: #0086C3; color: #fff; }
+.btn.mp svg { width: 18px; height: 18px; }
+.chk { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 14px; cursor: pointer; }
+.chk input { width: 18px; height: 18px; accent-color: var(--petal); }
 </style>
 </head>
 <body>
@@ -378,7 +450,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <h2>Cómo funciona</h2>
       <p class="como-sub">El showroom, para vos y tu acompañante.</p>
       <ol class="pasos">
-        <li><span class="pn">01</span><div><h3>Pedí tu turno</h3><p>Elegí día y horario en el calendario y envianos la solicitud por WhatsApp. Te confirmamos por ahí.</p></div></li>
+        <li><span class="pn">01</span><div><h3>Pedí tu turno</h3><p>Elegí día y horario, aboná la seña de $ 10.000 y envianos la solicitud por WhatsApp. Te confirmamos por ahí.</p></div></li>
         <li><span class="pn">02</span><div><h3>Probate los vestidos</h3><p>Elegí con calma en un probador privado.</p></div></li>
         <li><span class="pn">03</span><div><h3>Reservá el tuyo</h3><p>Dejá una seña del 50 % y retiralo uno o dos días antes del evento.</p></div></li>
         <li><span class="pn">04</span><div><h3>Usalo y devolvelo</h3><p>Traelo sin lavar uno o dos días después del evento.</p></div></li>
@@ -387,19 +459,24 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </section>
 
-  <section class="block" id="catalogo" hidden>
+  <section class="cat" id="catalogo" hidden>
     <div class="wrap">
-      <div class="sec-head"><span class="num">ii.</span><h2>Los vestidos</h2><p>Cada vestido lleva el nombre de una palabra japonesa, como Sakura. Filtrá por largo, evento o color y consultanos por el que te guste.</p></div>
-      <div class="filters" role="group" aria-label="Filtros del catálogo">
-        <div class="fgroup" id="f-largo"><span class="lbl">Largo</span></div>
-        <div class="fgroup" id="f-talle"><span class="lbl">Talle</span></div>
-        <div class="fgroup" id="f-evento"><span class="lbl">Evento</span></div>
-        <div class="fgroup" id="f-color"><span class="lbl">Color</span></div>
+      <a class="cat-back" href="#inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Inicio</span></a>
+      <h2 class="cat-title">Catálogo de vestidos</h2>
+      <div class="cat-filters" role="group" aria-label="Filtrar vestidos">
+        <label class="cf"><span class="sr">Talle</span><select id="cf-talle"><option value="">Talle</option><option>S</option><option>M</option><option>L</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></label>
+        <label class="cf"><span class="sr">Color</span><select id="cf-color"><option value="">Color</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></label>
+        <label class="cf cf-date"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span id="cf-fecha-txt">Fecha del evento</span><input type="date" id="cf-fecha" aria-label="Fecha del evento"></label>
       </div>
-      <p class="count" id="count" aria-live="polite"></p>
-      <div class="grid" id="grid"></div>
+      <p class="cat-info" id="count" aria-live="polite"></p>
+      <div class="cat-grid" id="grid"></div>
     </div>
   </section>
+
+  <dialog class="vd" id="vd" aria-labelledby="vd-nombre">
+    <button type="button" class="vd-x" id="vd-x" aria-label="Cerrar">×</button>
+    <div class="vd-in" id="vd-in"></div>
+  </dialog>
 
   <section class="block" id="accesorios" hidden>
     <div class="wrap">
@@ -436,7 +513,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="wrap">
       <div class="sec-head"><span class="num">iv.</span><h2>Condiciones del alquiler</h2></div>
       <div class="rules">
-        <div><h3>Seña</h3><p>50 % para reservar el vestido en tu fecha. El resto, al retirarlo.</p></div>
+        <div><h3>Seña del turno</h3><p>$ 10.000 para confirmar tu turno. Se descuenta del alquiler, y si no te llevás nada te la devolvemos. Si no venís o cancelás con menos de 24 hs, se pierde.</p></div>
+        <div><h3>Seña del vestido</h3><p>50 % para reservar el vestido en tu fecha. El resto, al retirarlo.</p></div>
         <div><h3>Depósito</h3><p>Un depósito en garantía al retirar, que se devuelve cuando el vestido vuelve en buen estado.</p></div>
         <div><h3>Documento</h3><p>Firmás un contrato simple con tu DNI.</p></div>
         <div><h3>Retiro</h3><p>Uno o dos días antes del evento, en el showroom.</p></div>
@@ -450,7 +528,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="wrap">
       <div class="sec-head"><span class="num">v.</span><h2>Preguntas frecuentes</h2></div>
       <details><summary>¿Con cuánta anticipación reservo?</summary><p>Lo ideal es dos a cuatro semanas antes del evento, sobre todo en temporada de fiestas. Si es para esta semana, escribinos igual y vemos qué hay disponible.</p></details>
-      <details><summary>¿Puedo probarme sin reservar?</summary><p>Sí. El turno es para probarte con tiempo; la seña solo la dejás si decidís llevarte un vestido.</p></details>
+      <details><summary>¿Por qué se paga una seña para el turno?</summary><p>Para guardarte el horario solo a vos. Son $ 10.000: si alquilás, se descuentan del vestido; si no te llevás nada, te los devolvemos en el momento. Solo se pierden si no venís o cancelás con menos de 24 horas de aviso.</p></details>
       <details><summary>¿Qué pasa si el vestido se mancha o se rompe?</summary><p>Las manchas comunes y el desgaste normal los cubre la tintorería. Si hay un daño que no se puede reparar, se descuenta del depósito según el contrato.</p></details>
       <details><summary>¿Y si no me queda bien?</summary><p>Por eso te probás antes de reservar. Si necesita un ajuste chico, lo consultamos en el turno.</p></details>
       <details><summary>¿Los vestidos del catálogo son todos los que hay?</summary><p>Son una parte: en el showroom vas a ver todos, y siempre llegan modelos nuevos. Si buscás algo puntual, escribinos por WhatsApp y te mandamos fotos.</p></details>
@@ -483,9 +561,20 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <select id="t-con"><option value="">Vengo sola</option><option value="1">Sí, con 1 persona</option><option value="2">Sí, con 2 personas</option><option value="3">Sí, con 3 o más</option></select></div>
         <div class="field"><label for="t-color">Color o estilo que buscás</label><input id="t-color" type="text" placeholder="Ej: largo, verde o bordó"></div>
         <div class="field full"><label for="t-nota">¿Algo más?</label><textarea id="t-nota" placeholder="Ej: me gustan los vestidos con espalda descubierta"></textarea></div>
-        <div class="form-actions">
-          <a class="btn" id="t-send" href="#turnos" target="_blank" rel="noopener">Pedir turno por WhatsApp</a>
-          <p class="hint" id="t-hint">Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.</p>
+        <div class="sena full">
+          <p class="sena-t"><strong>Seña para confirmar tu turno: $&nbsp;10.000</strong>Se descuenta del alquiler si te llevás un vestido. Si no te llevás nada, te la devolvemos. Solo se pierde si no venís o cancelás con menos de 24 hs.</p>
+          <ol class="sena-pasos">
+            <li><span class="sn">1</span><div>
+              <a class="btn mp" id="t-pagar" href="#" target="_blank" rel="noopener" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 9.5h19" stroke="currentColor" stroke-width="1.8"/></svg>Pagar $&nbsp;10.000 con Mercado Pago</a>
+              <p class="hint" id="t-alias" hidden></p>
+              <p class="hint" id="t-sinlink" hidden>Te pasamos cómo pagar la seña por WhatsApp.</p>
+              <label class="chk"><input type="checkbox" id="t-pague"> Ya pagué la seña</label>
+            </div></li>
+            <li><span class="sn">2</span><div>
+              <a class="btn" id="t-send" href="#turnos" target="_blank" rel="noopener">Pedir turno por WhatsApp</a>
+              <p class="hint" id="t-hint">Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.</p>
+            </div></li>
+          </ol>
         </div>
       </form>
     </div>
@@ -547,6 +636,10 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 /* ===== Datos para editar ===== */
 // Número de WhatsApp de Sakura: 549 + código de área sin 0 + número sin 15. Ej: "5491123456789"
 const WHATSAPP = "5491168124566";
+// Seña para reservar turno: monto, link de pago de Mercado Pago y alias (dejá "" lo que no uses)
+const SENA_TURNO = 10000;
+const LINK_SENA = "";
+const ALIAS_SENA = "";
 // Turnos: primer día de atención, días cerrados (0 = domingo … 6 = sábado) y horarios de inicio
 const APERTURA = "2026-12-01";
 const DIAS_CERRADOS = [0];
@@ -1066,103 +1159,16 @@ function dressSVG(v) {
   </svg>`;
 }
 
-const state = { largo: "Todos", talle: "Todos", evento: "Todos", color: "Todos" };
+const state = { talle: "", color: "", fecha: "" };
 // talles de una variante: "S", "M", "L" o "Único" (los talle único entran en cualquier talle)
 const tallesDe = (v, c) => String(c.talle || v.talles || "").split(/\s*·\s*/).map(t => /único/i.test(t) ? "Único" : t.trim().toUpperCase()).filter(Boolean);
-const okTalle = (v, c) => state.talle === "Todos" || tallesDe(v, c).some(t => t === state.talle || t === "Único");
-const okColor = c => state.color === "Todos" || c.color === state.color;
-let live = null;
+const okTalle = (v, c) => !state.talle || tallesDe(v, c).some(t => t === state.talle || t === "Único");
+const okColor = c => !state.color || c.color === state.color;
+let live = null, ocupados = null;
 const source = () => (live && live.length ? live : VESTIDOS).filter(v => v.visible !== false);
-
-function chips(containerId, key, values) {
-  const box = document.getElementById(containerId);
-  ["Todos", ...values].forEach(val => {
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "chip"; b.textContent = val; b.id = `f-${key}-${val}`;
-    b.setAttribute("aria-pressed", String(state[key] === val));
-    b.addEventListener("click", () => { state[key] = val; sync(); render(); });
-    box.appendChild(b);
-  });
-}
-chips("f-largo", "largo", ["Largo", "Corto"]);
-chips("f-talle", "talle", ["S", "M", "L"]);
-chips("f-evento", "evento", ["Casamiento", "15", "Egresados", "Fiesta"]);
-function buildColors() {
-  const box = document.getElementById("f-color");
-  box.querySelectorAll("button").forEach(b => b.remove());
-  const colores = [...new Map(source().flatMap(variants).filter(c => c.color).map(c => [c.color, safeHex(c.hex)])).entries()];
-  if (state.color !== "Todos" && !colores.some(([n]) => n === state.color)) state.color = "Todos";
-  const all = document.createElement("button");
-  all.type = "button"; all.className = "chip"; all.textContent = "Todos"; all.id = "f-color-Todos";
-  all.addEventListener("click", () => { state.color = "Todos"; sync(); render(); });
-  box.appendChild(all);
-  colores.forEach(([name, hex]) => {
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "swatch"; b.style.background = hex; b.id = "f-color-" + name;
-    b.title = name; b.setAttribute("aria-label", name);
-    b.addEventListener("click", () => { state.color = name; sync(); render(); });
-    box.appendChild(b);
-  });
-  sync();
-}
-buildColors();
-
-function sync() {
-  document.querySelectorAll(".filters button").forEach(b => {
-    const parts = b.id.split("-"); const key = parts[1]; const rest = parts.slice(2);
-    b.setAttribute("aria-pressed", String(state[key] === rest.join("-")));
-  });
-}
-
 const slugV = v => "v-" + String(v.id || v.nombre).toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-");
-function render() {
-  const list = source().filter(v =>
-    (state.largo === "Todos" || v.largo === state.largo) &&
-    (state.evento === "Todos" || (v.eventos || []).includes(state.evento)) &&
-    variants(v).some(c => okColor(c) && okTalle(v, c)));
-  const grid = document.getElementById("grid");
-  document.getElementById("count").textContent = list.length === 1 ? "1 vestido" : list.length + " vestidos";
-  if (!list.length) {
-    grid.innerHTML = `<div class="empty">No hay vestidos con esa combinación. Probá con otro filtro o escribinos: siempre llegan modelos nuevos.</div>`;
-    return;
-  }
-  grid.innerHTML = list.map((v, i) => {
-    const vs = variants(v);
-    const key = v.id || v.nombre;
-    const sel = cardSel[key] || (cardSel[key] = { ci: 0, pi: 0 });
-    if ((state.color !== "Todos" || state.talle !== "Todos") && !(vs[sel.ci] && okColor(vs[sel.ci]) && okTalle(v, vs[sel.ci]))) { const f = vs.findIndex(c => okColor(c) && okTalle(v, c)); if (f >= 0) { sel.ci = f; sel.pi = 0; } }
-    if (sel.ci >= vs.length) sel.ci = 0;
-    const c = vs[sel.ci];
-    const cLabel = (c.color || "") + (c.talle && vs.length > 1 ? " · talle " + c.talle : "");
-    const medidasV = (Array.isArray(v.medidas) ? v.medidas : []).filter(m => !c.talle || c.talle.split(/\s*·\s*/).some(t => String(m.talle).startsWith(t)));
-    const fotos = c.fotos || [];
-    if (sel.pi >= fotos.length) sel.pi = 0;
-    const pic = fotos.length
-      ? `<img src="${esc(fotos[sel.pi])}" alt="Vestido ${esc(v.nombre)} ${esc(c.color).toLowerCase()}, ${sel.pi ? (c.vista2 || "espalda") : "frente"}">`
-      : dressSVG(Object.assign({}, v, { hex: c.hex }));
-    const flip = fotos.length > 1 ? `<button type="button" class="flip" data-act="flip" data-i="${i}">${sel.pi ? "Ver frente" : "Ver " + (c.vista2 || "espalda")}</button>` : "";
-    const sw = vs.length > 1 ? `<div class="vsw" role="group" aria-label="Colores de ${esc(v.nombre)}">${vs.map((cc, k) =>
-      `<button type="button" class="swatch" data-act="color" data-i="${i}" data-k="${k}" style="background:${safeHex(cc.hex)}" aria-label="${esc(cc.color)}" aria-pressed="${k === sel.ci}"></button>`).join("")}<span class="vname">${esc(cLabel)}</span></div>` : (c.color ? `<div class="vsw"><span class="vname">${esc(cLabel)}</span></div>` : "");
-    const msg = "Hola! Me interesa el vestido " + v.nombre + (v.id === "aiko-corto" || (v.largo === "Corto" && source().some(o => o !== v && o.nombre === v.nombre)) ? " corto" : "") + (c.color ? " en " + c.color.toLowerCase() : "") + ((c.talle || v.talles) && !/único/i.test(c.talle || v.talles) ? " talle " + (c.talle || v.talles) : "") + " 🌸 ¿Está disponible para mi fecha?";
-    return `
-    <article class="card" id="${esc(slugV(v))}">
-      <div class="pic"><span class="tag">${esc(v.largo)}</span>${pic}${flip}</div>
-      <div class="body">
-        <h3>${esc(v.nombre)}</h3>
-        ${v.marca ? `<p class="marca">Marca: ${esc(v.marca)}</p>` : ""}
-        ${sw}
-        <p class="desc">${esc(v.desc)}</p>
-        <div class="meta">
-          <span class="price"><small>Alquiler</small>${v.precio ? peso(v.precio) : "Consultar"}</span>
-          <span class="sizes">${esc(c.talle || v.talles || "Consultá talles")}<br>${esc((v.eventos || []).join(" · "))}</span>
-        </div>
-        ${medidasV.length ? `<details class="medidas"><summary>Ver medidas (cm)</summary><table><thead><tr><th>Talle</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead><tbody>${medidasV.map(m => `<tr><td>${esc(m.talle)}</td><td>${esc(m.busto)}</td><td>${esc(m.cintura)}</td><td>${esc(m.cadera)}</td></tr>`).join("")}</tbody></table></details>` : ""}
-        <a class="btn wa-card" data-consulta="${i}" href="${esc(waLink(msg))}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a>
-      </div>
-    </article>`;
-  }).join("");
-  grid._list = list;
-}
+const fechaLinda = f => { if (!f) return ""; const [y, m, d] = f.split("-"); return d + "/" + m; };
+
 /* estadísticas: qué vestidos miran y consultan (se ven en el panel) */
 const nombreClave = v => {
   const otros = source().filter(o => o !== v && o.nombre === v.nombre);
@@ -1170,45 +1176,141 @@ const nombreClave = v => {
   if (v.largo === "Corto" && otros.some(o => o.largo !== "Corto")) return v.nombre + " corto";
   return v.marca ? v.nombre + " (" + v.marca + ")" : v.nombre;
 };
-function registrar(tipo, v, color) {
+function sb() {
   const cfg = window.SAKURA_SUPABASE || {};
-  if (!cfg.url || !cfg.key || !window.supabase) return;
+  if (!cfg.url || !cfg.key || !window.supabase) return null;
+  return (sb.c = sb.c || window.supabase.createClient(cfg.url, cfg.key));
+}
+function registrar(tipo, v, color) {
+  const db = sb(); if (!db) return;
   const vestido = nombreClave(v), k = "sk:" + tipo + ":" + vestido + ":" + (color || "");
   try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) {}
-  try {
-    registrar.db = registrar.db || window.supabase.createClient(cfg.url, cfg.key);
-    registrar.db.from("clics").insert({ tipo, vestido, color: color || null }).then(r => { if (r.error) console.warn(r.error); });
-  } catch (e) { console.warn(e); }
+  try { db.from("clics").insert({ tipo, vestido, color: color || null }).then(r => { if (r.error) console.warn(r.error); }); } catch (e) { console.warn(e); }
+}
+const libre = (v, c) => !ocupados || !ocupados.some(o => o.vestido === nombreClave(v) && (!o.color || o.color === c.color));
+const tituloDe = (v, c) => v.nombre + (v.largo === "Corto" && source().some(o => o !== v && o.nombre === v.nombre) ? " corto" : "") + (c && c.color ? " " + c.color.toLowerCase() : "");
+
+/* filtros */
+function buildColors() {
+  const sel = document.getElementById("cf-color");
+  const colores = [...new Set(source().flatMap(variants).map(c => c.color).filter(Boolean))].sort((a, b) => a.localeCompare(b, "es"));
+  sel.innerHTML = `<option value="">Color</option>` + colores.map(c => `<option>${esc(c)}</option>`).join("");
+  if (state.color && !colores.includes(state.color)) state.color = "";
+  sel.value = state.color;
+}
+buildColors();
+function sync() {
+  const t = document.getElementById("cf-talle"), c = document.getElementById("cf-color");
+  t.value = state.talle; c.value = state.color;
+  t.closest(".cf").classList.toggle("on", !!state.talle);
+  c.closest(".cf").classList.toggle("on", !!state.color);
+}
+document.getElementById("cf-talle").addEventListener("change", e => { state.talle = e.target.value; sync(); render(); });
+document.getElementById("cf-color").addEventListener("change", e => { state.color = e.target.value; sync(); render(); });
+document.getElementById("cf-fecha").addEventListener("change", async e => {
+  state.fecha = e.target.value; ocupados = null;
+  e.target.closest(".cf").classList.toggle("on", !!state.fecha);
+  document.getElementById("cf-fecha-txt").textContent = state.fecha ? "Evento " + fechaLinda(state.fecha) : "Fecha del evento";
+  render();
+  const db = sb();
+  if (state.fecha && db) {
+    try { const r = await db.rpc("ocupados", { f: state.fecha }); if (!r.error) { ocupados = r.data || []; render(); } } catch (err) { console.warn(err); }
+  }
+});
+
+/* grilla: una tarjeta por vestido y color */
+function items() {
+  const out = [];
+  source().forEach(v => variants(v).forEach((c, ci) => {
+    if (okColor(c) && okTalle(v, c) && libre(v, c)) out.push({ v, c, ci });
+  }));
+  return out;
+}
+function render() {
+  const grid = document.getElementById("grid");
+  const list = items();
+  document.getElementById("count").textContent = (list.length === 1 ? "1 vestido" : list.length + " vestidos")
+    + (state.fecha ? (ocupados ? " disponibles para el " + fechaLinda(state.fecha) : " · te confirmamos la disponibilidad para el " + fechaLinda(state.fecha) + " por WhatsApp") : "");
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty">No hay vestidos con esa combinación. Probá con otro filtro o escribinos: siempre llegan modelos nuevos.</div>`;
+    grid._list = []; return;
+  }
+  grid.innerHTML = list.map((it, i) => {
+    const { v, c } = it, fotos = c.fotos || [];
+    const key = (v.id || v.nombre) + "|" + it.ci;
+    const pi = Math.min(cardSel[key] || 0, Math.max(0, fotos.length - 1));
+    const pic = fotos.length ? `<img src="${esc(fotos[pi])}" alt="Vestido ${esc(tituloDe(v, c))}, ${pi ? esc(c.vista2 || "espalda") : "frente"}" loading="lazy">` : dressSVG(Object.assign({}, v, { hex: c.hex }));
+    const flip = fotos.length > 1 ? `<button type="button" class="vc-flip" data-flip="${i}">${pi ? "Ver frente" : "Ver " + esc(c.vista2 || "espalda")}</button>` : "";
+    const tal = tallesDe(v, c).map(t => `<span class="tz${t === "Único" ? " u" : ""}">${esc(t)}</span>`).join("");
+    return `<article class="vc" id="${esc(slugV(v))}-${it.ci}">
+      <div class="vc-ph"><button type="button" class="vc-pic" data-open="${i}" aria-label="Ver ${esc(tituloDe(v, c))}">${pic}</button>${flip}</div>
+      <button type="button" class="vc-cap" data-open="${i}"><span class="vc-n">${esc(tituloDe(v, c))}</span><span class="vc-t">${tal}</span></button>
+    </article>`;
+  }).join("");
+  grid._list = list;
 }
 document.getElementById("grid").addEventListener("click", e => {
   const grid = document.getElementById("grid");
-  const a = e.target.closest("a[data-consulta]");
-  if (a) {
-    const v = grid._list[Number(a.dataset.consulta)];
-    if (v) { const sel = cardSel[v.id || v.nombre]; const c = variants(v)[sel ? sel.ci : 0] || {}; registrar("consulta", v, c.color); }
-    return;
+  const f = e.target.closest("[data-flip]");
+  if (f) {
+    const it = grid._list[+f.dataset.flip]; if (!it) return;
+    const key = (it.v.id || it.v.nombre) + "|" + it.ci;
+    cardSel[key] = cardSel[key] ? 0 : 1; if (cardSel[key]) registrar("espalda", it.v, it.c.color);
+    render(); return;
   }
-  const b = e.target.closest("button[data-act]");
-  if (!b) return;
-  const v = grid._list[Number(b.dataset.i)];
-  if (!v) return;
-  const sel = cardSel[v.id || v.nombre];
-  if (b.dataset.act === "color") { sel.ci = Number(b.dataset.k); sel.pi = 0; registrar("color", v, (variants(v)[sel.ci] || {}).color); }
-  if (b.dataset.act === "flip") { sel.pi = sel.pi ? 0 : 1; if (sel.pi) registrar("espalda", v, (variants(v)[sel.ci] || {}).color); }
-  render();
+  const o = e.target.closest("[data-open]");
+  if (o) { const it = grid._list[+o.dataset.open]; if (it) abrirVestido(it.v, it.ci); }
 });
+
+/* ficha del vestido */
+const vd = document.getElementById("vd");
+let vdSel = null;
+function abrirVestido(v, ci) {
+  vdSel = { v, ci: ci || 0, pi: 0 };
+  pintarFicha();
+  if (!vd.open) { if (vd.showModal) vd.showModal(); else vd.setAttribute("open", ""); }
+}
+function pintarFicha() {
+  const { v } = vdSel, vs = variants(v), c = vs[vdSel.ci] || vs[0], fotos = c.fotos || [];
+  const pi = Math.min(vdSel.pi, Math.max(0, fotos.length - 1));
+  const tal = c.talle || v.talles || "";
+  const medidas = (Array.isArray(v.medidas) ? v.medidas : []).filter(m => !c.talle || c.talle.split(/\s*·\s*/).some(t => String(m.talle).startsWith(t)));
+  const texto = "Hola! Me interesa el vestido " + tituloDe(v) + (c.color ? " en " + c.color.toLowerCase() : "") + (tal && !/único/i.test(tal) ? " talle " + tal : "") + " 🌸 " + (state.fecha ? "¿Está disponible para el " + fechaLinda(state.fecha) + "?" : "¿Está disponible para mi fecha?");
+  document.getElementById("vd-in").innerHTML = `
+    <div class="vd-pic">${fotos.length ? `<img src="${esc(fotos[pi])}" alt="Vestido ${esc(tituloDe(v, c))}">` : dressSVG(Object.assign({}, v, { hex: c.hex }))}
+      ${fotos.length > 1 ? `<button type="button" class="vc-flip" id="vd-flip">${pi ? "Ver frente" : "Ver " + esc(c.vista2 || "espalda")}</button>` : ""}</div>
+    <div class="vd-body">
+      <h3 id="vd-nombre">${esc(tituloDe(v))}</h3>
+      ${v.marca ? `<p class="marca">Marca: ${esc(v.marca)}</p>` : ""}
+      <p class="vd-price">${v.precio ? peso(v.precio) : "Consultar"} <small>alquiler</small></p>
+      ${vs.length > 1 ? `<div class="vd-sw" role="group" aria-label="Colores">${vs.map((cc, k) => `<button type="button" class="swatch" data-vdc="${k}" style="background:${safeHex(cc.hex)}" aria-label="${esc(cc.color)}" aria-pressed="${k === vdSel.ci}"></button>`).join("")}<span>${esc(c.color || "")}</span></div>` : (c.color ? `<p class="vd-col">${esc(c.color)}</p>` : "")}
+      <p class="vd-tal">Talle <strong>${esc(tal || "a consultar")}</strong>${v.largo ? " · " + esc(v.largo.toLowerCase()) : ""}</p>
+      <p class="vd-desc">${esc(v.desc || "")}</p>
+      ${medidas.length ? `<details class="medidas"><summary>Ver medidas (cm)</summary><table><thead><tr><th>Talle</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead><tbody>${medidas.map(m => `<tr><td>${esc(m.talle)}</td><td>${esc(m.busto)}</td><td>${esc(m.cintura)}</td><td>${esc(m.cadera)}</td></tr>`).join("")}</tbody></table></details>` : ""}
+      <a class="btn wa-card" id="vd-wa" href="${esc(waLink(texto))}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a>
+      <a class="vd-turno" href="#turnos" id="vd-turno">Reservar turno para probármelo</a>
+    </div>`;
+}
+document.getElementById("vd-in").addEventListener("click", e => {
+  if (!vdSel) return;
+  const { v } = vdSel, vs = variants(v);
+  if (e.target.closest("#vd-flip")) { vdSel.pi = vdSel.pi ? 0 : 1; if (vdSel.pi) registrar("espalda", v, (vs[vdSel.ci] || {}).color); pintarFicha(); return; }
+  const sw = e.target.closest("[data-vdc]");
+  if (sw) { vdSel.ci = +sw.dataset.vdc; vdSel.pi = 0; registrar("color", v, (vs[vdSel.ci] || {}).color); pintarFicha(); return; }
+  if (e.target.closest("#vd-wa")) { registrar("consulta", v, (vs[vdSel.ci] || {}).color); return; }
+  if (e.target.closest("#vd-turno")) {
+    const c = vs[vdSel.ci] || {}, campo = document.getElementById("t-color");
+    if (campo) { campo.value = "Quiero probarme el " + tituloDe(v) + (c.color ? " en " + c.color.toLowerCase() : ""); campo.dispatchEvent(new Event("input")); }
+    vd.close();
+  }
+});
+document.getElementById("vd-x").addEventListener("click", () => vd.close());
+vd.addEventListener("click", e => { if (e.target === vd) vd.close(); });
+
 sync(); render();
 
-/* ir a un vestido del catálogo (desde la vitrina) */
-function irAVestido(v, ci) {
-  Object.keys(state).forEach(k => state[k] = "Todos");
-  sync();
-  const key = v.id || v.nombre;
-  cardSel[key] = { ci: ci || 0, pi: 0 };
-  render();
-  const el = document.getElementById(slugV(v));
-  if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.add("glow"); setTimeout(() => el.classList.remove("glow"), 1800); }
-}
+/* ir a un vestido (desde la vitrina) */
+function irAVestido(v, ci) { abrirVestido(v, ci); }
 
 /* vitrina de inicio: 4 vestidos que van cambiando */
 (function () {
@@ -1324,12 +1426,20 @@ function irAVestido(v, ci) {
       "Evento: " + v["t-evento"] + (fecha ? " (" + fecha + ")" : ""),
       !v["t-con"] ? "Vengo sola" : v["t-con"] === "1" ? "Vengo con 1 persona más" : v["t-con"] === "2" ? "Vengo con 2 personas más" : "Vengo con 3 personas o más",
       v["t-color"] && "Busco: " + v["t-color"],
-      v["t-nota"] && v["t-nota"]
+      v["t-nota"] && v["t-nota"],
+      document.getElementById("t-pague").checked ? "Ya pagué la seña de " + peso(SENA_TURNO) + ", te mando el comprobante 🧾" : (LINK_SENA || ALIAS_SENA ? null : "¿Me pasás cómo abonar la seña de " + peso(SENA_TURNO) + "?")
     ].filter(Boolean);
     send.href = waLink(lines.join("\n"));
     hint.textContent = dia && hora ? "Pedís turno para el " + lindo(dia) + " a las " + hora + " hs. Se abre WhatsApp con todo escrito." : "Elegí día y horario arriba. Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.";
   }
   ids.forEach(id => { const el = document.getElementById(id); el.addEventListener("input", build); el.addEventListener("change", build); });
+  // seña del turno
+  const pagar = document.getElementById("t-pagar"), pague = document.getElementById("t-pague");
+  if (LINK_SENA) { pagar.href = LINK_SENA; pagar.hidden = false; }
+  if (ALIAS_SENA) { const al = document.getElementById("t-alias"); al.textContent = (LINK_SENA ? "O transferí al alias " : "Transferí la seña al alias ") + ALIAS_SENA; al.hidden = false; }
+  if (!LINK_SENA && !ALIAS_SENA) document.getElementById("t-sinlink").hidden = false;
+  pagar.addEventListener("click", () => { pague.checked = true; build(); });
+  pague.addEventListener("change", build);
   document.getElementById("turno-form").addEventListener("submit", e => e.preventDefault());
   // guarda el pedido en el panel (si la base está conectada); WhatsApp se abre igual
   let ultimo = "";
@@ -1338,7 +1448,8 @@ function irAVestido(v, ci) {
     if (!dia || !hora || !cfg.url || !cfg.key || !window.supabase) return;
     const v = Object.fromEntries(ids.map(id => [id, document.getElementById(id).value.trim()]));
     const fila = { dia: key(dia), hora, nombre: v["t-nombre"] || null, evento: v["t-evento"] || null, fecha_evento: v["t-fecha"] || null,
-      acompanantes: +v["t-con"] || 0, busca: v["t-color"] || null, nota: v["t-nota"] || null };
+      acompanantes: +v["t-con"] || 0, busca: v["t-color"] || null, nota: v["t-nota"] || null,
+      sena: document.getElementById("t-pague").checked ? "avisó que pagó" : "pendiente" };
     const firma = JSON.stringify(fila); if (firma === ultimo) return; ultimo = firma;
     try { window.supabase.createClient(cfg.url, cfg.key).from("turnos").insert(fila).then(r => { if (r.error) console.warn(r.error); }); } catch (e) { console.warn(e); }
   });

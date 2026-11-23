@@ -99,6 +99,8 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 .msg { font-size: 13px; color: var(--bad); min-height: 18px; }
 .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 50; }
 .toast.on { opacity: 1; }
+.mini.sena-avisó-que-pagó { background: #FFF1D6; border-color: #E9C46A; }
+.mini.sena-pagada, .mini.sena-descontada { background: #E2F4E8; border-color: #9BD3AE; }
 </style>
 </head>
 <body>
@@ -126,6 +128,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
       <button class="tab" data-v="hoy" aria-selected="true">Hoy</button>
       <button class="tab" data-v="turnos">Turnos</button>
       <button class="tab" data-v="alquileres">Alquileres</button>
+      <button class="tab" data-v="interes">Más vistos</button>
       <button class="tab" data-v="ganancias">Ganancias</button>
     </nav>
     <button class="ghost small" id="logout">Salir</button>
@@ -171,6 +174,27 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
         <button class="chip" data-f="todos" aria-pressed="false">Todos</button>
       </div>
       <div class="list" id="a-lista"></div>
+    </section>
+
+    <!-- MÁS VISTOS -->
+    <section class="view" id="v-interes">
+      <div class="head"><h2>Vestidos más vistos</h2><span class="sp"></span>
+        <div class="filters" id="i-filtros">
+          <button class="chip" data-f="7" aria-pressed="false">7 días</button>
+          <button class="chip" data-f="30" aria-pressed="true">30 días</button>
+          <button class="chip" data-f="90" aria-pressed="false">90 días</button>
+          <button class="chip" data-f="365" aria-pressed="false">1 año</button>
+        </div>
+      </div>
+      <div class="grid g4" id="i-stats"></div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card"><h3>Más consultados por WhatsApp</h3><div class="bars" id="i-consultas" style="margin-top:12px"></div></div>
+        <div class="card"><h3>Colores que más miran</h3><div class="bars" id="i-colores" style="margin-top:12px"></div></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Todos los vestidos</h3>
+        <div style="overflow-x:auto"><table id="i-tabla" style="margin-top:8px"></table></div>
+        <p class="empty" style="margin-top:8px">Consultas = tocaron "Consultar por WhatsApp". Miradas = vieron la espalda o cambiaron de color. Se cuenta una vez por visita, para que no se infle si alguien toca varias veces.</p>
+      </div>
     </section>
 
     <!-- GANANCIAS -->
@@ -236,6 +260,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
       <label class="f">¿Viene con alguien?<select id="ft-con"><option value="0">Viene sola</option><option value="1">Con 1 persona</option><option value="2">Con 2 personas</option><option value="3">Con 3 o más</option></select></label>
       <label class="f">Busca<input id="ft-busca" placeholder="Ej: largo, verde"></label>
       <label class="f">Estado<select id="ft-estado"><option>pendiente</option><option selected>confirmado</option><option>vino</option><option>no vino</option><option>cancelado</option></select></label>
+      <label class="f">Seña del turno<select id="ft-sena"><option value="pendiente">pendiente</option><option value="pagada">pagada</option></select></label>
       <label class="f full">Nota<textarea id="ft-nota" rows="2"></textarea></label>
     </div>
     <div class="dlg-acts"><span style="flex:1"></span>
@@ -279,7 +304,12 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     const a = html.indexOf("const VESTIDOS = ["), b = html.indexOf("\n];", a);
     if (a >= 0 && b > a) CATALOGO = Function('"use strict"; return ' + html.slice(a + "const VESTIDOS = ".length, b + 2))();
   } catch (e) { console.warn("No se pudo leer el catálogo", e); }
-  const claveV = (v) => v.nombre + (v.largo === "Corto" && CATALOGO.some((o) => o !== v && o.nombre === v.nombre) ? " corto" : "");
+  const claveV = (v) => {
+    const otros = CATALOGO.filter((o) => o !== v && o.nombre === v.nombre && o.visible !== false);
+    if (!otros.length) return v.nombre;
+    if (v.largo === "Corto" && otros.some((o) => o.largo !== "Corto")) return v.nombre + " corto";
+    return v.marca ? v.nombre + " (" + v.marca + ")" : v.nombre;
+  };
 
   /* ---------- sesión ---------- */
   async function arrancar() {
@@ -303,7 +333,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
   $("logout").addEventListener("click", async () => { await db.auth.signOut(); location.reload(); });
 
   /* ---------- datos ---------- */
-  let TURNOS = [], ALQ = [];
+  let TURNOS = [], ALQ = [], CLICS = [];
   async function cargar() {
     const [t, a] = await Promise.all([
       db.from("turnos").select("*").order("dia", { ascending: true }).order("hora", { ascending: true }),
@@ -311,9 +341,13 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     ]);
     if (t.error || a.error) { toast("No se pudieron cargar los datos"); console.error(t.error || a.error); }
     TURNOS = t.data || []; ALQ = a.data || [];
+    const desde = new Date(hoyD); desde.setDate(desde.getDate() - 366);
+    const c = await db.from("clics").select("tipo,vestido,color,creado").gte("creado", desde.toISOString()).limit(50000);
+    CLICS = c.error ? [] : (c.data || []);
+    if (c.error) console.warn("clics", c.error);
     pintar();
   }
-  function pintar() { pintarHoy(); pintarTurnos(); pintarAlq(); pintarGanancias(); }
+  function pintar() { pintarHoy(); pintarTurnos(); pintarAlq(); pintarInteres(); pintarGanancias(); }
 
   /* ---------- pestañas ---------- */
   document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => {
@@ -354,8 +388,10 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
       ...ALQ.filter((r) => r.estado === "retirado" && saldo(r) > 0)
     ].filter((r, i, arr) => arr.indexOf(r) === i);
     const sinConf = TURNOS.filter((t) => t.estado === "pendiente" && t.dia >= HOY).length;
+    const aVerificar = TURNOS.filter((t) => t.sena === "avisó que pagó" && t.dia >= HOY).length;
     $("hoy-pend").innerHTML = (sinConf ? `<div class="row"><div class="t"><strong>${sinConf} turno${sinConf > 1 ? "s" : ""} sin confirmar</strong></div><div class="acts"><button class="ghost small" data-ir="turnos" data-filtro="pendientes">Ver turnos</button></div></div>` : "")
-      + (pend.length ? pend.map(filaAlq).join("") : (sinConf ? "" : `<div class="empty">Todo al día ✨</div>`));
+      + (aVerificar ? `<div class="row"><div class="t"><strong>${aVerificar} seña${aVerificar > 1 ? "s" : ""} de turno para verificar</strong></div><div class="meta">Avisaron que pagaron: fijate que la plata haya entrado en Mercado Pago y marcala como "pagada".</div><div class="acts"><button class="ghost small" data-ir="turnos" data-filtro="proximos">Ver turnos</button></div></div>` : "")
+      + (pend.length ? pend.map(filaAlq).join("") : (sinConf || aVerificar ? "" : `<div class="empty">Todo al día ✨</div>`));
   }
 
   /* ---------- TURNOS ---------- */
@@ -370,6 +406,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
       ${t.nota ? `<div class="meta">“${esc(t.nota)}”</div>` : ""}
       <div class="acts">
         <select class="mini" data-turno-estado="${t.id}" aria-label="Estado del turno">${opts}</select>
+        <select class="mini sena-${esc((t.sena || "pendiente").replace(/\s/g, "-"))}" data-turno-sena="${t.id}" aria-label="Seña del turno">${["pendiente", "avisó que pagó", "pagada", "descontada", "devuelta", "perdida"].map((x) => `<option ${x === (t.sena || "pendiente") ? "selected" : ""} value="${x}">seña: ${x}</option>`).join("")}</select>
         <button class="ghost small" data-turno-alq="${t.id}">Pasar a alquiler</button>
         <button class="ghost small danger" data-turno-borrar="${t.id}">Borrar</button>
       </div></div>`;
@@ -513,7 +550,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     e.preventDefault();
     const fila = { dia: $("ft-dia").value, hora: $("ft-hora").value, nombre: $("ft-nombre").value.trim(), evento: $("ft-evento").value,
       fecha_evento: $("ft-fecha").value || null, acompanantes: +$("ft-con").value || 0, busca: $("ft-busca").value.trim() || null,
-      nota: $("ft-nota").value.trim() || null, estado: $("ft-estado").value };
+      nota: $("ft-nota").value.trim() || null, estado: $("ft-estado").value, sena: $("ft-sena").value };
     const { error } = await db.from("turnos").insert(fila);
     if (error) { toast("No se pudo guardar el turno"); console.error(error); return; }
     $("dlg-t").close(); toast("Turno agregado"); cargar();
@@ -521,6 +558,8 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 
   /* ---------- acciones en listas ---------- */
   document.addEventListener("change", async (e) => {
+    const sn = e.target.closest("[data-turno-sena]");
+    if (sn) { const { error } = await db.from("turnos").update({ sena: sn.value }).eq("id", sn.dataset.turnoSena); if (error) { toast("No se pudo cambiar la seña"); return; } toast("Seña: " + sn.value); cargar(); return; }
     const s = e.target.closest("[data-turno-estado]"); if (!s) return;
     const { error } = await db.from("turnos").update({ estado: s.value }).eq("id", s.dataset.turnoEstado);
     if (error) { toast("No se pudo cambiar"); return; }
@@ -540,6 +579,44 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     }
     if (t.dataset.alqGar) { await db.from("alquileres").update({ garantia_devuelta: true }).eq("id", t.dataset.alqGar); toast("Garantía devuelta"); cargar(); }
   });
+
+  /* ---------- MÁS VISTOS ---------- */
+  let iDias = 30;
+  $("i-filtros").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (!b) return; iDias = +b.dataset.f; marcar("i-filtros", b.dataset.f); pintarInteres(); });
+  function pintarInteres() {
+    const desde = new Date(hoyD); desde.setDate(desde.getDate() - iDias + 1);
+    const dIso = iso(desde);
+    const cl = CLICS.filter((c) => c.creado.slice(0, 10) >= dIso);
+    const alq = ALQ.filter((r) => r.estado !== "cancelado" && r.creado.slice(0, 10) >= dIso);
+    const por = {};
+    const fila = (k) => por[k] = por[k] || { consultas: 0, miradas: 0, alquileres: 0 };
+    CATALOGO.filter((v) => v.visible !== false).forEach((v) => fila(claveV(v)));
+    cl.forEach((c) => { const f = fila(c.vestido); if (c.tipo === "consulta") f.consultas++; else f.miradas++; });
+    alq.forEach((r) => fila(r.vestido).alquileres++);
+    const filas = Object.entries(por).sort((a, b) => b[1].consultas - a[1].consultas || b[1].miradas - a[1].miradas || a[0].localeCompare(b[0]));
+    const tot = cl.filter((c) => c.tipo === "consulta").length, mir = cl.length - tot;
+    const top = filas.find(([, f]) => f.consultas > 0);
+    const sinMirar = filas.filter(([, f]) => !f.consultas && !f.miradas).length;
+    $("i-stats").innerHTML = [
+      ["Consultas por WhatsApp", tot, "últimos " + iDias + " días"],
+      ["Miradas", mir, "espalda o color"],
+      ["El más consultado", top ? esc(top[0]) : "—", top ? top[1].consultas + " consultas" : "todavía sin datos"],
+      ["Sin interés", sinMirar, "vestidos sin clics"]
+    ].map(([l, n, s2]) => `<div class="card stat"><div class="lbl">${l}</div><div class="num" style="font-size:28px">${n}</div><div class="sub">${s2}</div></div>`).join("");
+
+    const conC = filas.filter(([, f]) => f.consultas).slice(0, 10);
+    const maxC = Math.max(1, ...conC.map(([, f]) => f.consultas));
+    $("i-consultas").innerHTML = conC.length ? conC.map(([k, f]) => `<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${(f.consultas / maxC * 100).toFixed(1)}%"></div></div><span class="v">${f.consultas}</span></div>`).join("") : `<div class="empty">Cuando alguien toque "Consultar por WhatsApp" en un vestido, aparece acá.</div>`;
+
+    const col = {};
+    cl.forEach((c) => { if (c.color) col[c.color] = (col[c.color] || 0) + 1; });
+    const cols = Object.entries(col).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    const maxCo = Math.max(1, ...cols.map(([, n]) => n));
+    $("i-colores").innerHTML = cols.length ? cols.map(([k, n]) => `<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${(n / maxCo * 100).toFixed(1)}%"></div></div><span class="v">${n}</span></div>`).join("") : `<div class="empty">Todavía sin datos.</div>`;
+
+    $("i-tabla").innerHTML = `<thead><tr><th>Vestido</th><th class="n">Consultas</th><th class="n">Miradas</th><th class="n">Alquileres</th></tr></thead><tbody>`
+      + filas.map(([k, f]) => `<tr><td>${esc(k)}</td><td class="n">${f.consultas}</td><td class="n">${f.miradas}</td><td class="n">${f.alquileres}</td></tr>`).join("") + `</tbody>`;
+  }
 
   /* ---------- GANANCIAS ---------- */
   const ingreso = (r) => r.estado === "cancelado" ? (r.sena || 0) + (r.descuento_garantia || 0) : (r.precio || 0) + (r.descuento_garantia || 0);
