@@ -53,6 +53,7 @@ header.top {
 nav.links { display: flex; align-items: center; gap: 22px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
 nav.links a { text-decoration: none; color: var(--ink-soft); }
 nav.links a:hover { color: var(--ink); }
+nav.links a.btn, nav.links a.btn:hover { color: var(--paper); white-space: nowrap; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 44px; padding: 0 22px; border-radius: 999px;
@@ -271,13 +272,54 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .slot:disabled { opacity: .4; cursor: default; }
 
 .marca { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); margin: 2px 0 6px; }
+
+/* header: ramita + menú */
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand-branch { width: 46px; height: 22px; color: var(--ink); flex: none; }
+.menu-btn { display: none; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; padding: 10px 8px; flex-direction: column; justify-content: space-between; }
+.menu-btn span { display: block; height: 1.6px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(9.6px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9.6px) rotate(-45deg); }
+.menu-panel { border-top: 1px solid var(--line); background: var(--paper); display: grid; padding: 8px 16px 16px; }
+.menu-panel[hidden] { display: none; }
+.menu-panel a { padding: 14px 4px; text-decoration: none; font-family: var(--display); font-size: 22px; border-bottom: 1px solid var(--line); }
+@media (max-width: 760px) {
+  .menu-btn { display: flex; }
+  nav.links { gap: 6px; }
+  nav.links .btn { color: var(--paper); white-space: nowrap; min-height: 40px; padding: 0 14px; letter-spacing: .5px; text-transform: none; font-family: var(--display); font-size: 17px; font-weight: 500; border-radius: 8px; }
+  .brand { font-size: 22px; letter-spacing: 6px; gap: 8px; }
+  .brand-branch { width: 38px; }
+}
+
+/* vitrina de inicio */
+.vitrina { background: var(--paper); padding-block: 18px 40px; }
+.lugar { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; font-size: 14px; color: var(--ink-soft); }
+.lugar svg { width: 20px; height: 20px; color: var(--petal); flex: none; }
+.vitrina-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+.vitrina-head h2 { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 9vw, 56px); margin: 0; line-height: 1.1; }
+.ver-todos { font-family: var(--display); font-size: 19px; color: var(--ink); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.vitrina-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 760px) { .vitrina-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 8px; } }
+.vt { display: block; text-decoration: none; color: inherit; }
+.vt .ph { position: relative; aspect-ratio: 3 / 4.4; overflow: hidden; background: var(--blush); }
+.vt .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity .9s ease, transform 6s ease; }
+.vt .ph img.out { opacity: 0; }
+.vt:hover .ph img:not(.out) { transform: scale(1.03); }
+.vt .cap { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 10px 4px 14px; font-family: var(--display); font-size: clamp(18px, 4.6vw, 23px); line-height: 1.15; transition: opacity .5s; }
+.vt .cap.out { opacity: 0; }
+.vt .cap small { font-size: inherit; }
+.vt .cap .arr { font-family: var(--body); font-size: 18px; flex: none; }
+@media (prefers-reduced-motion: reduce) { .vt .ph img { transition: none; } }
+
+.card.glow { box-shadow: 0 0 0 3px var(--petal); transition: box-shadow .4s; }
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Sakura, inicio">SAKURA</a>
+    <a class="brand" href="#inicio" aria-label="Sakura, inicio"><svg class="brand-branch" viewBox="0 0 64 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 27 C18 24 30 22 42 14 C50 9 56 6 62 2"/><path d="M24 23 C26 18 29 15 33 13"/><path d="M44 13 C45 8 48 6 52 4"/></g><g fill="#E07A9A"><circle cx="34" cy="12" r="2.6"/><circle cx="53" cy="4" r="2.4"/><circle cx="16" cy="22" r="2"/><circle cx="44" cy="10" r="1.8"/><circle cx="60" cy="3" r="1.6"/></g></svg>SAKURA</a>
     <nav class="links" aria-label="Secciones">
       <a class="navlink" href="#catalogo">Catálogo</a>
       <a class="navlink" href="#como-funciona">Cómo funciona</a>
@@ -285,11 +327,28 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <a class="navlink" href="#preguntas">Preguntas</a>
       <a class="navlink" id="admin-link" href="#admin" hidden>Administrar</a>
       <a class="btn" href="#turnos">Reservar turno</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-panel"><span></span><span></span><span></span></button>
     </nav>
+  </div>
+  <div class="menu-panel" id="menu-panel" hidden>
+    <a href="#vitrina">Vestidos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#showroom">Showroom</a>
+    <a href="#condiciones">Condiciones</a>
+    <a href="#preguntas">Preguntas</a>
+    <a href="#turnos">Reservar turno</a>
   </div>
 </header>
 
 <main id="inicio">
+  <section class="vitrina" id="vitrina" aria-label="Vestidos destacados">
+    <div class="wrap">
+      <p class="lugar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Alquiler de vestidos · Puertos del Lago</p>
+      <div class="vitrina-head"><h2>Vestidos</h2><a href="#catalogo" class="ver-todos">Ver todos</a></div>
+      <div class="vitrina-grid" id="vitrina-grid"></div>
+    </div>
+  </section>
+
   <section class="hero">
     <canvas id="petals" aria-hidden="true"></canvas>
     <div class="wrap">
@@ -1057,6 +1116,7 @@ function sync() {
   });
 }
 
+const slugV = v => "v-" + String(v.id || v.nombre).toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-");
 function render() {
   const list = source().filter(v =>
     (state.largo === "Todos" || v.largo === state.largo) &&
@@ -1087,7 +1147,7 @@ function render() {
       `<button type="button" class="swatch" data-act="color" data-i="${i}" data-k="${k}" style="background:${safeHex(cc.hex)}" aria-label="${esc(cc.color)}" aria-pressed="${k === sel.ci}"></button>`).join("")}<span class="vname">${esc(cLabel)}</span></div>` : (c.color ? `<div class="vsw"><span class="vname">${esc(cLabel)}</span></div>` : "");
     const msg = "Hola! Me interesa el vestido " + v.nombre + (v.id === "aiko-corto" || (v.largo === "Corto" && source().some(o => o !== v && o.nombre === v.nombre)) ? " corto" : "") + (c.color ? " en " + c.color.toLowerCase() : "") + ((c.talle || v.talles) && !/único/i.test(c.talle || v.talles) ? " talle " + (c.talle || v.talles) : "") + " 🌸 ¿Está disponible para mi fecha?";
     return `
-    <article class="card">
+    <article class="card" id="${esc(slugV(v))}">
       <div class="pic"><span class="tag">${esc(v.largo)}</span>${pic}${flip}</div>
       <div class="body">
         <h3>${esc(v.nombre)}</h3>
@@ -1100,23 +1160,116 @@ function render() {
           <span class="sizes">${esc(c.talle || v.talles || "Consultá talles")}<br>${esc((v.eventos || []).join(" · "))}</span>
         </div>
         ${medidasV.length ? `<details class="medidas"><summary>Ver medidas (cm)</summary><table><thead><tr><th>Talle</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead><tbody>${medidasV.map(m => `<tr><td>${esc(m.talle)}</td><td>${esc(m.busto)}</td><td>${esc(m.cintura)}</td><td>${esc(m.cadera)}</td></tr>`).join("")}</tbody></table></details>` : ""}
-        <a class="btn wa-card" href="${esc(waLink(msg))}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a>
+        <a class="btn wa-card" data-consulta="${i}" href="${esc(waLink(msg))}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Consultar por WhatsApp</a>
       </div>
     </article>`;
   }).join("");
   grid._list = list;
 }
+/* estadísticas: qué vestidos miran y consultan (se ven en el panel) */
+const nombreClave = v => {
+  const otros = source().filter(o => o !== v && o.nombre === v.nombre);
+  if (!otros.length) return v.nombre;
+  if (v.largo === "Corto" && otros.some(o => o.largo !== "Corto")) return v.nombre + " corto";
+  return v.marca ? v.nombre + " (" + v.marca + ")" : v.nombre;
+};
+function registrar(tipo, v, color) {
+  const cfg = window.SAKURA_SUPABASE || {};
+  if (!cfg.url || !cfg.key || !window.supabase) return;
+  const vestido = nombreClave(v), k = "sk:" + tipo + ":" + vestido + ":" + (color || "");
+  try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) {}
+  try {
+    registrar.db = registrar.db || window.supabase.createClient(cfg.url, cfg.key);
+    registrar.db.from("clics").insert({ tipo, vestido, color: color || null }).then(r => { if (r.error) console.warn(r.error); });
+  } catch (e) { console.warn(e); }
+}
 document.getElementById("grid").addEventListener("click", e => {
+  const grid = document.getElementById("grid");
+  const a = e.target.closest("a[data-consulta]");
+  if (a) {
+    const v = grid._list[Number(a.dataset.consulta)];
+    if (v) { const sel = cardSel[v.id || v.nombre]; const c = variants(v)[sel ? sel.ci : 0] || {}; registrar("consulta", v, c.color); }
+    return;
+  }
   const b = e.target.closest("button[data-act]");
   if (!b) return;
-  const v = document.getElementById("grid")._list[Number(b.dataset.i)];
+  const v = grid._list[Number(b.dataset.i)];
   if (!v) return;
   const sel = cardSel[v.id || v.nombre];
-  if (b.dataset.act === "color") { sel.ci = Number(b.dataset.k); sel.pi = 0; }
-  if (b.dataset.act === "flip") { sel.pi = sel.pi ? 0 : 1; }
+  if (b.dataset.act === "color") { sel.ci = Number(b.dataset.k); sel.pi = 0; registrar("color", v, (variants(v)[sel.ci] || {}).color); }
+  if (b.dataset.act === "flip") { sel.pi = sel.pi ? 0 : 1; if (sel.pi) registrar("espalda", v, (variants(v)[sel.ci] || {}).color); }
   render();
 });
 sync(); render();
+
+/* ir a un vestido del catálogo (desde la vitrina) */
+function irAVestido(v, ci) {
+  Object.keys(state).forEach(k => state[k] = "Todos");
+  sync();
+  const key = v.id || v.nombre;
+  cardSel[key] = { ci: ci || 0, pi: 0 };
+  render();
+  const el = document.getElementById(slugV(v));
+  if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.add("glow"); setTimeout(() => el.classList.remove("glow"), 1800); }
+}
+
+/* vitrina de inicio: 4 vestidos que van cambiando */
+(function () {
+  const grid = document.getElementById("vitrina-grid");
+  if (!grid) return;
+  const lista = source();
+  const pool = [];
+  lista.forEach(v => {
+    const vs = variants(v).map((c, ci) => ({ v, c, ci })).filter(x => x.c.fotos && x.c.fotos[0]);
+    if (vs.length) pool.push(vs[Math.floor(Math.random() * vs.length)]);
+  });
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  if (!pool.length) { document.getElementById("vitrina").hidden = true; return; }
+  const N = Math.min(4, pool.length);
+  const tiles = [];
+  const cap = x => `<span>${esc(x.v.nombre)} <small>${esc((x.c.color || "").toLowerCase())}</small></span><span class="arr" aria-hidden="true">→</span>`;
+  for (let i = 0; i < N; i++) {
+    const x = pool[i];
+    const a = document.createElement("a");
+    a.className = "vt"; a.href = "#" + slugV(x.v);
+    a.innerHTML = `<div class="ph"><img src="${esc(x.c.fotos[0])}" alt="Vestido ${esc(x.v.nombre)} ${esc((x.c.color || "").toLowerCase())}"></div><div class="cap">${cap(x)}</div>`;
+    a.addEventListener("click", e => { e.preventDefault(); irAVestido(tiles[i].x.v, tiles[i].x.ci); });
+    grid.appendChild(a);
+    tiles.push({ a, x });
+  }
+  let next = N, turno = 0;
+  const pre = new Image();
+  function cambiar() {
+    if (pool.length <= N || document.hidden) return;
+    const t = tiles[turno % N]; turno++;
+    const x = pool[next % pool.length]; next++;
+    const ph = t.a.querySelector(".ph"), viejo = ph.querySelector("img"), capEl = t.a.querySelector(".cap");
+    const img = new Image();
+    img.alt = "Vestido " + x.v.nombre + " " + (x.c.color || "").toLowerCase();
+    img.className = "out";
+    img.onload = () => {
+      ph.appendChild(img);
+      requestAnimationFrame(() => requestAnimationFrame(() => { img.classList.remove("out"); viejo.classList.add("out"); }));
+      capEl.classList.add("out");
+      setTimeout(() => { capEl.innerHTML = cap(x); capEl.classList.remove("out"); t.a.href = "#" + slugV(x.v); }, 450);
+      setTimeout(() => viejo.remove(), 1000);
+      t.x = x;
+    };
+    img.src = x.c.fotos[0];
+    const sig = pool[next % pool.length]; if (sig) pre.src = sig.c.fotos[0];
+  }
+  const lento = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  setInterval(cambiar, lento ? 9000 : 2600);
+})();
+
+/* menú del celular */
+(function () {
+  const b = document.getElementById("menu-btn"), p = document.getElementById("menu-panel");
+  if (!b || !p) return;
+  const cerrar = () => { p.hidden = true; b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-label", "Abrir menú"); };
+  b.addEventListener("click", () => { const abrir = p.hidden; p.hidden = !abrir; b.setAttribute("aria-expanded", String(abrir)); b.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú"); });
+  p.addEventListener("click", e => { if (e.target.closest("a")) cerrar(); });
+})();
 
 /* turno por WhatsApp con calendario */
 (function () {
