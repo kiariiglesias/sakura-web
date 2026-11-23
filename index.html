@@ -372,34 +372,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </section>
 
-  <section class="hero">
-    <canvas id="petals" aria-hidden="true"></canvas>
-    <div class="wrap">
-      <div>
-        <p class="kicker">Alquiler de vestidos de fiesta · Puertos del Lago</p>
-        <h1>Un vestido nuevo para <em>cada historia</em></h1>
-        <p class="lead">Elegí tu vestido, probátelo con calma en un probador privado y viví tu noche. Vestidos para casamientos, 15, egresados y fiestas, en un showroom con vista al lago.</p>
-        <div class="ctas">
-          <a class="btn" href="#turnos">Reservar turno</a>
-          <a class="btn ghost" href="#catalogo">Ver vestidos</a>
-        </div>
-        <p class="badge">Apertura en diciembre</p>
-      </div>
-      <div class="art" aria-hidden="true">
-        <svg class="branch" viewBox="0 0 420 300">
-          <g fill="none" stroke="#5A1F33" stroke-width="3.2" stroke-linecap="round">
-            <path d="M10 270 C110 245 180 250 250 205 C300 172 350 160 410 120"/>
-            <path d="M170 248 C182 222 196 205 215 192"/>
-            <path d="M300 172 C306 145 318 128 338 112"/>
-            <path d="M95 258 C102 238 112 226 126 218"/>
-            <path d="M370 140 C382 128 392 118 402 96"/>
-          </g>
-          <g id="blooms" fill="#E07A9A"></g>
-        </svg>
-      </div>
-    </div>
-  </section>
-
   <section class="como" id="como-funciona">
     <div class="como-foto"><img src="showroom-percheros.jpg" alt="Percheros con vestidos de satén en el showroom de Sakura" loading="lazy"></div>
     <div class="como-texto">
@@ -1457,6 +1429,7 @@ function irAVestido(v, ci) {
 /* flores de la rama */
 (function () {
   const g = document.getElementById("blooms");
+  if (!g) return;
   const petal = "M0,-3 C-8,-8 -10,-21 -4.5,-27 L0,-23 L4.5,-27 C10,-21 8,-8 0,-3 Z";
   [[215,192,1],[338,112,0.9],[126,218,0.75],[402,96,0.7],[268,196,0.55],[300,172,0.6]].forEach(([x,y,s]) => {
     const fl = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -1476,6 +1449,7 @@ function irAVestido(v, ci) {
 /* pétalos que caen en el inicio */
 (function () {
   const cv = document.getElementById("petals");
+  if (!cv) return;
   const ctx = cv.getContext("2d");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let W = 0, H = 0, ps = [];
