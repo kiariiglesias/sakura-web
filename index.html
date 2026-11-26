@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Sakura · Alquiler de vestidos de fiesta en Puertos del Lago, Escobar. Vestidos para casamientos, 15, egresados y fiestas. Reservá tu turno por WhatsApp.">
-<meta property="og:title" content="Sakura · Alquiler de vestidos">
-<meta property="og:description" content="Un vestido nuevo para cada historia. Alquiler de vestidos de fiesta en Puertos del Lago.">
 <title>Sakura · Alquiler de vestidos</title>
+<meta name="description" content="Sakura · Alquiler de vestidos de fiesta en Puertos del Lago, Escobar. Reservá tu turno.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -434,6 +432,73 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .chk input { width: 18px; height: 18px; accent-color: var(--petal); }
 
 [hidden] { display: none !important; }
+
+/* reservar turno en 2 pasos */
+.rt-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.rt-title { font-family: var(--display); font-weight: 500; font-size: clamp(32px, 8vw, 48px); margin: 0; line-height: 1.1; }
+.rt-step { font-size: 15px; color: var(--petal); white-space: nowrap; }
+#turnos .cal { border-color: #EBC4D1; border-radius: 16px; padding: 18px 14px; }
+#turnos .cal-head { padding-bottom: 14px; border-bottom: 1px solid #F0D6DE; margin-bottom: 12px; }
+#turnos .cal-head strong { font-size: clamp(26px, 6.5vw, 32px); text-transform: none; }
+#turnos .cal-head strong::first-letter { text-transform: uppercase; }
+#turnos .cal-nav { width: 40px; height: 40px; border-color: #EBC4D1; background: transparent; }
+#turnos .cal-dow span { font-size: 11px; letter-spacing: 2px; padding: 6px 0 10px; }
+#turnos .cal-day { width: 44px; height: 44px; font-size: 16px; }
+#turnos .cal-day.on { background: var(--ink); }
+#turnos .slots { background: transparent; border: 0; padding: 8px 2px 0; }
+.slots-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.slots-head .slots-day { margin: 0; font-size: clamp(24px, 6vw, 30px); }
+.slots-dur { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: var(--ink); white-space: nowrap; }
+.slots-dur svg { width: 22px; height: 22px; }
+#turnos .slot-group small { font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; }
+#turnos .slot-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+#turnos .slot { padding: 11px 0; font-size: 16px; border-color: #EBC4D1; background: transparent; text-align: center; }
+#turnos .slot.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.rt-horario { font-size: 13px; color: var(--ink-soft); margin: 4px 2px 14px; }
+.rt-cont { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 56px; border: 0; border-radius: 8px; background: var(--ink); color: #fff; font: 500 19px var(--body); cursor: pointer; }
+.rt-cont svg { width: 22px; height: 22px; }
+.rt-cont:disabled { opacity: .45; cursor: default; }
+.rt-back { border: 0; background: none; padding: 0 0 10px; cursor: pointer; font: inherit; font-size: 15px; }
+.rt-resumen { font-size: 16px; margin: 0 0 18px; padding: 12px 14px; background: #fff; border: 1px solid #EBC4D1; border-radius: 12px; }
+.rt-resumen strong { font-family: var(--display); font-size: 19px; }
+@media (min-width: 761px) { #turnos .agenda { margin-bottom: 8px; } .rt-cont { max-width: 420px; margin-left: auto; } }
+
+#turnos, #catalogo, #como-funciona, #rt-p2 { scroll-margin-top: 76px; }
+
+/* paso 2: tus datos */
+.rt-stepper { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 4px 0 14px; font-size: 16px; color: var(--ink); }
+.st { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+.st i { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-weight: 600; font-size: 15px; }
+.st i svg { width: 16px; height: 16px; }
+.st.done i { background: #F6D9E2; color: var(--ink); }
+.st.now i { background: var(--ink); color: #fff; }
+.st-line { flex: 0 1 60px; height: 1px; background: #E8BCCB; }
+.rt-t2 { font-size: clamp(44px, 12vw, 64px); margin: 0 0 16px; }
+.rt-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; background: #F8E1E8; border-radius: 14px; margin-bottom: 20px; }
+.rt-ic { width: 34px; height: 34px; flex: none; color: var(--ink); padding-right: 16px; border-right: 1px solid #E3B6C4; box-sizing: content-box; }
+.rt-card-tx { flex: 1; display: grid; gap: 2px; }
+.rt-card-tx strong { font-family: var(--display); font-size: 20px; }
+.rt-card-tx span { font-size: 14px; }
+.rt-edit { border: 0; background: none; font: inherit; font-size: 16px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.tform.t2 { grid-template-columns: 1fr 1fr; gap: 14px 14px; }
+.tform.t2 .full { grid-column: 1 / -1; }
+.rt-card-tx span { white-space: nowrap; }
+.tform.t2 label, .tform.t2 .lbl { font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--ink); margin-bottom: 6px; display: block; }
+.tform.t2 input:not([type=checkbox]), .tform.t2 select, .tform.t2 textarea { border-radius: 10px; border-color: #EBC4D1; background: transparent; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.seg button { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 50px; padding: 0 16px; border: 1px solid #EBC4D1; border-radius: 10px; background: transparent; font: inherit; font-size: 16px; color: var(--ink); cursor: pointer; text-align: left; }
+.seg button svg { width: 20px; height: 20px; opacity: 0; flex: none; }
+.seg button[aria-checked="true"] { background: #F8E1E8; border: 1.5px solid var(--ink); }
+.seg button[aria-checked="true"] svg { opacity: 1; }
+.sena2 { padding: 14px 16px; border: 1px dashed #E3B6C4; border-radius: 12px; display: grid; gap: 8px; justify-items: start; }
+.sena2 p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink-soft); }
+.sena2 strong { color: var(--ink); }
+.sena2 .chk { margin-top: 0; }
+.rt-wa { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; border-radius: 10px; background: #1E9E4A; color: #fff; text-decoration: none; font-size: 19px; font-weight: 600; }
+.rt-wa svg { width: 30px; height: 30px; }
+.rt-wa:hover { background: #188A40; color: #fff; }
+.rt-note { text-align: center; font-size: 14px; line-height: 1.5; margin: 12px 0 0; color: var(--ink); }
+@media (max-width: 420px) { .st-line { flex-basis: 40px; } .rt-stepper { gap: 8px; font-size: 15px; } .seg { gap: 8px; } .seg button { padding: 0 10px; font-size: 14.5px; white-space: nowrap; } .rt-card { gap: 12px; padding: 14px; } .rt-ic { padding-right: 12px; } .rt-card-tx span { font-size: 13px; } }
 </style>
 </head>
 <body>
@@ -571,7 +636,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
   <section class="block" id="turnos">
     <div class="wrap">
-      <div class="sec-head"><span class="num">vi.</span><h2>Reservá tu turno</h2><p>Elegí el día y el horario para venir a probarte. Abrimos en diciembre: lunes a sábado de 10 a 14 y de 18 a 20 hs.</p></div>
+      <div class="rt-head"><h2 class="rt-title">Reservar turno</h2><span class="rt-step" id="rt-step">1 de 2</span></div>
+      <div class="rt-paso" id="rt-p1">
       <div class="agenda">
         <div class="cal" id="cal">
           <div class="cal-head"><button type="button" class="cal-nav" id="cal-prev" aria-label="Mes anterior">‹</button><strong id="cal-mes"></strong><button type="button" class="cal-nav" id="cal-next" aria-label="Mes siguiente">›</button></div>
@@ -579,37 +645,52 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <div class="cal-grid" id="cal-grid"></div>
         </div>
         <div class="slots">
-          <p class="slots-day" id="slots-day">Elegí un día en el calendario</p>
+          <div class="slots-head"><p class="slots-day" id="slots-day">Elegí un día</p><span class="slots-dur"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>1 hora</span></div>
           <div class="slot-group"><small>Mañana</small><div class="slot-row" id="slots-am"></div></div>
           <div class="slot-group"><small>Tarde</small><div class="slot-row" id="slots-pm"></div></div>
-          <p class="hint">Cada turno dura una hora. Te confirmamos por WhatsApp.</p>
         </div>
       </div>
-      <form class="tform" id="turno-form" novalidate>
-        <div class="field"><label for="t-nombre">Tu nombre</label><input id="t-nombre" type="text" autocomplete="given-name"></div>
-        <div class="field"><label for="t-evento">Evento</label>
+      <p class="rt-horario">Lunes a sábado de 10 a 14 y de 18 a 20 hs.</p>
+      <button type="button" class="rt-cont" id="rt-cont" disabled>Continuar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="rt-paso" id="rt-p2" hidden>
+      <div class="rt-stepper" aria-label="Paso 2 de 2">
+        <span class="st done"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Día y horario</span>
+        <span class="st-line" aria-hidden="true"></span>
+        <span class="st now"><i aria-hidden="true">2</i>Tus datos</span>
+      </div>
+      <h2 class="rt-title rt-t2">Tus datos</h2>
+      <div class="rt-card">
+        <svg class="rt-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="13.5" r=".9" fill="currentColor"/><circle cx="12" cy="13.5" r=".9" fill="currentColor"/><circle cx="15" cy="13.5" r=".9" fill="currentColor"/><circle cx="10.5" cy="16.5" r=".9" fill="currentColor"/><circle cx="13.5" cy="16.5" r=".9" fill="currentColor"/></svg>
+        <div class="rt-card-tx"><strong>Turno de prueba</strong><span id="rt-resumen"></span></div>
+        <button type="button" class="rt-edit" id="rt-back">Editar</button>
+      </div>
+      <form class="tform t2" id="turno-form" novalidate>
+        <div class="field full"><label for="t-nombre">Tu nombre</label><input id="t-nombre" type="text" autocomplete="given-name"></div>
+        <div class="field"><label for="t-evento">Tipo de evento</label>
           <select id="t-evento"><option>Casamiento</option><option>15</option><option>Egresados</option><option>Fiesta</option><option>Otro</option></select></div>
         <div class="field"><label for="t-fecha">Fecha de tu evento</label><input id="t-fecha" type="date"></div>
-        <div class="field"><label for="t-con">¿Venís con alguien más?</label>
-          <select id="t-con"><option value="">Vengo sola</option><option value="1">Sí, con 1 persona</option><option value="2">Sí, con 2 personas</option><option value="3">Sí, con 3 o más</option></select></div>
-        <div class="field"><label for="t-color">Color o estilo que buscás</label><input id="t-color" type="text" placeholder="Ej: largo, verde o bordó"></div>
-        <div class="field full"><label for="t-nota">¿Algo más?</label><textarea id="t-nota" placeholder="Ej: me gustan los vestidos con espalda descubierta"></textarea></div>
-        <div class="sena full">
-          <p class="sena-t"><strong>Seña para confirmar tu turno: $&nbsp;10.000</strong>Se descuenta del alquiler si te llevás un vestido. Si no te llevás nada, te la devolvemos. Solo se pierde si no venís o cancelás con menos de 24 hs.</p>
-          <ol class="sena-pasos">
-            <li><span class="sn">1</span><div>
-              <a class="btn mp" id="t-pagar" href="#" target="_blank" rel="noopener" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 9.5h19" stroke="currentColor" stroke-width="1.8"/></svg>Pagar $&nbsp;10.000 con Mercado Pago</a>
-              <p class="hint" id="t-alias" hidden></p>
-              <p class="hint" id="t-sinlink" hidden>Te pasamos cómo pagar la seña por WhatsApp.</p>
-              <label class="chk"><input type="checkbox" id="t-pague"> Ya pagué la seña</label>
-            </div></li>
-            <li><span class="sn">2</span><div>
-              <a class="btn" id="t-send" href="#turnos" target="_blank" rel="noopener">Pedir turno por WhatsApp</a>
-              <p class="hint" id="t-hint">Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.</p>
-            </div></li>
-          </ol>
+        <div class="field full"><span class="lbl" id="t-con-lbl">¿Venís con alguien más?</span>
+          <input type="hidden" id="t-con" value="">
+          <div class="seg" role="radiogroup" aria-labelledby="t-con-lbl">
+            <button type="button" role="radio" aria-checked="true" data-con="">Vengo sola<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" role="radio" aria-checked="false" data-con="1">Con acompañante<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div></div>
+        <input type="hidden" id="t-color" value="">
+        <div class="field full"><label for="t-nota">¿Algo más?</label><textarea id="t-nota" placeholder="Ej.: me gustan los vestidos con espalda descubierta"></textarea></div>
+        <div class="sena2 full">
+          <p><strong>Seña para confirmar: $&nbsp;10.000.</strong> Se descuenta del alquiler, y si no te llevás nada te la devolvemos.</p>
+          <a class="btn mp" id="t-pagar" href="#" target="_blank" rel="noopener" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 9.5h19" stroke="currentColor" stroke-width="1.8"/></svg>Pagar seña con Mercado Pago</a>
+          <p class="hint" id="t-alias" hidden></p>
+          <p class="hint" id="t-sinlink" hidden>Te pasamos cómo pagar la seña por WhatsApp.</p>
+          <label class="chk"><input type="checkbox" id="t-pague"> Ya pagué la seña</label>
+        </div>
+        <div class="full">
+          <a class="rt-wa" id="t-send" href="#turnos" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Pedir turno por WhatsApp</a>
+          <p class="rt-note" id="t-hint">Se abre WhatsApp con tu pedido listo para enviar.<br>Te confirmamos el turno por ahí.</p>
         </div>
       </form>
+      </div>
     </div>
   </section>
 
@@ -709,13 +790,13 @@ const VESTIDOS = [
   },
   {
     nombre: "Nami", significado: "ola", largo: "Largo", forma: "sirena", eventos: ["Casamiento", "Fiesta", "Egresados"],
-    desc: "Largo y entallado, cubierto de flecos con brillo, escote en V y breteles finos.",
+    desc: "Largo y entallado, cubierto de flecos con brillo, escote en V, breteles finos y espalda descubierta con tiras cruzadas.",
     talles: "M", precio: 170000, brillo: true,
     medidas: [
       { talle: "M (2)", busto: "95–100", cintura: "75–78", cadera: "95–98" }
     ],
     colores: [
-      { color: "Fucsia", hex: "#D1286E", fotos: ["nami-fucsia-m-frente.jpg"] }
+      { color: "Fucsia", hex: "#D1286E", fotos: ["nami-fucsia-m-frente.jpg", "nami-fucsia-m-espalda.jpg"] }
     ]
   },
   {
@@ -741,7 +822,7 @@ const VESTIDOS = [
     colores: [
       { color: "Plata", talle: "L", hex: "#B8BCC4", fotos: ["yume-plata-l-frente.jpg", "yume-plata-l-espalda.jpg"] },
       { color: "Negro", talle: "M", hex: "#1E1A1C", fotos: ["yume-negro-m-frente.jpg", "yume-negro-m-espalda.jpg"] },
-      { color: "Dorado", talle: "S", hex: "#D8BE95", fotos: ["yume-dorado-s-frente.jpg"] }
+      { color: "Dorado", talle: "S", hex: "#D8BE95", fotos: ["yume-dorado-s-frente.jpg", "yume-dorado-s-espalda.jpg"] }
     ]
   },
   {
@@ -763,7 +844,7 @@ const VESTIDOS = [
       { talle: "S (1)", busto: "90–95", cintura: "70–75", cadera: "90–95" }
     ],
     colores: [
-      { color: "Verde oliva", hex: "#5B6235", fotos: ["kiku-oliva-s-frente.jpg"] }
+      { color: "Verde oliva", hex: "#5B6235", fotos: ["kiku-oliva-s-frente.jpg", "kiku-oliva-s-espalda.jpg"] }
     ]
   },
   {
@@ -1457,7 +1538,8 @@ function irAVestido(v, ci) { abrirVestido(v, ci); }
     }
   }
   function slots() {
-    document.getElementById("slots-day").textContent = dia ? "Horarios para el " + lindo(dia) : "Elegí un día en el calendario";
+    document.getElementById("slots-day").textContent = dia ? "Horarios del " + DIAS[dia.getDay()] + " " + dia.getDate() : "Elegí un día";
+    document.getElementById("rt-cont").disabled = !(dia && hora);
     const fill = (el, list) => { el.innerHTML = ""; list.forEach(h => {
       const b = document.createElement("button"); b.type = "button"; b.className = "slot" + (h === hora ? " on" : ""); b.textContent = h; b.disabled = !dia;
       b.addEventListener("click", () => { hora = h; slots(); build(); }); el.appendChild(b); }); };
@@ -1476,13 +1558,13 @@ function irAVestido(v, ci) { abrirVestido(v, ci); }
       v["t-nombre"] && "Soy " + v["t-nombre"] + ".",
       dia && hora ? "Turno: " + lindo(dia) + " a las " + hora + " hs" : (dia ? "Día: " + lindo(dia) + " (horario a coordinar)" : null),
       "Evento: " + v["t-evento"] + (fecha ? " (" + fecha + ")" : ""),
-      !v["t-con"] ? "Vengo sola" : v["t-con"] === "1" ? "Vengo con 1 persona más" : v["t-con"] === "2" ? "Vengo con 2 personas más" : "Vengo con 3 personas o más",
-      v["t-color"] && "Busco: " + v["t-color"],
+      !v["t-con"] ? "Vengo sola" : "Vengo con acompañante",
+      v["t-color"] && v["t-color"],
       v["t-nota"] && v["t-nota"],
       document.getElementById("t-pague").checked ? "Ya pagué la seña de " + peso(SENA_TURNO) + ", te mando el comprobante 🧾" : (LINK_SENA || ALIAS_SENA ? null : "¿Me pasás cómo abonar la seña de " + peso(SENA_TURNO) + "?")
     ].filter(Boolean);
     send.href = waLink(lines.join("\n"));
-    hint.textContent = dia && hora ? "Pedís turno para el " + lindo(dia) + " a las " + hora + " hs. Se abre WhatsApp con todo escrito." : "Elegí día y horario arriba. Se abre WhatsApp con tu pedido escrito: solo tenés que tocar enviar.";
+
   }
   ids.forEach(id => { const el = document.getElementById(id); el.addEventListener("input", build); el.addEventListener("change", build); });
   // seña del turno
@@ -1493,6 +1575,20 @@ function irAVestido(v, ci) { abrirVestido(v, ci); }
   pagar.addEventListener("click", () => { pague.checked = true; build(); });
   pague.addEventListener("change", build);
   document.getElementById("turno-form").addEventListener("submit", e => e.preventDefault());
+  // pasos: 1 día y horario, 2 tus datos
+  const p1 = document.getElementById("rt-p1"), p2 = document.getElementById("rt-p2"), stepEl = document.getElementById("rt-step");
+  const irPaso = (n) => {
+    p1.hidden = n !== 1; p2.hidden = n !== 2; stepEl.textContent = n + " de 2";
+    document.querySelector(".rt-head").hidden = n === 2;
+    if (n === 2) document.getElementById("rt-resumen").textContent = DIAS[dia.getDay()].slice(0, 3).replace(/^./, c => c.toUpperCase()) + ". " + dia.getDate() + " de " + MESES[dia.getMonth()] + " · " + hora + " h";
+    (n === 2 ? p2 : document.getElementById("turnos")).scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  document.getElementById("rt-cont").addEventListener("click", () => { if (dia && hora) irPaso(2); });
+  document.getElementById("rt-back").addEventListener("click", () => irPaso(1));
+  document.querySelectorAll("[data-con]").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-con]").forEach(x => x.setAttribute("aria-checked", String(x === btn)));
+    document.getElementById("t-con").value = btn.dataset.con; build();
+  }));
   // guarda el pedido en el panel (si la base está conectada); WhatsApp se abre igual
   let ultimo = "";
   send.addEventListener("click", () => {
